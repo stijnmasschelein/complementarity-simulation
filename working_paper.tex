@@ -58,7 +58,7 @@ conference.} \\
 
 \bigskip
 \begin{abstract}
-Following the theoretical innovations of complimentarity theory,
+Following the theoretical innovations of complementarity theory,
 management control studies have investigated potential interdependencies
 between management control practices. In this paper, we compare the two
 dominant statistical specifications in the management control literature
@@ -82,7 +82,7 @@ research into interdependencies between management control practices.
 
 \section{Introduction}\label{introduction}
 
-Complimentarity theory posits that interdependent management control
+Complementarity theory posits that interdependent management control
 practices can be seen as one coherent management control system
 \citep{Milgrom1995, Grabner2013}. Different streams of literature have
 investigated such interdependencies between management control
@@ -94,12 +94,12 @@ complements incentive systems
 \citep{Moers2006, Indjejikian2012, Bouwens2007}. Drawing on the original
 work by Simons \citetext{\citeyear{Simons1995}; \citeyear{Simons2000}},
 the levers of control literature has investigated potential
-complimentarities between the four levers \citep{Widener2007}. Lastly,
+complementarities between the four levers \citep{Widener2007}. Lastly,
 the budgeting literature has long argued that the effectiveness of
 budget participation depends on the the extent to which the budget is
 used to evaluate employees \citep{Brownell1991, Dunk1993}.
 
-\textbf{While the focus on interdepencies in the management control
+\textbf{While the focus on interdependencies in the management control
 literature is relatively new, the literature has a longer tradition
 rooted in contingency theory of investigating the environmental factors
 that favor certain management control practices or certain combinations
@@ -149,7 +149,7 @@ they chose efficiency or output enhancing combinations of practices.
 \end{quote}
 
 \textbf{Others have argued that the performance specification can be
-applied ``as long as the population of organizations includes a
+applied ``as long a the population of organizations includes a
 reasonable number of organizations that takes non-optimal combinations
 of practice'' \citep{Carree2011}. TODO: I would be nice find more of
 these quotes because we show that this is a misconception.}
@@ -171,7 +171,7 @@ not control for an environmental factor (or third practice) on which
 both practices of interest depend and the decision makers adopt the
 optimal management control system. This result highlights the importance
 to consider contingency and interdependency effects at the same time
-when testing for complimentarities between management control practices.
+when testing for complementarities between management control practices.
 While this problem is widely recognised for the demand specification
 \citep[\citet{Grabner2013}]{Arora1996}, there is a misconception in the
 methodological literature that the production specification does not
@@ -232,13 +232,34 @@ in this study.
 
 \section{Model and formal analysis}\label{model-and-formal-analysis}
 
-In this section, we present a simple theoretical model that encapsulates
+In this section, we present a theoretical model that encapsulates
 the essential elements of both complementarity theory and contingency
 theory. Following complementarity theory, the performance of management
 control practices can depend on each other. Following contingency
 theory, the performance effects of the practices depend on the
 environment. The theoretical model helps to make the assumptions in the
-two statistical specifications explicit. We keep the model and
+two statistical specifications explicit. 
+
+We assume that a firm chooses the level of $N$ management accounting practices which depend on $M$ environmental factors. We represent the levels of the management accounting practices as a vector $\mathbf{x}$ and the level of the environmental factors as a vector $\mathbf{z}$. We further assume that the performance, $y$, depends on a factor $\nu$ while the performance effects of each management control practices further depends on a factor $\mathbf{\epsilon}$. In our model, $\mathbf{x}$ and $\mathbf{z}$ are observed by the researcher but $\mathbf{\epsilon}$ and $\nu$ are not. 
+
+% z and x are column vectors (M x 1) and (N x 1)
+
+In matrix notation, we can write
+
+\begin{equation} \label{eq:structural-matrix}
+y = \beta_0 + (\mathbf{\beta_1} + \mathbf{z^T} G + \mathbf{\epsilon})
+     \mathbf{x} + \frac{1}{2}\mathbf{x^T} B \mathbf{x} + \nu
+\end{equation}
+
+$G$ is a $M \times N$ matrix where each element $\gamma_{mn}$ represents the contingency effect of the observed factor, $z_m$, on practice $x_m$. Examples
+
+$B$ is a symmetric $N \times N$ matrix with $\beta_{ij} = \beta_{ji}$ as off-diagonal elements and a vector $-\mathbf{\delta}$ on the diagonal. The off-diagonal elements represent the interdependency between two practices. This follows directly from the definition of an interdependency as the cross derivative of performance to two practices, $\frac{\partial y}{\partial x_i \partial x_j} = .5 \beta_{ij} + .5 \beta_{ji} = \beta_{ij}$. In this paper, we focus on specifications to test the hypothesis that $\beta_{ij} \neq 0$ \footnote{We limit the paper to two-. First, theory in management control typically does not predict higher order interdependencies (exception \citet{Aral2012}). Second, the paper's main focus is on the consequences of misspecification in hypothesis tests when the firms in the sample are trying to implement the optimal system but are deviating from it. The problems we identify apply to hypothesis tests for higher order interdependencies. For simplicity, we avoid the complications of testing for higher order interdependencies \citep{Carree2011}. For similar reasons, We do not consider contingency effects on the interdependencies}. For instance, does the effectiveness of incentive contracts depends on the level of delegation for managers \citep{Moers2006}, .  
+
+The 
+Further, we assume that the elements of $\mathbf{\epsilon}$ and $\nu$ are independent. 
+
+
+We keep the model and
 derivations deliberately simple: we assume that a firm, \(i\), chooses
 the level of two management control practices \(x_{1i}\) and \(x_{2i}\).
 The effectiveness of these choices depends on the observable
@@ -610,7 +631,7 @@ are created with the following fixed parameters,
 \(\sigma_{\nu} = 1\). The parameters of interest, \(N\), \(\beta_{12}\),
 \(\gamma_1\), and \(\gamma_2\) are varied across datasets. The
 optimality parameter, \(N\), is manipulated as 2, 4, 8, 16, 32, and 64.
-The complimentarity is either present (\(\beta_{12} = 0.5\)) or the null
+The complementarity is either present (\(\beta_{12} = 0.5\)) or the null
 hypothesis is true (\(\beta_{12} = 0\)). The potentially confounding
 environmental factor, \(\gamma_1\) and \(\gamma_2\), is either only
 affecting one choice (\(\gamma_1 = .5, \gamma_2 = 0\)), or its effects
@@ -629,7 +650,7 @@ the lines representing a 95\% confidence interval around a null effect.
 \includegraphics[width=500px]{figure-latex/unnamed-chunk-5-1}
 \caption[Error Rate and Power of Demand and Performance Specification]
 {\label{basic} t-static of the performance and demand approach to test
-for complimentarities when there is a complementarity effect ($\beta_{12} = .5$)
+for complementarities when there is a complementarity effect ($\beta_{12} = .5$)
 or a null ($\beta_{12} = 0$). The boxplots represent the median (the dot) the
 interquartile range (the gap), and the minimum and maximum (the whiskers). $N$
 is varied between 2, 4, 8, 16, 32, and 64. The effect of the environmental
@@ -828,7 +849,7 @@ optimality parameter.
 \includegraphics[width=500px]{figure-latex/unnamed-chunk-7-1}
 \caption[Error Rate and Power with Increasing Levels of Variability in Performance]
 {\label{noise} t-static of the performance and demand approach to test
-for complimentarities when there is a complementarity effect ($\beta_{12} = .5$)
+for complementarities when there is a complementarity effect ($\beta_{12} = .5$)
 or a null ($\beta_{12} = 0$). The boxplots represent the median (the dot) the
 interquartile range (the gap), and the minimum and maximum (the whiskers). $N$
 is varied between 2, 8, 32. The effect of the environmental
@@ -919,7 +940,7 @@ dataset for three levels of optimality and three values of
 \(\mathbf{x_2}\) in a scatterplot. Figure \ref{scatter-delta} shows when
 marginal costs are constant, the practices, \(\mathbf{x_1}\) and
 \(\mathbf{x_2}\), are pushed towards the boundary values especially when
-there is a complimentarity and with higher levels of optimality. At the
+there is a complementarity and with higher levels of optimality. At the
 intermediate level, \(\delta_1 = \delta_2 = 0.5\), the choices cluster
 around the origin with the null effect, while they are pushed toward the
 boundaries with a true interdependency. The large variations between the
@@ -945,7 +966,7 @@ decreases in power as the result of increases in optimality.
 \includegraphics[width=500px]{figure-latex/unnamed-chunk-9-1}
 \caption[The Error Rate and Power with Different Levels of Marginal Costs]
 {\label{delta} t-static of the performance and demand approach to test
-for complimentarities when there is a complementarity effect ($\beta_{12} = .5$)
+for complementarities when there is a complementarity effect ($\beta_{12} = .5$)
 or a null ($\beta_{12} = 0$). The boxplots represent the median (the dot) the
 interquartile range (the gap), and the minimum and maximum (the whiskers). $N$
 is varied between 2, 8, 32. The effect of the environmental
@@ -1036,7 +1057,7 @@ optimality.
 \includegraphics[width=500px]{figure-latex/unnamed-chunk-10-1}
 \caption[Error Rate and Power with Asymmetric with Marginal Costs]
 {\label{delta2} t-static of the performance and demand specification to test
-for complimentarities when there is a complementarity effect ($\beta_{12} = .5$)
+for complementarities when there is a complementarity effect ($\beta_{12} = .5$)
 or a null ($\beta_{12} = 0$). The boxplots represent the median (the dot) the
 interquartile range (the gap), and the minimum and maximum (the whiskers). $N$
 is varied between 2, 8, 32. The effect of the environmental
@@ -1085,7 +1106,7 @@ performance effect of \(\mathbf{x_2}\) with \(\theta_2\) (See the
 Appendix for the full specification). We set \(\theta_1 = .25\) and vary
 \(\theta_2 = .-25, -0.125, -0.0625\) to introduce a negative spurious
 correlation which could lead to higher type I errors and less power to
-detect a complimentarity effect. To better illustrate the latter, we
+detect a complementarity effect. To better illustrate the latter, we
 introduce a medium sized interdependency of \(\beta_{12} = .25\) next to
 the null effect \(\beta_{12} = 0\) and the large interdependency
 \(\beta_{12} = .5\).
@@ -1113,7 +1134,7 @@ management controls.
 \includegraphics[width=500px]{figure-latex/spurious-plot-1}
 \caption[Error Rate and Power with Unobserved Environmental Variables]
 {\label{spurious} t-static of the performance and demand specification to test
-for complimentarities when there is a large complementarity effect
+for complementarities when there is a large complementarity effect
 ($\beta_{12} = .5$), a medium complementarity effect ($\beta_{12} = .25$),
 or a null ($\beta_{12} = 0$). The boxplots represent the median (the dot) the
 interquartile range (the gap), and the minimum and maximum (the whiskers). $N$
@@ -1160,7 +1181,7 @@ as in Figure \ref{spurious}.}
 
 \section{Summary and discussion}\label{summary-and-discussion}
 
-This study builds on earlier studies on complimentarity theory
+This study builds on earlier studies on complementarity theory
 \citep{Milgrom1995, Grabner2013}, to provide guidance on how to test for
 the presence of interdependencies in management control systems. The
 results of the simulation study show that in most common scenarios the
