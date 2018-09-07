@@ -62,7 +62,7 @@ Following the theoretical innovations of complementarity theory,
 management control studies have investigated potential interdependencies
 between management control practices. In this paper, we compare the two
 dominant statistical specifications in the management control literature
-to test for the presence of interdepencies. While prior literature
+to test for the presence of interdependencies. While prior literature
 focuses on the differences in the assumption of optimality between the
 demand specification and the performance specification, we make all
 ancillary assumptions explicit. Our stimulation results reveal that the
@@ -253,60 +253,48 @@ y = \beta_0 + (\mathbf{\beta_1} + \mathbf{z^T} G + \mathbf{\epsilon})
 
 $G$ is a $M \times N$ matrix where each element $\gamma_{mn}$ represents the contingency effect of the observed factor, $z_m$, on practice $x_m$. Examples
 
-$B$ is a symmetric $N \times N$ matrix with $\beta_{ij} = \beta_{ji}$ as off-diagonal elements and a vector $-\mathbf{\delta}$ on the diagonal. The off-diagonal elements represent the interdependency between two practices. This follows directly from the definition of an interdependency as the cross derivative of performance to two practices, $\frac{\partial y}{\partial x_i \partial x_j} = .5 \beta_{ij} + .5 \beta_{ji} = \beta_{ij}$. In this paper, we focus on specifications to test the hypothesis that $\beta_{ij} \neq 0$ \footnote{We limit the paper to two-. First, theory in management control typically does not predict higher order interdependencies (exception \citet{Aral2012}). Second, the paper's main focus is on the consequences of misspecification in hypothesis tests when the firms in the sample are trying to implement the optimal system but are deviating from it. The problems we identify apply to hypothesis tests for higher order interdependencies. For simplicity, we avoid the complications of testing for higher order interdependencies \citep{Carree2011}. For similar reasons, We do not consider contingency effects on the interdependencies}. For instance, does the effectiveness of incentive contracts depends on the level of delegation for managers \citep{Moers2006}, .  
+$B$ is a symmetric $N \times N$ matrix with $\beta_{ij} = \beta_{ji}$ as off-diagonal elements and a vector $-\mathbf{\delta}$ on the diagonal. The off-diagonal elements represent the interdependency between two practices. This follows directly from the definition of an interdependency as the cross derivative of performance to two practices, $\frac{\partial y}{\partial x_i \partial x_j} = .5 \beta_{ij} + .5 \beta_{ji} = \beta_{ij}$. In this paper, we focus on specifications to test the hypothesis that $\beta_{ij} \neq 0$ \footnote{We limit the paper to two-way complementarities for two reasons. First, theory in management control typically does not predict higher order interdependencies (exception \citet{Aral2012}). Second, the paper's main focus is on the consequences of misspecification in hypothesis tests when the firms in the sample are trying to implement the optimal system but are deviating from it. The problems we identify apply to hypothesis tests for higher order interdependencies. For simplicity, we avoid the complications of testing for higher order interdependencies \citep{Carree2011}. For similar reasons, We do not consider contingency effects on the interdependencies}. For instance, does the effectiveness of incentive contracts depends on the level of delegation for managers \citep{Moers2006}, .  
 
-The 
-Further, we assume that the elements of $\mathbf{\epsilon}$ and $\nu$ are independent. 
+The elements of $\mathbf{\delta}$ represent the second derivative of the performance effects of the practices. We assume that all $\delta_n$ are positive which implies increasing marginal costs to the practices  \footnote{$\mathbf{\delta} > 0$ is also a mathematical representation of decreasing marginal returns or a combination of decreasing marginal returns and increasing marginal  costs. For simplicity and in line with the specification in \citet{Grabner2013}, we interpret $\mathbf{\delta}$ as the parameter of  increasing marginal costs.}. 
 
+Further, we assume that the elements of $\mathbf{\epsilon}$ and $\nu$ are independent which implies that the model contains all environmental variables and practices that effect the performance of any two practices $x_i$ and $x_j$. The performance function in equation \eqref{eq:structural-matrix} is similar to the the performance function in \citet{Kretschmer2012} with two exceptions. First, we assume that the values of $x_n$ are continuous while \citet{Kretschmer2012} allow for binary practices. We return to the issue of binary practices as an extension to the current model. Second, we assume independence of the unobserved factors. We will relax this assumption, when we introduce the problem of omitted correlated variables further in this section. \citet{Athey1998} discuss the implications of relaxing the independence assumption in more detail. 
 
-We keep the model and
-derivations deliberately simple: we assume that a firm, \(i\), chooses
-the level of two management control practices \(x_{1i}\) and \(x_{2i}\).
-The effectiveness of these choices depends on the observable
-environmental factor \(z_i\) and the unobserved factors
-\(\epsilon_{1i}\) and \(\epsilon_{2i}\).
+\subsection{The optimal level of the practices}\label{optimal-practices}
 
-\begin{equation} \label{eq:structural}
-y_i = \beta_0 + (\beta_1 + \gamma_1 z_i + \epsilon_{1i}) x_{1i}
-                 + (\beta_2 + \gamma_2 z_i + \epsilon_{2i}) x_{2i}
-                 + \beta_{12} x_{1i} x_{2i}
-                 - .5 \delta_1 x^2_{1i} - .5 \delta_2 x^2_{2i} + \nu_i
+In observational data, we expect profit maximising firms to try to adopt the optimal level for each practice or that firms with suboptimal management control systems disappear. Therefore, we derive the optimal level for all practices. The quadratic optimisation problem has a standard solution for the performance function in equation \eqref{eq:structural-matrix} under the condition that $B$ is positive definite. The solution can be written as follows.
+
+\begin{equation} \label{eq:optimal-matrix}
+\begin{aligned} 
+    \mathbf{\beta_1}^T + G^T \mathbf{z} + \mathbf{\epsilon}^T & = B \mathbf{x^*} \\
+    B^{-1} \mathbf{\beta_1}^T + B^{-1} G^T \mathbf{z} + B^{-1} \mathbf{\epsilon}^T & = \mathbf{x^*}
+\end{aligned}
 \end{equation}
 
-\[
-\mathbf{\epsilon_{1}}, \mathbf{\epsilon_{2}}, \mathbf{\nu} \sim i.i.d
-\]
+A number of conclusions can be drawn from equation \eqref{eq:optimal-matrix}. First, the optimal level of the practices, $\mathbf{x^*}$, depends on the contingency factors $\mathbf{z}$, even when there are no interdependencies and $B$ is a diagonal matrix. Second, when there are interdependencies between the practices, $B^{-1}$ has off-diagonal elements and the optimal level of a practice, $x_i$, depends on the unobserved environmental factor for practice $j$, $\epsilon_j$. In other words, $x_i$ and $x_j$ are both a function of $\epsilon_j$. Third, the relation between environmental factors and the optimal level of the choices is given by $B^{-1} G^T$ which implies that in the presence of interdependencies, 
 
-Following prior research, the firm's performance function is given by
-equation \eqref{eq:structural} \citep{Gentzkow2007, Kretschmer2012}. Two
-parts of the performance function needs some further explanation. The
-parameters \(\delta_1\) and \(\delta_2\) represent the second derivative
-of the performance effects and imply increasing marginal costs to
-respectively \(\mathbf{x_1}\) and \(\mathbf{x_2}\) with
-\(\delta_1, \delta_2 > 0\)\footnote{\(\delta_1, \delta_2 > 0\) is also a
-  mathematical representation of decreasing marginal returns or a
-  combination of decreasing marginal returns and increasing marginal
-  costs. For simplicity and in line with the specification in
-  \citet{Grabner2013}, we interpret the \(\delta\)'s as the parameter of
-  increasing marginal costs.}. Lastly, the unobserved factors
-\(\mathbf{\epsilon_{1}}\), \(\mathbf{\epsilon_{2}}\), \(\mathbf{\nu}\)
-are assumed to be independent from each other. \citet{Athey1998} discuss
-the implications of relaxing those assumptions. We will deal with one
-way of relaxing this assumption when we introduce potential spurious
-correlation in the demand specification. However, a full treatment is
-beyond the scope of this paper.
+Another way of writing the optimality condition in equation \eqref{eq:optimal-matrix} is given in equation \eqref{eq:cholesky} below. This formulation uses the Cholesky decomposition, $B = LL^T$, where $L$ is a lower diagonal matrix and will be useful in identifying the characteristics of the demand specification further in this paper.
 
-The key parameter in the model is the complementarity between \(x_{1i}\)
-and \(x_{2i}\),
-\(\frac{ \partial^2 y}{\partial x_1 \partial x_2} = \beta_{12}\) . When
-\(\beta_{12} > 0\), \(\mathbf{x_1}\) and \(\mathbf{x_2}\) are
-complements and when \(\beta_{12} < 0\), they are substitutes
-\citep{Milgrom1995}. In the next sections, we will explain how different
-statistical approaches estimate this parameter and which further
-assumptions they require.
+\begin{equation} \label{eq:cholesky}
+\begin{aligned} 
+    L^{-1} \mathbf{\beta_1}^T + L^{-1} G^T \mathbf{z} + L^{-1} \mathbf{\epsilon}^T & = L^T \mathbf{x^*} 
+\end{aligned}
+\end{equation}
 
-\subsection{The Performance
-Specification.}\label{the-performance-specification.}
+Finally, the second order condition that B is positive definite implies that for every combination of practices, $\delta_i \delta_j - \beta_{ij}^2 > 0$. The intuition behind this condition is that when the increase in marginal costs is small, the the interdependency dominates the optimal solution. When the second-order condition does not hold, two complementary practices are both expected to be at either \(+\infty\) or \(-\infty\) and one of two substitutes is \(+\infty\) while the other is \(-\infty\). That is, without large enough increases in marginal costs, management control practices are optimally used to their full extent or not at all. In the main analysis of this paper, we will assume that the second-order condition holds when the control practices are continuous. However, one way to get around the second-order condition is to treat the choice to adopt a management control practice as all or nothing. In the next, section we focus our attention on the binary practices. Recall that the second-order condition indicates that binary choices are more likely for practices with weakly or not increasing marginal costs or strong interdependencies.
+
+\subsection{Binary Practices}
+
+
+
+\subsubsection{Unobserved Environmental Factor}
+\subsubsection{Unobserved Management Practice}
+
+\subsection{Performance Specification}
+\subsection{Demand Specification}
+\subsubsection{Unobserved Environmental Factor}
+\subsubsection{Unobserved Management Practice}
+
+\subsection{The Performance Specification.}\label{the-performance-specification.}
 
 The performance function approach estimates the performance function
 directly. With cross-sectional data, the closest approximation to the
