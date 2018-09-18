@@ -1,0 +1,301 @@
+---
+title: "Statistical Methods for Accounting Systems"
+author: 
+    - Stijn Masschelein (University of Western Australia) \newline
+    - Frank Moers (Maastricht University)
+date: "03/07/2018"
+fontsize: 14pt
+header-includes: 
+  - \definecolor{eqfocus}{HTML}{EB811B}
+output: 
+  beamer_presentation:
+    theme: "metropolis"
+    keep_tex: true
+classoption: "aspectratio=169"
+bibliography: tex/complement.bib
+---
+
+<!--
+We are revising the paper and mostly focusing on making the contribution
+clearer.
+-->
+
+
+## Complementarity of Accounting Practices
+
+```{r setup, include=F}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r packages, include = F, warnings = F, results = 'hide'}
+suppressMessages(library(tidyverse, quietly = TRUE, warn.conflicts = FALSE))
+folder = file.path("~", "Dropbox", "R", "simcompl", "application")
+```
+
+### Management Accounting [@Grabner2013]
+  - Delegation and incentive contracts
+  - Levers of control
+  - Budget emphasis and budget participation
+
+---
+
+### Financial Accounting
+  - Audited financial reporting and voluntary disclosure [@Ball2012]
+
+> Because private information disclosure and audited financial reporting are
+> complements, their economic roles cannot be evaluated separately.
+
+<!--
+There is a lot of literature that acknowledges the interaction between multiple
+accounting choices which has implications of doing tests.
+-->
+
+## Contingency Theory [@Chenhall2003]
+
+> Researchers have attempted to explain the effectiveness of MCS by examining
+designs that best suit the nature of the environment, technology, size,
+structure, strategy and national culture.
+
+## Two statistical models
+
+### Performance Specification
+
+Performance = f(Incentive x Delegation, Environment)
+
+### Demand Specification
+
+Delegation = f(Incentive, Environment)
+
+## Which one to use?
+
+> Which [specification] to use is both a theoretical (assumption of agents as
+perfectly or boundedly rational) and an empirical (market imperfections,
+exogenous shocks, experimentation, etc) issue because the likelihood of finding
+evidence of the former depends on the latter and vice versa [@Grabner2013,
+@Gerdin2004] in (Johansson, -@Johansson2018).
+
+## Structural Model
+
+### Unobserved Structural Model
+
+$$
+y = \beta_0 + 
+\Bigl(
+\begin{bmatrix}
+  \beta_{11} \\
+  \beta_{22}
+\end{bmatrix}
++ 
+zzzzz
+\begin{bmatrix}
+  \gamma_{11} & \gamma_{12} \\
+  \gamma_{21} & \gamma_{22}
+\end{bmatrix}
++ \begin{bmatrix}
+  \epsilon_1 \\
+  \epsilon_2
+\end{bmatrix}
+\Bigr)
+\begin{bmatrix}
+  x_1 & x_2 
+\end{bmatrix} +
+\frac{1}{2} 
+\begin{bmatrix}
+  x_1 & x_2 
+\end{bmatrix}
+\begin{bmatrix}
+  - \delta_1 & \beta_{12} \\
+  \beta_{12} & - \delta_2
+\end{bmatrix}
+\begin{bmatrix}
+  x_1 \\
+  x_2
+\end{bmatrix}
+$$
+
+
+$$
+\begin{aligned}
+{\color{eqfocus} y} = & \beta_0 + (\beta_1 + \gamma_1 z + \epsilon_{1})
+                 {\color{eqfocus} x_{1}}
+                 + (\beta_2 + \gamma_2 z + \epsilon_{2})
+                 {\color{eqfocus} x_{2}} \\
+                 & + \beta_{12} {\color{eqfocus} x_{1} x_{2}}
+                 - .5 \delta_1 {\color{eqfocus} x^2_{1}}
+                 - .5 \delta_2 {\color{eqfocus} x^2_{2}} + \nu
+\end{aligned}
+$$
+
+### Observable data
+
+$$
+\begin{aligned}
+{\color{eqfocus} y} &= \text{performance} \\
+{\color{eqfocus} x_1, x_2} &= \text{management accounting practices} \\
+z &= \text{environmental factor}
+\end{aligned}
+$$
+
+## Structural Model 
+
+### Unobserved Structural Model
+
+$$
+\begin{aligned}
+y = & \beta_0 + (\beta_1 + \gamma_1 {\color{eqfocus} z} + \epsilon_{1})
+                 {\color{eqfocus} x_{1}}
+                 + (\beta_2 + \gamma_2 {\color{eqfocus} z} + \epsilon_{2})
+                 {\color{eqfocus} x_{2}} \\
+                 & + \beta_{12} x_{1} x_{2}
+                 - .5 \delta_1 x^2_{1}
+                 - .5 \delta_2 x^2_{2} + \nu
+\end{aligned}
+$$
+
+### Observable data
+
+$$
+\begin{aligned}
+y &= \text{performance} \\
+\color{eqfocus}{x_1, x_2} &= \text{management accounting practices} \\
+\color{eqfocus}{z} &= \text{environmental factor}
+\end{aligned}
+$$
+
+## Performance Specification
+
+### Unobserved Structural Model
+
+$$
+\begin{aligned}
+y = & \beta_0 + (\beta_1 + {\color{eqfocus} \gamma_1 z + \epsilon_{1}})
+                  x_{1}
+                 + (\beta_2 + {\color{eqfocus} \gamma_2 z + \epsilon_{2}})
+                  x_{2} \\
+                 & + \beta_{12} x_{1} x_{2}
+                 {\color{eqfocus}
+                 - .5 \delta_1 x^2_{1}
+                 - .5 \delta_2 x^2_{2}} + \nu
+\end{aligned}
+$$
+
+### Regression model
+
+$$
+y = \alpha_0 + \alpha_1 x_1 + \alpha_2 x_2 + {\color{eqfocus} \alpha_{12}} 
+    x_1 x_2 + \alpha_z z + \nu
+$$
+
+## Demand Specification
+
+### Unobserved Structural Model with Optimal Practices: 1st order condition
+
+$$
+\begin{aligned}
+\frac{\delta y}{\delta x_1} &= 0 \\
+{\color{eqfocus} \delta_1 } x_1 &= \beta_1 + \beta_{12} x_2 + \gamma_1 z + \epsilon_1
+\end{aligned}
+$$
+
+### Regression model
+
+$$
+x_1 = \alpha_1 + {\color{eqfocus} \alpha_{12}} x_2 + \alpha_z z + \epsilon
+$$
+
+## Main Message
+
+1. Always report the demand specification
+2. Always control for environmental factors and increasing marginal costs
+
+## Differences in Specifications 
+
+### Optimality of MA Practices
+
+- The demand specification has lower Type I error and more power at all but the 
+  lowest levels of optimality.
+
+### Omitted Correlated Variables Bias (!!)
+
+- Inflates Type I error rates 
+- Destroys power 
+
+## Differences in Specifications
+
+### Simultaneity Bias in Demand Specification
+
+- Inconsequential for Type I error rates and power
+
+### 2nd-order Condition for Demand Specification(!)
+
+- The complementarity cannot be too large
+
+## Simulation Method
+
+- Set fixed parameters $\beta$, $\gamma$, and $\delta$
+- for a firm, repeatedly: 
+    - Generate random, uncorrelated observables ($x, z$) and unobservables 
+      ($\epsilon, \nu$).
+    - Calculate $y$
+- Keep ($y, x, z$) with the highest $y$
+
+
+## Simulation Method
+
+- \textcolor{gray}{Set fixed parameters $\beta$, $\gamma$, and $\delta$}
+- for a firm, repeatedly: 
+    - \textcolor{gray}{ Generate random, uncorrelated observables ($x, z$) and
+       unobservables ($\epsilon, \nu$)}.
+    - \textcolor{gray}{Calculate $y$}
+- \textcolor{gray}{Keep ($y, x, z$) with the highest $y$}
+
+> The more repetitions the higher the optimality
+
+## Simulation 
+
+- \textcolor{gray}{Set fixed parameters $\beta$, $\gamma$, and $\delta$}
+- Generate a dataset of 300 firms
+    - \textcolor{gray}{for a firm, repeatedly}: 
+        - \textcolor{gray}{ Generate random, uncorrelated observables ($x, z$) and
+           unobservables ($\epsilon, \nu$)}.
+        - \textcolor{gray}{Calculate $y$}
+    - \textcolor{gray}{Keep ($y, x, z$) with the highest $y$}
+- Calculate t-statistic and p-value for complementarity
+
+## Simulation 
+
+\textcolor{gray}{Set fixed parameters $\beta$, $\gamma$, and $\delta$}
+
+Generate 1000 complementarity tests
+
+- \textcolor{gray}{Generate a dataset of 300 firms}
+    - \textcolor{gray}{for a firm, repeatedly}: 
+        - \textcolor{gray}{ Generate random, uncorrelated observables ($x, z$)
+           and unobservables ($\epsilon, \nu$)}
+        - \textcolor{gray}{Calculate $y$}
+    - \textcolor{gray}{Keep ($y, x, z$) with the highest $y$}
+- \textcolor{gray}{Calculate t-statistic and p-value for test}
+   
+Count Number of Significant Effects
+
+## Simulation
+
+Vary parameters $\beta$ (e.g. $\beta_{12} = 0$ or $.5$), $\gamma$, and $\delta$
+
+\textcolor{gray}{Generate 1000 complementarity tests for each set of parameters}
+
+- \textcolor{gray}{Generate a dataset of 300 firms}
+    - \textcolor{gray}{For a firm, repeatedly}: 
+        - \textcolor{gray}{ Generate random, uncorrelated ($x, z$) i
+           and ($\epsilon, \nu$)}
+        - \textcolor{gray}{Calculate $y$}
+    - \textcolor{gray}{Keep ($y, x, z$) with the highest $y$}
+- \textcolor{gray}{Calculate t-statistic and p-value for test}
+
+Calculate Type I error ($\beta_{12} = 0$) and power ($\beta_{12} \neq 0$)
+
+## Presentation is only the tip of the iceberg
+
+- Open source code
+- More details, sensitivity tests, and visual diagnostics in the paper
+- Seriously, the demand specification should be the default 
