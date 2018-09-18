@@ -259,20 +259,20 @@ The elements of $\mathbf{\delta}$ represent the second derivative of the perform
 
 Further, we assume that the elements of $\mathbf{\epsilon}$ and $\nu$ are independent which implies that the model contains all environmental variables and practices that effect the performance of any two practices $x_i$ and $x_j$. The performance function in equation \eqref{eq:structural-matrix} is similar to the the performance function in \citet{Kretschmer2012} with two exceptions. First, we assume that the values of $x_n$ are continuous while \citet{Kretschmer2012} allow for binary practices. We return to the issue of binary practices as an extension to the current model. Second, we assume independence of the unobserved factors. We will relax this assumption, when we introduce the problem of omitted correlated variables further in this section. \citet{Athey1998} discuss the implications of relaxing the independence assumption in more detail. 
 
-\subsection{The optimal level of the practices}\label{optimal-practices}
+\subsection{Optimal level of practices}\label{optimal-practices}
 
-In observational data, we expect profit maximising firms to try to adopt the optimal level for each practice or that firms with suboptimal management control systems disappear. Therefore, we derive the optimal level for all practices. The quadratic optimisation problem has a standard solution for the performance function in equation \eqref{eq:structural-matrix} under the condition that $B$ is positive definite. The solution can be written as follows.
+In observational data, we expect profit maximising firms to try to adopt the optimal level for each practice or that firms with suboptimal management control systems disappear. Therefore, we derive the optimal level for all practices. The quadratic optimisation problem has a standard solution for the performance function in equation \eqref{eq:structural-matrix} under the condition that $-B$ is positive definite. The solution can be written as follows.
 
 \begin{equation} \label{eq:optimal-matrix}
 \begin{aligned} 
-    \mathbf{\beta_1}^T + G^T \mathbf{z} + \mathbf{\epsilon}^T & = B \mathbf{x^*} \\
-    B^{-1} \mathbf{\beta_1}^T + B^{-1} G^T \mathbf{z} + B^{-1} \mathbf{\epsilon}^T & = \mathbf{x^*}
+    \mathbf{\beta_1}^T + G^T \mathbf{z} + \mathbf{\epsilon}^T & = -B \mathbf{x^*} \\
+    (-B)^{-1} \mathbf{\beta_1}^T + (-B)^{-1} G^T \mathbf{z} + (-B)^{-1} \mathbf{\epsilon}^T & = \mathbf{x^*}
 \end{aligned}
 \end{equation}
 
-A number of conclusions can be drawn from equation \eqref{eq:optimal-matrix}. First, the optimal level of the practices, $\mathbf{x^*}$, depends on the contingency factors $\mathbf{z}$, even when there are no interdependencies and $B$ is a diagonal matrix. Second, when there are interdependencies between the practices, $B^{-1}$ has off-diagonal elements and the optimal level of a practice, $x_i$, depends on the unobserved environmental factor for practice $j$, $\epsilon_j$. In other words, $x_i$ and $x_j$ are both a function of $\epsilon_j$. Third, the relation between environmental factors and the optimal level of the choices is given by $B^{-1} G^T$ which implies that in the presence of interdependencies, 
+A number of conclusions can be drawn from equation \eqref{eq:optimal-matrix}. First, the optimal level of the practices, $\mathbf{x^*}$, depends on the contingency factors $\mathbf{z}$, even when there are no interdependencies and $B$ is a diagonal matrix. Second, when there are interdependencies between the practices, $(-B)^{-1}$ has off-diagonal elements and the optimal level of a practice, $x_i$, depends on the unobserved environmental factor for practice $j$, $\epsilon_j$. In other words, $x_i$ and $x_j$ are both a function of $\epsilon_j$. Third, the relation between environmental factors and the optimal level of the choices is given by $(-B)^{-1} G^T$ which implies that in the presence of interdependencies, When combining equation \eqref{eq:structural-matrix} and \eqref{eq:optimal-matrix}, we find that performance, $y$, is fully determined by the unknown parameters and no longer depends on the value of the choices, $x$. 
 
-Another way of writing the optimality condition in equation \eqref{eq:optimal-matrix} is given in equation \eqref{eq:cholesky} below. This formulation uses the Cholesky decomposition, $B = LL^T$, where $L$ is a lower diagonal matrix and will be useful in identifying the characteristics of the demand specification further in this paper.
+Another way of writing the optimality condition in equation \eqref{eq:optimal-matrix} is given in equation \eqref{eq:cholesky} below. This formulation uses the Cholesky decomposition, $-B = LL^T$, where $L$ is a lower diagonal matrix and will be useful in identifying the characteristics of the demand specification further in this paper.
 
 \begin{equation} \label{eq:cholesky}
 \begin{aligned} 
@@ -280,71 +280,68 @@ Another way of writing the optimality condition in equation \eqref{eq:optimal-ma
 \end{aligned}
 \end{equation}
 
-Finally, the second order condition that B is positive definite implies that for every combination of practices, $\delta_i \delta_j - \beta_{ij}^2 > 0$. The intuition behind this condition is that when the increase in marginal costs is small, the the interdependency dominates the optimal solution. When the second-order condition does not hold, two complementary practices are both expected to be at either \(+\infty\) or \(-\infty\) and one of two substitutes is \(+\infty\) while the other is \(-\infty\). That is, without large enough increases in marginal costs, management control practices are optimally used to their full extent or not at all. In the main analysis of this paper, we will assume that the second-order condition holds when the control practices are continuous. However, one way to get around the second-order condition is to treat the choice to adopt a management control practice as all or nothing. In the next, section we focus our attention on the binary practices. Recall that the second-order condition indicates that binary choices are more likely for practices with weakly or not increasing marginal costs or strong interdependencies.
+Finally, the second order condition that B is positive definite implies that for every combination of practices, $\delta_i \delta_j - \beta_{ij}^2 > 0$. The intuition behind this condition is that when the increase in marginal costs is small, the interdependency dominates the optimal solution. When the second-order condition does not hold, two complementary practices are both expected to be at either \(+\infty\) or \(-\infty\) and one of two substitutes is \(+\infty\) while the other is \(-\infty\). That is, without large enough increases in marginal costs, management control practices are optimally used to their full extent or not at all. In the main analysis of this paper, we will assume that the second-order condition holds when the control practices are continuous. However, one way to get around the second-order condition is to treat the choice to adopt a management control practice as all or nothing. In the next, section we focus our attention on the binary practices. Recall that the second-order condition indicates that binary choices are more likely for practices with weakly increasing or fixed marginal costs or strong interdependencies.
 
 \subsection{Binary Practices}
 
+With binary practices, the production function simplifies because $x = x^2$. We can set the parameters of decreasing marginal costs to zero, i.e. $\mathbf{\delta} = 0$. We replace $B$ with $B_0$ which has the same off-diagonal elements as $B$ but $0$ on the diagonal. The optimal decision rule for a firm is to adopt a practice $i$ when profit $y$ is higher for $x_i = 1$ then for $x_i = 0$. 
 
+\begin{equation} \label{eq:condition-binary}
+    \beta_{ii} + \mathbf{z^T} \mathbf{\gamma_i} + \epsilon_i 
+    + \sum^{N}_{k = 1, k \neq i} \beta_{ik} x_k > 0
+\end{equation}
 
-\subsubsection{Unobserved Environmental Factor}
-\subsubsection{Unobserved Management Practice}
+Similarly, it is optimal for firms to adopt two practices $i$ and $j$ when the performance is higher than the performance when (1) adopting none of the practices, (2) adopting only practice $i$, and (3) adopting only practice $j$. 
 
-\subsection{Performance Specification}
-\subsection{Demand Specification}
-\subsubsection{Unobserved Environmental Factor}
-\subsubsection{Unobserved Management Practice}
+\begin{equation} \label{eq:condition-two-binary}
+    \begin{aligned}
+        \beta_{ii} + \mathbf{z^T} \mathbf{\gamma_i} + \epsilon_i
+        + \beta_{jj} + \mathbf{z^T} \mathbf{\gamma_j} + \epsilon_j
+        + \beta_{ij} + \sum^{N}_{k = 1, k \neq i,j} (\beta_{ik} + \beta_{jk}) x _k &> 0 \\
+        \beta_{jj} + \mathbf{z^T} \mathbf{\gamma_j} + \epsilon_j 
+        + \beta_{ij} + \sum^{N}_{k = 1, k \neq i,j} \beta_{jk} x_k &> 0 \\
+        \beta_{ii} + \mathbf{z^T} \mathbf{\gamma_i} + \epsilon_i
+        + \beta_{ij} + \sum^{N}_{k = 1, k \neq i,j} \beta_{ik} x_k &> 0 
+    \end{aligned} 
+\end{equation}
 
-\subsection{The Performance Specification.}\label{the-performance-specification.}
+This line of reasoning can be extended to give the inequality conditions for when $p \leq n$ binary practices should be adopted. However, we do not need the complete set of conditions to illustrate that the same set of conclusions hold as for the continuous practices. First, whether a practice will be adopted or not depends on the contingency factors. Second, in the absence of interdependencies, $\beta_{12} = 0$, the second and third condition in equation \eqref{eq:condition-two-binary} simplify to the condition \eqref{eq:condition-binary} and when they both are satisfied, the first condition holds as well. As before, when there is an interdependency between two practices, the adoption of those practices depends on each others' unobserved contingency factors, $\epsilon$.
 
-The performance function approach estimates the performance function
-directly. With cross-sectional data, the closest approximation to the
-structural equation is the following regression model.
+\subsection{Performance Specification.}\label{the-performance-specification.}
 
-\[
-\mathbf{y} = \beta^{p1}_0 + \beta^{p1}_1 \mathbf{x_1} + \beta^{p1}_2 \mathbf{x_2}
-  + \beta^{p1}_{12} \mathbf{x_1} \mathbf{x_2} + \gamma^{p1} \mathbf{z} +
-  \gamma^{p1}_{1} \mathbf{z} \mathbf{x_1} +
-  \gamma^{p1}_{2} \mathbf{z} \mathbf{x_2} -
-  \delta^{p1}_1 \mathbf{x_1}^2 - \delta^{p1}_2 \mathbf{x_2}^2  +
-  \mathbf{\nu}^{p1}
-\]
+The performance function approach estimates the performance equation \eqref{eq:structural-matrix} directly. With cross-sectional data, the closest approximation to the structural equation is the following regression model where the subscript for each observation is suppressed. 
 
-The specification captures all features of the unobserved performance
-function in equation \eqref{eq:structural} with the exception of the
-unobservable heterogeneity in the performance effects of the management
-choices (\(\mathbf{\epsilon_1}\) and \(\mathbf{\epsilon_2}\)).
-Cross-sectional data does not permit estimating the unobservable
-heterogeneity. In this specification, \(\beta_{12}^{p1}\) tests for the
-interdependency between the management accounting practices. We are not
-aware of any accounting studies using this specification which we label
-the \emph{performance 1} specification.
+\begin{equation*}
+    y = \beta_0^{p1} + (\mathbf{\beta_1^{p1}} + \mathbf{z^T} G^{p1}) \mathbf{x} + 
+    \frac{1}{2}\mathbf{x^T} B^{p1} \mathbf{x} + \nu^{p1}
+\end{equation*}
 
-\citet{Bedford2016} follow the above specification as they control for
-contingency factors but they drop the quadratic terms in the
-specification. In effect, this specification assumes constant marginal
-costs of the practices or \(\delta_1 = \delta_2 = 0\). We call this the
-\emph{performance 2} specification.
+The specification captures all features of the unobserved performance function in equation \eqref{eq:structural-matrix} with the exception of the unobservable heterogeneity in the performance effects of the management choices, $\mathbf{\epsilon}$. Cross-sectional data does not permit estimating the unobservable heterogeneity. In this specification, \(\beta_{ij}^{p1}\) tests for the interdependency between the management accounting practices. We are not aware of any accounting studies using this specification which we label the \emph{performance 1} specification. 
 
-\[
-\mathbf{y} = \beta^{p2}_0 + \beta^{p2}_1 \mathbf{x_1} + \beta^{p2}_2 \mathbf{x_2}
-  + \beta^{p2}_{12} \mathbf{x_1} \mathbf{x_2} + \gamma^{p2} \mathbf{z} +
-  \gamma^{p2}_{1} \mathbf{z} \mathbf{x_1} +
-  \gamma^{p2}_{2} \mathbf{z} \mathbf{x_2} +
-  \mathbf{\nu}^{p2}
-\]
+For binary practices, we can replace $B$ by $B_0$ and effectively drop the quadratic terms, $x_i^2$.  While investigating continuous practices, \citet{Bedford2016} follow the above specification as they control appropriately for contingency factors but they drop the quadratic terms in the specification. We call this the \emph{performance 2} specification.
+
+\begin{equation*}
+    y = \beta_0^{p2} + (\mathbf{\beta_1^{p2}} + \mathbf{z^T} G^{p2}) \mathbf{x} + 
+    \frac{1}{2}\mathbf{x^T} B_0^{p2} \mathbf{x} + \nu^{p2}
+\end{equation*}
 
 The bulk of the literature follows the third performance specification
 which also drops the controls for the contingency factors or assumes
-that \(\gamma_1 = \gamma_2 = 0\). These additional restrictions
+that all elements of $G$ equal $0$. We call this specification \emph{performance 3}.
+
+\begin{equation*}
+    y = \beta_0^{p3} + \mathbf{\beta_1^{p3}} \mathbf{x} + 
+    \frac{1}{2}\mathbf{x^T} B_0^{p3} \mathbf{x} + \nu^{p3}
+\end{equation*}
+
+In the remainder of this section, we explain the potential problems with these specifications. All three specifications, will suffer form the well known problem we explained above that performance is no longer a function of the management practices when firms adopt the optimal practices \citep{Grabner2013}. With strictly optimal practices, there is no longer information about the practices in the performance variable. The literature advises that for a performance specification to have sufficient power, there need to be a sufficient number of firms that are not adopting the optimal level of the practices [XXXX]. However, the literature has not gone beyond this rule of thumb to investigate how strong the deviations from optimality need to be. Our simulation study will provide an answer to this question.
+
+In this paper, we identify a second problem with the most popular specification in the literature, \emph{performance 3}, which follows directly from contingency theory. As explained in the previous section, when firms adopt the optimal practices, $\mathbf{x^*}$, they are a function of the contingency factors, $\mathbf{z}$. If $[(-B)^{-1} G]_{mi} \neq 0$, $cor(z_m, x^*_i) \neq 0$. When 
+
+These additional restrictions
 introduce potential correlated omitted variable problems by leaving out
 the quadratic terms and the interactions between the practices and the
-environmental factor. We call this specification \emph{performance 3}.
-
-\[
-\mathbf{y} = \beta^{p3}_0 + \beta^{p3}_1 \mathbf{x_1} + \beta^{p3}_2 \mathbf{x_2}
-  + \beta^{p3}_{12} \mathbf{x_1} \mathbf{x_2} + \gamma^{p3} \mathbf{z} +
-  \mathbf{\nu}^{p3}
-\]
+environmental factor. 
 
 Further in this paper, we investigate how the omitted variable problem
 affects the different specifications in a simulation study. The aim of
@@ -396,7 +393,7 @@ important when the marginal cost increase strongly for \(\mathbf{x_2}\)
 This formulation also highlights the importance of the second-order
 condition for profit maximization, \(\delta_1 \delta_2 > \beta_{12}^2\).
 The intuition behind this condition is that when the increase in
-marginal costs is small, the the interdependency dominates the optimal
+marginal costs is small, the interdependency dominates the optimal
 solution. When the second-order condition does not hold, two
 complementary practices are both expected to be at either \(+\infty\) or
 \(-\infty\) and one of two substitutes is \(+\infty\) while the other is
