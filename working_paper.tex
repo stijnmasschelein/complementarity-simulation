@@ -307,6 +307,24 @@ Similarly, it is optimal for firms to adopt two practices $i$ and $j$ when the p
 
 This line of reasoning can be extended to give the inequality conditions for when $p \leq n$ binary practices should be adopted. However, we do not need the complete set of conditions to illustrate that the same set of conclusions hold as for the continuous practices. First, whether a practice will be adopted or not depends on the contingency factors. Second, in the absence of interdependencies, $\beta_{12} = 0$, the second and third condition in equation \eqref{eq:condition-two-binary} simplify to the condition \eqref{eq:condition-binary} and when they both are satisfied, the first condition holds as well. As before, when there is an interdependency between two practices, the adoption of those practices depends on each others' unobserved contingency factors, $\epsilon$.
 
+\subsubsection{Empirical Correlations}
+
+As explained in the previous section, when firms adopt the optimal practices, $\mathbf{x^*}$, they are a function of the contingency factors, $\mathbf{z}$. In the remainder of this section, we will work with the more tractable continuous model but the conclusions are qualitatively the same for the binary practices. Equation \eqref{eq:optimal-matrix} implies that there is a conditional correlation between environmental factors and practices when there are 
+
+\begin{equation}\label{eq:contingency-correlation}
+    [(-B)^{-1} G]_{mi} \neq 0 \implies cor(z_m, x^*_i) \neq 0
+\end{equation}
+
+The strength of the conditional correlation between practices and environmental factors will also depend on the extent to which firms have adopted optimal practices. We assume that when the correlation between practices and environmental factors equals $0$ when firms adopt practices in complete ignorance of the optimal level, while the correlation goes to $cor(z_m, x^*_i)$ when all firms adopt the optimal level of each practice. From \eqref{eq:contingency-correlation}, we know that this correlation can manifest in the absence of interdependency effects and $B$ is diagonal. In that case, the condition simplifies to $\gamma_{mi} \neq 0 \implies cor(z_m, x^*_i) \neq 0$. 
+
+Equation \eqref{eq:optimal-matrix} also implies a correlation between the optimal level of two practices.
+
+\begin{equation} \label{eq:interdependency-correlation}
+    B^{-1}_{ij} \neq 0 \implies cor(x^*_i, x^*_j) \neq 0
+\end{equation}
+
+Similar as before, we assume that the actual observed conditional correlation will depend on the extent to which firms have adopted the optimal level for each practice. Deviations from the optimal practices are assumed to attenuate $cor(x^*_i, x^*_j)$. 
+
 \subsection{Performance Specification.}\label{the-performance-specification.}
 
 The performance function approach estimates the performance equation \eqref{eq:structural-matrix} directly. With cross-sectional data, the closest approximation to the structural equation is the following regression model where the subscript for each observation is suppressed. 
@@ -334,11 +352,32 @@ that all elements of $G$ equal $0$. We call this specification \emph{performance
     \frac{1}{2}\mathbf{x^T} B_0^{p3} \mathbf{x} + \nu^{p3}
 \end{equation*}
 
+\subsubsection{Lack of Power}
+
 In the remainder of this section, we explain the potential problems with these specifications. All three specifications, will suffer form the well known problem we explained above that performance is no longer a function of the management practices when firms adopt the optimal practices \citep{Grabner2013}. With strictly optimal practices, there is no longer information about the practices in the performance variable. The literature advises that for a performance specification to have sufficient power, there need to be a sufficient number of firms that are not adopting the optimal level of the practices [XXXX]. However, the literature has not gone beyond this rule of thumb to investigate how strong the deviations from optimality need to be. Our simulation study will provide an answer to this question.
 
-In this paper, we identify a second problem with the most popular specification in the literature, \emph{performance 3}, which follows directly from contingency theory. As explained in the previous section, when firms adopt the optimal practices, $\mathbf{x^*}$, they are a function of the contingency factors, $\mathbf{z}$. If $[(-B)^{-1} G]_{mi} \neq 0$, $cor(z_m, x^*_i) \neq 0$. When 
+\subsubsection{Correlated Omitted Variables}
 
-These additional restrictions
+In this paper, we identify a second problem with the most popular specification in the literature, \emph{performance 3}, which follows directly from contingency theory. As explained in the previous section, contingency theory implies empirical correlations between environmental factors and practices when firms are not completely ignoring the performance effects of the environmental factors. As a result, when environmental factors are not appropriately controlled for, regression estimates are vulnerable to an omitted correlated variable bias. Because the bias does not require perfectly optimal decisions, and follows directly from contingency theory this problem cannot be easily ignored in a typical management accounting study. More importantly, this bias does not require any interdependencies. In other words, a regression analysis will report a false positive interdependency when the specification does not adequately control for environmental factors. 
+
+For instance, if the term $\gamma_{mi} \mathbf{z_m} \mathbf{x_i}$ is omitted from the production specification (e.g. in \emph{specification 3}), the estimate of $\beta_{ij}$ will be biased by $\gamma_{mi} \frac{Cov(\mathbf{z_m}, \mathbf{x_i}, \mathbf{x_i} \mathbf{x_j}}{Var(\mathbf{x_i, x_j})}$ \citep{Chenhall2007}. In Appendix \ref{correlation-interaction}, we show that $Cov(\mathbf{z_m}, \mathbf{x_i}, \mathbf{x_i} \mathbf{x_j}) = \rho_{mi} \rho_{ij} + \rho_{mj}$ when $\mathbf{z_m}, \mathbf{x_i}, \mathbf{x_j}$ are multivariate standard normal. $\rho_{mi}$, $\rho_{mj}$, and $\rho_{ij}$ are the correlations between $\mathbf{z_m}$, $\mathbf{x_i}$, and $\mathbf{x_j}$. We use this specific result to provide a tractable illustration of the omitted variable bias. However, the simulation results in this paper do not require this assumption. 
+
+The omitted variable bias on the estimated of the interdependency between two practices will manifest when $\gamma_{mi} \neq 0$, and $\rho_{mj} \neq 0$, i.e. when the environmental factor has a contingency effect on both practices and firms try to adapt their practices to the environment. The estimate will also be biased when $\gamma_{mi} \neq 0$, $\rho_{mi} \neq 0$, and $\rho_{ij} \neq 0$, that is when the environmental factor has a contingency effect on one of the practices and there is an interdependency between the two practices where at least some firms adapt to the environment and take into account the interdependency when choosing the practices. So far, we have argued that the bias will occur with the \emph{performance 3} specification. It is important to note that the other specifications are also vulnerable to this bias if they do not include all interaction terms between practices and environmental factors with contingency effects on at least two of the practices. 
+
+A similar problem emerges when a specification does not appropriately control for all interdependent practices. The omission of the term $\beta_{ki} \mathbf{x_k} \mathbf{x_i}$ will bias the estimate of $\beta_{ij}$ by $\beta_{ki} \frac{Cov(\mathbf{x_k} \mathbf{x_i}, \mathbf{x_i} \mathbf{x_j})}{Var (\mathbf{x_i x_j})}$. In Appendix \ref{correlation-interaction}, we show that $Cov(\mathbf{x_k} \mathbf{x_i}, \mathbf{x_i} \mathbf{x_j}) = \rho_{ki} \rho_{ij} + \rho_{kj}$ when $\mathbf{z_m}, \mathbf{x_i}, \mathbf{x_j}$ are multivariate standard normal. In short, when three practices are interdependent on each other and at least some firms take this into account when designing an accounting system, the estimate of one interdependency will be biased if the other two interaction terms are not included in the specification. 
+
+A special case of the above problem is the omission of the quadratic term $\delta_i \mathbf{x_i}^2$. The omission of this term will bias the estimate of $\beta_{ij}$ by $\delta_i \frac{Cov(\mathbf{x_i}^2, \mathbf{x_i} \mathbf{x_j})}{Var (\mathbf{x_i x_j})}$ where $Cov(\mathbf{x_i}^2, \mathbf{x_i} \mathbf{x_j}) = 2 \rho_{ij}$. As a result, the omission of the quadratic term, will bias the estimate of an interdependency when that interdependency exists and firms take into account that interdependency to a certain extent. 
+
+
+The strength of the correlation between practices and environmental factors will also depend on the extent to which firms have adopted optimal practices. 
+
+Our simulation study will investigate the intermediate regime where firms attempt to adopt the right level of the practices but do not succeed entirely.
+
+In contrast to the problem of a la`ck of power, these correlations will manifest, even if not all firms adopt the optimal level for all practices. 
+
+
+The additional restrictions in the \emph{performance 1} specification, introduce potential correlated omitted variable problems.  
+
 introduce potential correlated omitted variable problems by leaving out
 the quadratic terms and the interactions between the practices and the
 environmental factor. 
@@ -1248,6 +1287,50 @@ sub-optimal management control practices.
 \setcounter{equation}{0}
 
 \section{Appendix}\label{appendix}
+
+\subsection{Correlation between interaction terms}\label{correlation-interaction}
+
+In this section, we illustrate the connection between the covariance of
+$\mathbf{xy}$ and $\mathbf{xz}$ and the correlations between $\mathbf{x}$,$\mathbf{y}$, and $\mathbf{z}$. For simplicity, we limit our illustration to the case where $\mathbf{x}$,$\mathbf{y}$, and $\mathbf{z}$ are multivariate normal distributed with means $0$ and standard deviation $1$. A general solution is beyond the scope of this paper. 
+
+When 
+\begin{equation*}
+    \begin{bmatrix}
+    \mathbf{x} & \mathbf{y} & \mathbf{z}
+    \end{bmatrix}^T
+    \sim 
+    \mathcal{N}(0, \Omega)
+\end{equation*}
+
+then
+
+\begin{equation*}
+    \begin{bmatrix}
+    \mathbf{x} & \mathbf{y} & \mathbf{z}
+    \end{bmatrix}^T
+    \sim
+    L^T
+    \begin{bmatrix}
+    \mathbf{x} & \mathbf{\Tilde{y}} & \mathbf{\Tilde{z}}
+    \end{bmatrix}^T
+\end{equation*}
+
+with $\Omega = LL^T$ and $\mathbf{x}, \mathbf{\Tilde{y}}, \mathbf{\Tilde{z}} \stackrel{i.i.d}{\sim} \mathcal{N}(0, 1)$. 
+
+\begin{align*}
+    cov(\mathbf{xy}, \mathbf{xz}) 
+    &= E(\mathbf{x^2 y z}) - E(\mathbf{xy}) E(\mathbf{xz}) \\
+    &= E(\mathbf{x^2} (L_{21} \mathbf{x} + L_{22} \mathbf{\Tilde{y}}) 
+        (L_{31} \mathbf{x} + L_{32} \mathbf{\Tilde{y}} 
+        + L_{33} \mathbf{\Tilde{z}})
+        - \rho_{xy} \rho_{xz} \\
+    &= L_{21} L_{31} E(\mathbf{x^4}) + L_{22} L_{32} E(\mathbf{x^2 \Tilde{y}^2})
+        - \rho_{xy} \rho_{xz} \\
+    &= 3 \rho_{xy} \rho_{xz} + \rho_{yz} - \rho_{xy} \rho_{xz}
+        - \rho_{xy} \rho_{xz} \\
+    &= \rho_{xy} \rho_{xz} + \rho_{yz}
+\end{align*}
+
 
 \subsection{The equilibrium
 conditions}\label{the-equilibrium-conditions}
