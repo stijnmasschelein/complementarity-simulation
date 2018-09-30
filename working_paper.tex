@@ -981,234 +981,27 @@ sub-optimal management control practices.
 
 \section{Appendix}\label{appendix}
 
-\subsection{Correlation between interaction terms}\label{correlation-interaction}
+\subsection{Quotes}\label{correlation-interaction}
 
-In this section, we illustrate the connection between the covariance of
-$\mathbf{xy}$ and $\mathbf{xz}$ and the correlations between $\mathbf{x}$,$\mathbf{y}$, and $\mathbf{z}$. For simplicity, we limit our illustration to the case where $\mathbf{x}$,$\mathbf{y}$, and $\mathbf{z}$ are multivariate normal distributed with means $0$ and standard deviation $1$. A general solution is beyond the scope of this paper. 
+\begin{quote}
+Which {[}specification{]} to use is both a theoretical (assumption of agents as perfectly or boundedly rational) and an empirical (market imperfections, exogenous shocks, experimentation, etc) issue because the likelihood of finding evidence of the former depends on the latter and vice versa (Grabner and Moers, 2013; Gerdin and Greve, 2004). (in Johansson, 2016).
+\end{quote}
 
-When 
-\begin{equation*}
-    \begin{bmatrix}
-    \mathbf{x} & \mathbf{y} & \mathbf{z}
-    \end{bmatrix}^T
-    \sim 
-    \mathcal{N}(0, \Omega)
-\end{equation*}
+\begin{quote}
+decision makers may not have been sufficiently well informed such that they chose efficiency or output enhancing combinations of practices.
+\citep{Carree2011}
+\end{quote}
 
-then
+\textbf{Others have argued that the performance specification can be applied ``as long a the populaetion of organizations includes a reasonable number of organizations that takes non-optimal combinations of practice'' \citep{Carree2011}. TODO: I would be nice find more of these quotes because we show that this is a misconception.}
 
-\begin{equation*}
-    \begin{bmatrix}
-    \mathbf{x} & \mathbf{y} & \mathbf{z}
-    \end{bmatrix}^T
-    \sim
-    L^T
-    \begin{bmatrix}
-    \mathbf{x} & \mathbf{\Tilde{y}} & \mathbf{\Tilde{z}}
-    \end{bmatrix}^T
-\end{equation*}
+About the conditional correlation approach.
+\begin{quote}
+While this approach certainly has intuitive appeal and is easy to implement, it also relies on a strong assumption that the set of conditioning variables is reasonably complete. Without a well-specified reduced form regression, the correlation between the residual (p. 459) terms might not signal complementarity but rather the presence of a third factor that is correlated with the two organizational design choices under consideration. from (Hoffman and van Lent).
+\end{quote}
 
-with $\Omega = LL^T$ and $\mathbf{x}, \mathbf{\Tilde{y}}, \mathbf{\Tilde{z}} \stackrel{i.i.d}{\sim} \mathcal{N}(0, 1)$. 
-
-\begin{align*}
-    cov(\mathbf{xy}, \mathbf{xz}) 
-    &= E(\mathbf{x^2 y z}) - E(\mathbf{xy}) E(\mathbf{xz}) \\
-    &= E(\mathbf{x^2} (L_{21} \mathbf{x} + L_{22} \mathbf{\Tilde{y}}) 
-        (L_{31} \mathbf{x} + L_{32} \mathbf{\Tilde{y}} 
-        + L_{33} \mathbf{\Tilde{z}})
-        - \rho_{xy} \rho_{xz} \\
-    &= L_{21} L_{31} E(\mathbf{x^4}) + L_{22} L_{32} E(\mathbf{x^2 \Tilde{y}^2})
-        - \rho_{xy} \rho_{xz} \\
-    &= 3 \rho_{xy} \rho_{xz} + \rho_{yz} - \rho_{xy} \rho_{xz}
-        - \rho_{xy} \rho_{xz} \\
-    &= \rho_{xy} \rho_{xz} + \rho_{yz}
-\end{align*}
-
-
-\subsection{The equilibrium
-conditions}\label{the-equilibrium-conditions}
-
-\begin{align}
-(\delta_1 \delta_2 - \beta_{12} ^ 2) x_1 =
-  \delta_2 (\beta_1 + \gamma_1 z + \theta_1 w + \epsilon_1) +
-  \beta_{12} (\beta_2 + \gamma_2 z + \theta_2 w + \epsilon_2) \nonumber \\
-(\delta_1 \delta_2 - \beta_{12} ^ 2) x_2 =
-  \delta_1 (\beta_2 + \gamma_2 z + \theta_2 w + \epsilon_2) +
-  \beta_{12} (\beta_1 + \gamma_1 z + \theta_1 w + \epsilon_1)
-\end{align}
-
-\subsection{The conditional
-covariance}\label{the-conditional-covariance}
-
-\begin{align}
-(\delta_1 \delta_1 - \beta_{12}^2)^2 cov(\mathbf{x_1 | z, x_2 | z})
-&=
-(\delta_2 \theta_1 + \beta_{12} \theta_2)(\delta_1 \theta_2 + \beta_{12} \theta_1)
-+ \beta_{12} (\delta_2 \sigma_1^2 + \delta_1\sigma_2^2) \nonumber \\
-&=
-(\delta_1 \delta_2 + \beta_{12}^2) \theta_1 \theta_2
-+ \beta_{12}(\delta_2 \theta_1^2 + \delta_1 \theta_2^2)
-+ \beta_{12} (\delta_2 \sigma_1^2 + \delta_1\sigma_2^2) \nonumber \\
-&=
-\delta_1^2 \delta_2^2 \Bigl [(1 + \beta^2) \overline{\theta} +
-\beta \Bigl (\frac{v_1^2}{\delta} + \delta v_2^2 \Bigr) \Bigr]
-\end{align}
-
-\[
-\beta = \frac{\beta_{12}}{\sqrt{\delta_1 \delta_2}} \land
-\overline{\theta_i} = \frac{\theta_i}{\sqrt{\delta_1 \delta_2}} \land
-\overline{\theta} = \overline{\theta_1} \overline{\theta_2} \land
-\delta = \sqrt{\frac{\delta_1}{\delta_2}} \land
-v_i^2 = \frac{\theta_i^2 + \sigma_i^2}{\delta_1 \delta_2}
-\]
-
-\subsection{Conditional variance}\label{conditional-variance}
-
-\begin{align}
-(\delta_1 \delta_2 + \beta_{12}^2)^2 var(\mathbf{x_1 | z})
-&=
-(\delta_2 \theta_1 + \beta_{12} \theta_2)^2
-+ \delta_2^2 \sigma_1^2 + \beta_{12}^2 \sigma^2_2 \nonumber \\
-&=
-\delta_1^2 \delta_2^2 \Bigl [
-\frac{v^2_1}{\delta^2} + \beta^2 v^2_2
-+ 2 \frac{\beta}{\delta} \overline{\theta} \Bigr ]\\
-(\delta_1 \delta_2 + \beta_{12}^2)^2 var(\mathbf{x_2 | z})
-&=
-\delta_1^2 \delta_2^2 \Bigl [
-\beta^2 v_1^2 + \delta^2 v^2_2
-+ 2 \beta \delta \overline{\theta}
-\Bigr ]
-\end{align}
-
-\subsection{Conditional correlation}\label{conditional-correlation}
-
-\begin{align} \label{eq:cond-corr}
-cor(\mathbf{x_1|z, x_2|z})
-&=
-\frac{
-  (1 + \beta^2) \overline{\theta} +
-  \beta \Bigl (\frac{v_1^2}{\delta} + \delta v_2^2 \Bigr)
-}{
-\sqrt{
-  \Bigl (\frac{v^2_1}{\delta^2} + \beta^2 v^2_2
-  + 2 \frac{\beta}{\delta} \overline{\theta} \Bigr)
-  \Bigl (\beta^2 v_1^2 + \delta^2 v^2_2 + 2 \beta \delta
-  \overline{\theta} \Big)
-}} \nonumber \\
-&=
-\frac{
-  (1 + \beta^2) \overline{\theta} +
-  \beta \Bigl (\frac{v_1^2}{\delta} + \delta v_2^2 \Bigr)
-}{
-\sqrt{
-  4 \beta^2 \overline{\theta}^2
-  + (1 + \beta^4) v_1^2 v_2^2
-  + \beta^2 \Bigl (\frac{v_1^4}{\delta^2} + \delta^2 v_2^4 \Bigr)
-  + 2 \beta \overline{\theta}
-  \Bigr (\frac{\beta^2 v_1^2}{\delta} + \delta v_2^2
-         + \frac{v^2_1}{\delta} + \delta \beta^2 v^2_2
-  \Bigl )
-}} \nonumber \\
-&=
-\frac{
-  (1 + \beta^2) \overline{\theta} +
-  \beta \Bigl (\frac{v_1^2}{\delta} + \delta v_2^2 \Bigr)
-}{
-\sqrt{
-  4 \beta^2 \overline{\theta}^2
-  + (1 + \beta^4) v_1^2 v_2^2
-  + \beta^2 \Bigl (\frac{v_1^4}{\delta^2} + \delta^2 v_2^4 \Bigr)
-  + 2 \beta \overline{\theta} (1 + \beta^2)
-  \Bigr (
-  \frac{v_1^2}{\delta} + \delta v_2^2
-  \Bigl )
-}} \nonumber \\
-&=
-\frac{
-  (1 + \beta^2) \overline{\theta} +
-  \beta \Bigl (\frac{v_1^2}{\delta} + \delta v_2^2 \Bigr)
-}{
-\sqrt{
-  4 \beta^2 \overline{\theta}^2
-  + (1 + \beta^4) v_1^2 v_2^2
-  - 2 \beta^2 v_1^2 v_2^2
-  + \beta^2 \Bigl (  \frac{v_1^2}{\delta} + \delta v_2^2 \Bigr )^2
-  + 2 \beta \overline{\theta} (1 + \beta^2)
-  \Bigr (
-  \frac{v_1^2}{\delta} + \delta v_2^2
-  \Bigl )
-}} \nonumber \\
-&=
-\frac{
-  (1 + \beta^2) \overline{\theta} + \beta v_1 v_2 \Delta
-}{
-\sqrt{
-  4 \beta^2 \overline{\theta}^2
-  + (1 - \beta^2)^2 v_1^2 v_2^2
-  + \beta^2 v_1^2 v_2^2 \Delta^2
-  + 2 \beta \overline{\theta} (1 + \beta^2) v_1 v_2 \Delta
-}} \nonumber \\
-&=
-\frac{
-  (1 + \beta^2) \overline{\theta} + \beta v_1 v_2 \Delta
-}{
-\sqrt{
-  4 \beta^2 \overline{\theta}^2
-  + (1 - \beta^2)^2 v_1^2 v_2^2
-  - (1 + 2\beta^2 + \beta^4) \overline{\theta}^2
-  + [(1 + \beta^2) \overline{\theta} + \beta v_1 v_2 \Delta] ^ 2
-}} \nonumber \\
-&=
-\frac{
-  (1 + \beta^2) \overline{\theta} + \beta v_1 v_2 \Delta
-}{
-\sqrt{
-  (1 - \beta^2)^2 (v_1^2 v_2^2 - \overline{\theta}^2)
-  + [(1 + \beta^2) \overline{\theta} + \beta v_1 v_2 \Delta] ^ 2
-}} \nonumber \\
-&=
-\frac{
-  (1 + \beta^2) r + \beta \Delta
-}{
-\sqrt{
-  (1 - \beta^2)^2 (1 - r^2)
-  + [(1 + \beta^2) r + \beta \Delta] ^ 2
-}}
-\end{align}
-
-\[
-\Delta = \frac{v_1}{\delta v_2} + \frac{\delta v_2}{v_1}
-\land r = \frac{\overline{\theta}}{v_1 v_2}
-\] \(\Delta \geq 2\) is a parameter that purely captures the asymmetry.
-\(r\) is the omitted correlation of the performance effects of the
-choices. Equation \(\ref{eq:cond-corr}\) can be seen as explained
-variation in the numerator and the sum of unexplained and explained
-variation in the denominator. In the end, the conditional correlation
-only depends on three factors the interdependency \(\beta\), the
-unobserved correlation \(r\), and the asymmetry of the unobserved
-performance effects \(\Delta\).
-
-\subsection{Correlation between z and
-w}\label{correlation-between-z-and-w}
-
-Two correlated environmental factors (\(\mathbf{z}, \mathbf{w}\)) can
-always be rewritten as two uncorrelated
-(\(\mathbf{z}, \mathbf{\widehat{w}}\)) variables. The measured variable
-will have a biased estimate, \(\widehat{\gamma_i}\)
-\(= \gamma_i + \rho \theta_i\), but this estimate is not of interest
-when we are testing for an interdependency between \(\mathbf{x_1}\) and
-\(\mathbf{x_2}\).
-
-\begin{align}
-  \gamma_i \mathbf{z} + \theta_i \mathbf{w} &= \gamma_i \mathbf{z} +
-  \theta (\rho \mathbf{z} + \sqrt{(1 - \rho^2)} \mathbf{\widehat{w}})
-  \nonumber \\
-  &= (\gamma_i + \rho \theta_i) \mathbf{z} + \theta_i \sqrt{1 - \rho^2}
-  \mathbf{\widehat{w}} \nonumber \\
-  &= \widehat{\gamma_i} \mathbf{z} + \widehat{\theta_i}
-  \mathbf{\widehat{w}} \nonumber
-\end{align}
+\begin{quote}
+This focus is appropriate as the control problems examined in this study (i.e. the alignment of behaviours to the strategic objectives of the firm) are complex and require significant experimentation by top management, particularly in conditions characterized by uncertainty such as the prospector strategic context (Simons, 1995). Hence it is unlikely that firms will be, on average, in an optimal equilibrium. in \citep{Bedford2016}
+\end{quote}
 
 \newpage
 
