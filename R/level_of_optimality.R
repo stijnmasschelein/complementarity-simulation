@@ -60,15 +60,18 @@ sim_vars = function(interval = c(-5, 5), obs = 200, rep = 1, rate = 0.5, sd = 1,
   var_random = do.call(var1, par_vars)
   var_optim  = do.call(var2, par_vars)
   r2 = (var_random - var_sample)/(var_random - var_optim)
+  corxx = cor(sample$x1, sample$x2)
+  corxz = cor(sample$x1, sample$z)
   return(list(var_sample = var_sample, var_random = var_random,
-              var_optim = var_optim, r2 = r2))
+              var_optim = var_optim, r2 = r2, corxx = corxx,
+              corxz = corxz))
 }
 res = do.call(sim_vars, params)
 
 #' ## Run a simulation
 #' ### Fixed parameters
 
-params_sim =  list(interval = c(-5, 5), d = c(1, 1), g = c(.5, -.5),
+params_sim =  list(interval = c(-5, 5), d = c(1, 1), g = c(.3, 0),
                    s = c(1, 1), obs = 300, rep = 1, b1 = c(0, 0, 0))
 
 #' ### Varing parameters
@@ -100,7 +103,21 @@ for (comp in b12){
 dat = tbl_df(dat) %>%
   mutate(ratio = (var_sample - var_optim) / var_sample)
 
-ggplot(dat, aes(y = ratio, x = as.factor(b12))) +
-  geom_jitter() +
+plot_opt = ggplot(dat, aes(y = ratio, x = as.factor(b12))) +
+  geom_point(alpha = .25) +
   facet_wrap(~ opt)
+cowplot::ggsave("figure-other/optimality.pdf", plot)
+
+plot_xx = ggplot(dat, aes(y = corxx, x = as.factor(b12))) +
+  geom_point(alpha = .25) +
+  facet_wrap(~ opt)
+cowplot::ggsave("figure-other/correlation_complement.pdf", plot)
+
+plot_xz = ggplot(dat, aes(y = corxz, x = as.factor(b12))) +
+  geom_point(alpha = .25) +
+  facet_wrap(~ opt)
+cowplot::ggsave("figure-other/correlation_contingency.pdf", plot)
+
+plot_summ = cowplot::plot_grid(plot_opt, plot_xx, plot_xz, nrow = 1, labels = c("A", "B", "C"))
+cowplot::save_plot("figure-other/summary.pdf", plot_summ, ncol = 3)
 
