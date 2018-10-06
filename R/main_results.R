@@ -4,7 +4,7 @@ sim = readRDS("simulated_data/main_simulation.Rds")
 dat = make_sim_pretty(sim) 
 
 dat_plot = 
-  mutate(dat, optim_fact = paste("N ==", optim),
+  mutate(dat, optim_fact = paste("O ==", optim),
               g1_fact = paste("gamma[2] ==", g1)) %>%
   arrange(optim) %>%
   mutate(optim_fact = fct_relevel(optim_fact, unique(optim_fact)))

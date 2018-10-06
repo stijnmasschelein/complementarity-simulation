@@ -31,7 +31,6 @@ for (comp in b12){
     new_sim = data.frame(t(apply(new_sim, 1:2, unlist)));
     colnames(new_sim) = names;
     new_sim$b12 = comp; new_sim$opt = optim;
-    # new_sim$ratio = (new_sim$var_sample - new_sim$var_optim);
     dat = rbind(dat, new_sim)
     cat("done: b12 =", comp, "and opt =", optim, "\n")
   }
@@ -42,15 +41,21 @@ dat = tbl_df(dat) %>%
 
 plot_opt = ggplot(dat, aes(y = ratio, x = as.factor(b12))) +
   geom_point(alpha = .25) +
-  facet_wrap(~ opt)
+  facet_wrap(~ opt, labeller = label_bquote(O == .(opt))) + 
+  labs(x = expression(beta[12]), y = "non-optimality ratio") +
+  theme(strip.background = NULL)
 
 plot_xx = ggplot(dat, aes(y = corxx, x = as.factor(b12))) +
   geom_point(alpha = .25) +
-  facet_wrap(~ opt)
+  facet_wrap(~ opt, labeller = label_bquote(O == .(opt))) + 
+  labs(x = expression(beta[12]), y = expression(cor(x[1], x[2]))) +
+  theme(strip.background = NULL)
 
 plot_xz = ggplot(dat, aes(y = corxz, x = as.factor(b12))) +
   geom_point(alpha = .25) +
-  facet_wrap(~ opt)
+  facet_wrap(~ opt, labeller = label_bquote(O == .(opt))) + 
+  labs(x = expression(beta[12]), y = expression(cor(x[1], z))) +
+  theme(strip.background = NULL)
 
 plot_summ = cowplot::plot_grid(plot_opt, plot_xx, plot_xz, nrow = 1, 
                                labels = c("A", "B", "C"))
