@@ -75,13 +75,13 @@ Following the theoretical innovations of complementarity theory, management cont
  
 While the focus on interdependencies in the management control literature is relatively new, the literature has a longer tradition rooted in contingency theory.  Contingency theory argues that environmental factors favor certain management control practices or certain combinations of practices (\citet{Grabner2013,Chenhall2003}). TODO: Add a couple of examples here and in the literature review. To be consistent with the current state of the management control literature, our theoretical model assumes that the effectiveness of individual management control practices depends on the environment and on other practices.
  
-This paper compares the two main specifications to empirically test for an interdependency between practices: the performance specification and the demand specification \citep{Grabner2013}. The demand approach assumes that firms simultaneously choose the optimal level of practices taking into account the interdependency and the firm's environment. Under this assumption, controlling for environmental factors, complementary practices are positively correlated with each other \citep{Arora1996,Grabner2013,hofmann2017organizational,Johansson2018}. The performance specification assumes that there are a sufficient number of firms that deviate from those optimal choices which allows researchers to detect performance differences. Under this assumption, the interaction between the two practices is positively correlated with performance \citep{Athey1998,Carree2011, Grabner2013, hofmann2017organizational}. The distinction between both specifications is similar to the distinction between contingency fit and congruence fit in the contingency literature \citep{VandeVen1985a, Gerdin2004}. 
+This paper compares the two main specifications to empirically test for an interdependency between practices: the performance specification and the demand specification \citep{Grabner2013}. The demand approach assumes that firms simultaneously choose the optimal level of practices taking into account the interdependency and the firm's environment. Under this assumption, controlling for environmental factors, complementary practices are positively correlated with each other \citep{Arora1996,Grabner2013,Johansson2018, Hofmann2015OrganizationalChoices}. The performance specification assumes that there are a sufficient number of firms that deviate from those optimal choices which allows researchers to detect performance differences. Under this assumption, the interaction between the two practices is positively correlated with performance \citep{Athey1998,Carree2011, Grabner2013, Hofmann2015OrganizationalChoices}. The distinction between both specifications is similar to the distinction between contingency fit and congruence fit in the contingency literature \citep{VandeVen1985a, Gerdin2004}. 
 
-The empirical and methodological literature acknowledges that neither the assumption of randomly assigned practices or the assumption of completely optimal practices can be maintained in most empirical studies (TODO: Milgrom and Brynjolffson). The methodological literature has treated the assumption about the optimality of observed practices as an untestable assumption where researchers need to argue whether their chosen specification is appropriate for their research setting. The demand specification is often seen as more appropriate than the performance specification when it is more likely that one decision maker has designed the entire accounting system, when the optimal design is not too complicated, and when the decision makes has had sufficient time and incentive to choose the optimal system \citep{Grabner2013, hofmann2017organizational, Carree2011, Johansson2018}.  The performance specification is often deemed appropriate when there are a sufficient number of firms that do not adopt the optimal practices \citep{Carree2011, Bedford2016}. 
+The empirical and methodological literature acknowledges that neither the assumption of randomly assigned practices or the assumption of completely optimal practices can be maintained in most empirical studies \citep{Brynjolfsson2013ComplementarityOrganizations}. The methodological literature has treated the assumption about the optimality of observed practices as an untestable assumption where researchers need to argue whether their chosen specification is appropriate for their research setting. The demand specification is often seen as more appropriate than the performance specification when it is more likely that one decision maker has designed the entire accounting system, when the optimal design is not too complicated, and when the decision makes has had sufficient time and incentive to choose the optimal system \citep{Grabner2013, Hofmann2015OrganizationalChoices, Carree2011, Johansson2018}.  The performance specification is often deemed appropriate when there are a sufficient number of firms that do not adopt the optimal practices \citep{Carree2011, Bedford2016}. 
 
 We theoretically derive the demand and performance specification from the same underlying and unobserved performance function and show the potential statistical problems that arise with either approach. Consistent with earlier literature, our model captures that the demand (performance) specification has more power to detect an interdependency when management control practices are closer to (further from) optimal. In contrast to the existing literature, we show that in a setting with contingency and complementarity effects, both specifications are vulnerable to the same omitted variable bias. An estimate of the interdependency between two practices is biased when the empirical specification does not control for an environmental factor (or third practice) on which both practices of interest depend and the decision makers are not completely ignorant of the optimal management control system. 
 
- While the omitted correlated variable problem is widely recognised for the demand specification \citep{Grabner2013, Arora1996, hofmann2017organizational}. However, the literature either discusses the omitted correlated variable problem of the demand approach but not for the performance specification \citep{Grabner2013,hofmann2017organizational} or outright states that that the performance specification does not suffer from the omitted correlated variable bias \citep{Carree2011}.  In addition, we show how both specifications can control for the bias when all relevant environmental factors and practices are observed. Unfortunately, the most commonly used variant of the production specification does not address the bias properly.
+ While the omitted correlated variable problem is widely recognised for the demand specification \citep{Grabner2013, Arora1996,Hofmann2015OrganizationalChoices}. However, the literature either discusses the omitted correlated variable problem of the demand approach but not for the performance specification \citep{Grabner2013,Hofmann2015OrganizationalChoices} or outright states that that the performance specification does not suffer from the omitted correlated variable bias \citep{Carree2011}.  In addition, we show how both specifications can control for the bias when all relevant environmental factors and practices are observed. Unfortunately, the most commonly used variant of the production specification does not address the bias properly.
 
 Because the vulnerabilities of both specifications depend on the level of optimality, this study compares the robustness of both specifications to variations in the level of optimality in a simulation study. The results show that the demand approach has appropriate type I error rates while maintaining power to detect a real complementary effect even at low levels of optimality. In contrast, the theoretically derived performance function approach suffers from elevated type I error rates and loses power to detect true interdependencies. In addition, we compare the performance specification as it is typically implemented in the literature to the theoretically derived performance function specification. The typical specification exhibits inflated type I error rates while having little power to detect a real interdependency at all but the lowest levels of optimality.
 
@@ -154,7 +154,7 @@ Similarly, it is optimal for firms to adopt two practices $i$ and $j$ when the p
     \end{aligned} 
 \end{equation}
 
-This line of reasoning can be extended for the necessary inequality conditions for the optimal adoption of $p \leq n$ binary practices. However, we do not need the complete set of conditions to illustrate that the same set of conclusions hold as for the continuous practices. First, whether a practice is optimally adopted depends on the contingency factors. Second, whether two practices are adopted together depends the interdependency parameters $\beta_{ij}$. In the absence of interdependencies, $\beta_{12} = 0$, the second and third condition in equation \eqref{eq:condition-two-binary} simplify to the condition \eqref{eq:condition-binary} and when they both are satisfied, the first condition holds as well. That is in the absence of an interdependency between practices, the adoption of one practice is not a function of the adoption of the other practice.
+This line of reasoning can be extended for the necessary inequality conditions for the optimal adoption of $p \leq n$ binary practices. However, we do not need the complete set of conditions to illustrate that the same set of conclusions hold as for the continuous practices. First, whether a practice is optimally adopted depends on the contingency factors. Second, whether two practices are adopted together depends the interdependency parameters $\beta_{ij}$. In the absence of interdependencies, $\beta_{12} = 0$, the second and third condition in equation \eqref{eq:condition-two-binary} simplify to the condition \eqref{eq:condition-binary} and when they are both satisfied, the first condition holds as well. That is in the absence of an interdependency between practices, the adoption of one practice is not a function of the adoption of the other practice.
 
 \subsection{Empirical Correlations}
 
@@ -189,7 +189,7 @@ The bulk of the literature follows the third performance specification which als
 
 \subsubsection{Lack of Power}
 
-In the remainder of this section, we explain the potential problems with these three specifications. All three specifications, will suffer form the well known problem we explained above that performance is no longer a function of the management practices when firms adopt the optimal practices \citep{Grabner2013}. With strictly optimal practices, there is no longer information about the practices in the performance variable. The literature advises that for a performance specification to have sufficient power, there need to be a sufficient number of firms that are not adopting the optimal level of the practices \citep{Bedford2016,Carree2011,hofmann2017organizational}. However, the literature has not gone beyond this rule of thumb to investigate how strong the deviations from optimality need to be. Our simulation study will provide an answer to this question.
+In the remainder of this section, we explain the potential problems with these three specifications. All three specifications, will suffer form the well known problem we explained above that performance is no longer a function of the management practices when firms adopt the optimal practices \citep{Grabner2013}. With strictly optimal practices, there is no longer information about the practices in the performance variable. The literature advises that for a performance specification to have sufficient power, there need to be a sufficient number of firms that are not adopting the optimal level of the practices \citep{Bedford2016, Carree2011,  Hofmann2015OrganizationalChoices}. However, the literature has not gone beyond this rule of thumb to investigate how strong the deviations from optimality need to be. Our simulation study will provide an answer to this question.
 
 \subsubsection{Correlated Omitted Variables}
 
@@ -226,7 +226,7 @@ The \emph{demand specification} can take two forms, a regression approach and th
 
 The regression specification approximates the optimality condition  \eqref{eq:optimal-matrix} where \(\beta^d_{ij}\) is the parameter that estimates the complementarity effect. $\beta_{ij}^d$ is proportional to the  correlation between $\mathbf{x_i}$ and $\mathbf{x_j}$ conditional on all other practices and environmental factors as a result  $\beta^d_{ij} = \beta_{ij} \lambda^d_{ij}$ with $\lambda^d_{ij} > 0$ if at least some firms take into account the interdependency when designing the accounting system. Therefore, a disadvantage of the regression approach is that it cannot directly estimate size of the interdependency.
 
-The conditional correlation approach estimates the correlation matrix $R = -D^{-1}B^{-1}D^{-1}$ between the practices  conditional on the environmental practices where $D$ is a diagonal matrix. Prior research has used seemingly unrelated regressions and OLS regressions to condition on the environmental practices \citep{Indjejikian2012}. Early methodological work argued that the estimated conditional correlation , $R^c_{ij}$, test whether there are any interdependencies in the accounting system involving both $x_i$ and $x_j$ \citep{Arora1996}.  Later empirical work, estimates the partial correlation matrix ${R^c}^{-1}$. Because ${R^c}^{-1}_{ij} = \beta_{ij} \lambda^c_{ij}$ , the partial correlation tests directly for an interdependency between $x_i$ and $x_j$ \citep{Indjejikian2012}. 
+The conditional correlation approach estimates the correlation matrix $R = -D^{-1}B^{-1}D^{-1}$ between the practices  conditional on the environmental practices where $D$ is a diagonal matrix. Prior research has used seemingly unrelated regressions and OLS regressions to condition on the environmental practices \citep{Indjejikian2012, Matejka2017BalancingEvidence}. Early methodological work argued that the estimated conditional correlation , $R^c_{ij}$, test whether there are any interdependencies in the accounting system involving both $x_i$ and $x_j$ \citep{Arora1996}.  Later empirical work, estimates the partial correlation matrix ${R^c}^{-1}$. Because ${R^c}^{-1}_{ij} = \beta_{ij} \lambda^c_{ij}$ , the partial correlation tests directly for an interdependency between $x_i$ and $x_j$ \citep{Indjejikian2012}. 
 
 In this study, we are interested in comparing the robustness of different tests whether an interdependency between two practices exists. As we showed above, the partial conditional correlation approach and the regression approach are equivalent in that they estimate the interdependency, $\beta_{ij}$, scaled by a positive factor. In the remainder of the paper, we will explain the problems with the demand specification from the perspective of the regression approach. Those problems equally apply to the partial conditional correlation approach.  
 
@@ -296,280 +296,102 @@ In order to vary the level of optimality in a sample of firms, the simulation pr
      &\text{if } y^o = y^{max} \text{then } y = y^o, x_i = x^o_i
 \end{aligned}
 \end{equation}
+
 The structural parameter values for the main analysis are as follows. We set $\beta_0, \beta_{11}, \beta_{22} = 0$ because they do not interact with the interdependency effect. Keeping $\beta_{11}, \beta_{22}$ also ensures that the average optimal level of the practices is in the middle of the distribution the practices are generated from and minimises any ceiling of floor biases in the algorithm.  The $\delta$'s and $\sigma$'s mainly determine the scale and unobserved heterogeneity of the effects. They do interact with the interdependency and will be varied to investigate the robustness of the main analysis. We set them all equal to 1 in the main analysis. The key complimentarity parameter $\beta_{12}$ is set at $0.25$ for the main analysis while the contingency effects are set at $\gamma_1 = 0.33$ and $\gamma_2 = 0$. Because the contingency variable only affects the performance of one practice, there will be no omitted correlated variable bias in any of the specifications under this basis model. To investigate whether the different specifications are able to detect a true effect under different levels of optimality in the sample while maintaining nominal Type I error rates we will compare samples with a complementarity effect ($\beta_{12} = .25$) to samples without a complimentarity effect ($\beta_{12} = 0$). To investigate the effect of the omitted correlated variable bias, we will compare samples where the contingency effect on the second practise varies from being absent ($\gamma_2 = 0$) to being positive ($\gamma_2 = 0.33$) and negative ($\gamma_2 = 0.33$).  In the next section, we show how the baseline scenario with a complementarity but no omitted correlated variable bias is a good reflection of a typical study in the management accounting survey literature.
 
 \subsection{Calibration to Empirical Studies}\label{optimality}
 
-In order to calibrate the simulation, we collected the published survey studies that cited \citet{Grabner2013} with an interdependency hypothesis. The median number of observations in the studies is 240 and the average is 300. To give the methods the benefit of the doubt, we will create samples of 300 firm observations where each observations follows the algorithm above. Next, we collect the correlation matrix from 8 studies \citep{Dekker2016, Grabner2016, Bedford2015, Heinicke2016,Bedford2018PerformanceFirms, Abernethy2015a,Sponem2016ExploringApproach, Samagaio2018ManagementInvestigation} that report full correlation matrices with correlation between practices, and between practices and environmental factors. To get an estimate of observed correlations in empirical studies, we calculate the median and 90th percentile absolute correlation between practices and between a practice and an environmental factor. We take the median value of those statistics as an indication for the typical study on interdependencies in management accounting. The median absolute correlation between two practices is $0.25$ and the 90th percentile is $0.39$ in a typical study. The median absolute correlation between a practice and an environmental factor is .0.16 and the 90 percentile is $0.30$.
+In order to calibrate the simulation, we collected the published survey studies that cited \citet{Grabner2013} with an interdependency hypothesis. The median number of observations in the studies is 240 and the average is 300. To give the methods the benefit of the doubt, we will create samples of 300 firm observations where each observations follows the algorithm above. Next, we collect the correlation matrix from 8 studies \citep{Dekker2016, Grabner2016, Bedford2015, Heinicke2016,Bedford2018PerformanceFirms, Abernethy2015a,Sponem2016ExploringApproach, Samagaio2018ManagementInvestigation} that report full correlation matrices with correlations between practices, and between practices and environmental factors. To get an estimate of observed correlations in empirical studies, we calculate the median and 90th percentile absolute correlation between practices and between a practice and an environmental factor. We take the median value of those statistics as an indication for the typical study on interdependencies in management accounting. The median absolute correlation between two practices is $0.25$ and the 90th percentile is $0.39$ in a typical study. The median absolute correlation between a practice and an environmental factor is .0.16 and the 90 percentile is $0.30$.
 
-To illustrate the effect of the optimality parameter and the strength of the associations generated by the simulation algorithm. We generate 50 datasets with each 300 observations under the baseline scenario outlined above under 6 levels of optimality: $O \in  (2, 4, 8, 16, 32, 64)$. For each dataset, we calculate three statistics to illustrate that the simulation reflects a typical management accounting study. The first is the non-optimality ratio between the total squared distance between the optimal level of a practice and the amount of variation in the distance that cannot be explained by unobserved heterogeneity \{footnote}{}. The non-optimality ratio is an indication of how much of the variation in the practices is caused by the simulated search process and how far from the optimal levels the practices in the sample are. The denominator in the ratio is calculated as the sum of $(x_1 - E(x^*|z)^2$ for each observation where $E(x^*|z)$ can be easily derived from the optimality condition \eqref{eq:optimal}. The numerator of the ratio is the difference between the denominator and the amount of variation in $x^*_1$ driven by the unobserved heterogeneity $\epsilon_1$ and $\epsilon_2$ which can also easily be derived from condition \eqref{eq:optimal}. The resulting ratio is comparable to an $R^2$ ratio where non-optimality ratio equals 1 when the difference between $x_1$ and $x^*_1$ can be fully explained by the absence of optimality in the dataset and the ratio equals 0 when $x_1 = x^*_1$. Figure (XXXX) Panel A shows that the ratio for each of the 50 samples for different levels of the optimality parameter $O$. The ratio declines for higher values of the optimality parameter but for all values of the $O$, there is more than $30\%$ of the variation that cannot be explained by the optimality condition. This satisfies the assumption in favor of the performance specification as advocated in prior literature.
-
-\begin{figure}
-\end{figure}
-
-The two other sta
-
-To illustrate the effect of varying the optimality parameter, \(N\), we
-present a scatterplot of the choices, \(\mathbf{x_1}\) and
-\(\mathbf{x_2}\), for different levels of \(N\) in Figure
-\(\ref{scatter}\). The figure shows that with smaller \(N\),
-\(\mathbf{x_1}\) and \(\mathbf{x_2}\) are weakly correlated, while they
-are strongly correlated with larger \(N\) which illustrates the expected
-relation for optimal choices. In other words, with \(N=1\) the simulated
-dataset is consistent with randomly chosen \(\mathbf{x_1}\) and
-\(\mathbf{x_2}\). With \(N \to \infty\), the choices are closer to the
-optimal choices in equation \(\eqref{eq:demand2}\)
+To illustrate the effect of the optimality parameter and the strength of the associations generated by the simulation algorithm. We generate 50 datasets with each 300 observations under the baseline scenario outlined above under 6 levels of optimality: $O \in  (2, 4, 8, 16, 32, 64)$. For each dataset, we calculate three statistics to illustrate that the simulation reflects a typical management accounting study. The first is the non-optimality ratio between the total squared distance between the optimal level of a practice and the amount of variation in the distance that cannot be explained by unobserved heterogeneity. The non-optimality ratio is an indication of how much of the variation in the practices is caused by the simulated search process and how far from the optimal levels the practices in the sample are. The denominator in the ratio is calculated as the sum of $(x_1 - E(x^*|z)^2$ for each observation where $E(x^*|z)$ can be easily derived from the optimality condition \eqref{eq:optimal}. The numerator of the ratio is the difference between the denominator and the amount of variation in $x^*_1$ as a result of the unobserved heterogeneity $\epsilon_1$ and $\epsilon_2$ which can also easily be derived from condition \eqref{eq:optimal}. The resulting ratio is comparable to an $R^2$ ratio where non-optimality ratio equals 1 when the difference between $x_1$ and $x^*_1$ can be fully explained by the absence of optimality in the dataset and the ratio equals 0 when $x_1 = x^*_1$. Figure \ref{calibration} Panel A shows that the ratio for each of the 50 samples for different levels of the optimality parameter $O$. The ratio declines for higher values of the optimality parameter but for all values of the $O$, there is more than $30\%$ of the variation that cannot be explained by the optimality condition. This satisfies the assumption in favor of the performance specification as advocated in prior literature.
 
 \begin{figure}
-
-\includegraphics[width=500px]{figure-latex/scatter-1}
-\caption[Distribution of Choices for Different Levels of
-Optimality]{\label{scatter} Scatter plot of the choices $\mathbf{x_1}$ and
-$\mathbf{x_2}$ for different levels (2, 4, 8, 16, 32, 64) of the optimality
-parameter, $O$. The complementarity effect is fixed at $\beta_{12} = .5$ for all
-samples. The decreasing marginal costs are set as $\delta_1 = \delta_2 = 1$. The
-effect of the environmental variable only affects one of the choices
-($\gamma_1 = .5, \gamma_2 = 0$). Lastly, the unobserved variation parameters are
-set at $\sigma_{\epsilon_1} = \sigma_{\epsilon_2} = .5$ and $\sigma_{\nu} = 1.$}
+\includegraphics[width=450px]{figure-latex/sample_descriptives.pdf}
+\caption[Calibration of Simulated Datasets]{\label{calibration} The figure shows the value of the non-optimality ratio, the correlation between $x_1$ and $x_2$, and the correlation between $x_1$ and $z$ for 50 datasets for 6 different levels (2, 4, 8, 16, 32, 64) of the optimality parameter, $O$. The complimentarity effect is either present ($\beta_{12} = 0.25$) or absent ($\beta_{12} = 0$). The decreasing marginal costs are set as $\delta_1 = \delta_2 = 1$. The effect of the environmental variable only affects one of the choices
+($\gamma_1 = .33, \gamma_2 = 0$). Lastly, the unobserved variation parameters are set at $\sigma_{\epsilon_1} = \sigma_{\epsilon_2} = 1$ and $\sigma_{\nu} = 1.$}
 \end{figure}
 
+The two other statistics reinforce that the baseline scenario is representative of a typical management accounting study. The absolute correlation between $x_1$ varies between 0 and .5 is mostly smaller than the median 90th percentile ($.39$) in a typical study except at the higher levels of optimality. Similarly the correlation between $x_1$ and $z$ varies between 0 and .4 is mostly smaller than the median 90th percentile (.30) in the a typical study except at the higher level of optimality. Hence, we conclude that the associations in our simulations are representative for the management accounting literature. 
+
+\subsection{Specifications and Statistical Tests}
+In the next section, we will compare the type I error rate and power of the different statistical approaches when varying the optimality parameter, \(O\). Because the accounting literature is concerned with testing the hypothesis that there is a (no) complementarity between two management control practices, a focus on error rates and power is appropriate. The \emph{demand} specification we test is the following.
+
+\begin{equation*}
+\mathbf{x_1} = \beta^d_{11} + \beta^d_{12} \mathbf{x_2} + \gamma_1^d \mathbf{z} 
+		+ \mathbf{\epsilon^d}
+\end{equation*}
+The three performance specifications are respectively: 
+\begin{align*}
+\mathbf{y} &=  \beta^{p1}_0 + (\beta^{p1}_{11} + \gamma_1^{p1} \mathbf{z} )\mathbf{x_1} 
+						+ (\beta_{22}^{p1} + \gamma_2 \mathbf{z} ) \mathbf{x_2} 
+                        + \beta_{12}^{p1} \mathbf{x_1} \mathbf{x_2} 
+                        + \delta_1^{p1} \mathbf{x^2_1} + \delta_2^{p1} \mathbf{x^2_2} 
+                        + \alpha^{p1} \mathbf{z}
+                        + \nu^{p1} \\
+ \mathbf{y} &=  \beta^{p2}_0 + (\beta^{p2}_{11} + \gamma_1^{p2} \mathbf{z} )\mathbf{x_1} 
+						+ (\beta_{22}^{p2} + \gamma_2 \mathbf{z} ) \mathbf{x_2} 
+                        + \beta_{12}^{p2} \mathbf{x_1} \mathbf{x_2} 
+                        + \alpha^{p2} \mathbf{z}
+                        + \nu^{p2} \\
+ \mathbf{y} &=  \beta^{p3}_0 + \beta^{p3}_{11} \mathbf{x_1} 
+						+ \beta_{22}^{p3} \mathbf{x_2} 
+                        + \beta_{12}^{p3} \mathbf{x_1} \mathbf{x_2} 
+                        + \alpha^{p3} \mathbf{z}
+                        + \nu^{p3}
+\end{align*}
+The $\beta_{12}$ coefficients for each specification provide the test for the absence of an interdependency. The simulation generates 1000 datasets for each combination of parameter. For each combination, we report the distribution of the t-statistic for the interdependency coefficient and compare it to the traditional cut-off value for the $5\%$ level of significance ($1.97$). We calculate the type I error rate and power of the specifications based on the the t-statistic to investigate the performance of the demand and performance specifications in more detail . The type I error is the percentage of datasets with no complementarity where the t-statistic is higher than \(1.97\) or lower than \(-1.97\). The power is the percentage of datasets with a real effect where the t-statistic exceeds \(1.97\). An important caveat is that the power of a study will also be influenced by measurement error, random variation and the number of observations in the study. In the simulations, we assumed no measurement error, fixed the parameters that control random variation, \(\sigma_{\epsilon_1}\), \(\sigma_{\epsilon_2}\), and \(\sigma_{\nu}\), and the number of observations per dataset. As a result, the absolute percentages we report should be interpreted with caution. This study is mainly interested in the relative differences between specifications. 
+
+\section{Results}
 \subsection{Performance and Demand Function
 Approach}\label{performance-and-demand-function-approach}
 
-In the next section, we will compare the type I error rate and power of
-the different statistical approaches when varying the optimality
-parameter, \(N\). Because the accounting literature is concerned with
-testing the hypothesis that there is (no) complementarity between two
-management control practices, a focus on error rates and power is
-appropriate. For brevity, we omit the results for the conditional
-correlation specification as they are indistinguishable from the demand
-function specification.
+In the first results section, we compare the type I error rate and power of the different statistical approaches when varying the optimality parameter, $O$, under variations to the baseline scenario. Figure \ref{main} shows a boxplot for the distribution of  t-static for each type of test and each combination of parameters. The dot of the boxplot represents the median t-statistic of the 1000 datasets, the gap between the whiskers represent the interquartile range, and the whiskers indicate the minimum and maximum t-statistic. Each boxplot can be compared to the zero line and the lines representing a 95\% confidence interval around a null effect.
 
-For each combination of parameters, we generate 1000 datasets of 300
-observations, a typical dataset in the literature, and plot the t-static
-for \(\beta^p_{12}\) and \(\beta^d_{12}\) in each dataset. The datasets
-are created with the following fixed parameters,
-\(\delta_1 = \delta_2 = 1\),
-\(\sigma_{\epsilon_1} = \sigma_{\epsilon_2} = .5\) , and
-\(\sigma_{\nu} = 1\). The parameters of interest, \(N\), \(\beta_{12}\),
-\(\gamma_1\), and \(\gamma_2\) are varied across datasets. The
-optimality parameter, \(N\), is manipulated as 2, 4, 8, 16, 32, and 64.
-The complementarity is either present (\(\beta_{12} = 0.5\)) or the null
-hypothesis is true (\(\beta_{12} = 0\)). The potentially confounding
-environmental factor, \(\gamma_1\) and \(\gamma_2\), is either only
-affecting one choice (\(\gamma_1 = .5, \gamma_2 = 0\)), or its effects
-are positively correlated (\(\gamma_1 = \gamma_2 = .5\)), or negatively
-correlated (\(\gamma_1 = .5\) and \(\gamma_2 = -.5\)).
+Figure \ref{main} shows that the demand approach and the theoretically appropriate \emph{performance 1} specification have on average a t-static close to 0 in the absence of an interdependency. The figure also reveals the basic trade-off between the demand approach and the performance approach: with low levels of optimality the performance function is more likely to detect a true complementarity effect while the demand function is more likely to detect a true complementarity effect with high levels of optimality \citep{Grabner2013, Aral2012,Johansson2018}. Interestingly, even at relatively low levels of optimality, \(O = 4\), the demand approach has similar power to the \emph{performance 1} approach. Figure \ref{calibration} shows that with $O=4$ the optimality condition can at best explain 40\% of the variation in the distance between the observed level of the practices and the optimal level of the practices. That is, if firms avoid the worst possible combinations (see Figure \ref{scatter}), the demand approach is more likely to detect a true effect.
 
-Figure \ref{basic} shows the boxplot for the t-static for each type of
-test and each combination of parameters. The dot represents the median
-t-statistic of the 1000 datasets, the gap between the whiskers represent
-the interquartile range, and the whiskers indicate the minimum and
-maximum t-statistic. Each boxplot can be compared to the zero line and
-the lines representing a 95\% confidence interval around a null effect.
+The \emph{performance 2} specification without the quadratic terms fares worse than the \emph{perfomance 1} specification at lower optimality levels. As shown in the theoretical model, the omission of the quadratic terms does not bias the estimate of a complementarity in the absence of the complementarity ($\beta_{12} = 0$).  However, the omission decreases the ability of the \emph{performance} specification to detect a real interdependency ($\beta_{12} = 0.25$) at lower levels of optimality. Paradoxically, because the bias inflates the interdependency estimate with a factor proportional to the partial correlation between $x_1$ and $x_2$, the \emph{performance 2} specification has more power to detect a real interdependency at higher levels of optimality. In effect, the bias in \emph{performance 2} picks up the effect of the demand specification.
 
 \begin{figure}
-
-\includegraphics[width=500px]{figure-latex/unnamed-chunk-5-1}
+\includegraphics[width=450px]{figure-latex/main_plot.pdf}
 \caption[Error Rate and Power of Demand and Performance Specification]
-{\label{basic} t-static of the performance and demand approach to test
-for complementarities when there is a complementarity effect ($\beta_{12} = .5$)
+{\label{main} t-static of the performance and demand approach to test
+for complementarities when there is a complementarity effect ($\beta_{12} = .25$)
 or a null ($\beta_{12} = 0$). The boxplots represent the median (the dot) the
 interquartile range (the gap), and the minimum and maximum (the whiskers). $N$
 is varied between 2, 4, 8, 16, 32, and 64. The effect of the environmental
-variable, $\mathbf{z}$, on the second choice is either absent
-($\gamma_1 = .5,  \gamma_2 = 0$), positive ($\gamma_1 = \gamma_2 = .5$),
-or negative ($\gamma_1 = .5$ and $\gamma_2 = -.5$).}
+variable, $\mathbf{z}$, on the second choice is either absent 
+($\gamma_1 = .33,  \gamma_2 = 0$), positive ($\gamma_1 = \gamma_2 = .33$), or negative ($\gamma_1 = .33$ and $\gamma_2 = -.33$).}
 \end{figure}
 
-Figure \ref{basic} shows that the demand approach and the theoretically
-derived \emph{performance 1} approach have on average a t-static close
-to 0 in the absence of an interdependency. The figure also reveals the
-basic trade-off between the demand approach and the performance
-approach: with low levels of optimality the performance function is more
-likely to detect a true complementarity effect while the demand function
-is more likely to detect a true complementarity effect with high levels
-of optimality \citep{Grabner2013, Aral2012}. Interestingly, even at
-relatively low levels of optimality, \(N = 4\), the demand approach has
-similar power to the \emph{performance 1} approach. That is, if firms
-avoid the worst possible combinations (see Figure \ref{scatter}), the
-demand approach has the power to detect a true effect.
 
-The \emph{performance 2} and \emph{3} specification fare worse compared
-to the theoretically appropriate specifications. Both drop the quadratic
-effects that control for decreasing marginal costs. In addition,
-\emph{performance 3} does not control for the interactions
-\(\mathbf{x_1z}\) and \(\mathbf{x_2z}\). The latter omission effects the
-estimate for the complementarity even with a null effect. Figure
-\ref{basic} shows that when \(\gamma_2 \neq 0\), the median t-statistic
-diverges from 0 and the divergence increases with the level of
-optimality. The intuition behind this result is that with higher levels
-of optimality and when \(\gamma_1 \gamma_2 \neq 0\), the environmental
-factor is correlated with the management controls and hence the
-interactions, \(\mathbf{x_1z}\) and \(\mathbf{x_2z}\), are correlated
-with the interaction \(\mathbf{x_1 x_2}\). Omitting the interactions
-between the environmental factors and the management accounting choices,
-biases the estimates of the interdependency,
-\(\beta_{12}^{p3} \mathbf{x_1 x_2}\).
+The \emph{performance 3}  specification fares worse than all other specification. The omission of the interaction terms \(\mathbf{x_1z}\) and \(\mathbf{x_2z}\) biases the estimate of the interdependency when $\gamma_1 \gamma_2 \neq 0$. The bias can be easily seen in Figure \ref{main} from the lowest levels of optimality. The distribution of t-statistics for the no interdependency datasets no longer centers on $0$ when the environmental factor has a contingency effect on the performance of both practices. The bias also increases with higher levels of optimality. The bias is negative when $\gamma_2$ is negative and positive when $\gamma_2$ is positive.  The latter results shows that the most common performance specifications currently used in the management accounting literature are inappropriate to test for interdependencies in an observational sample.
 
-The most dramatic effects of the omitted correlated variables can be
-observed when a true interdependency exists. When the optimality
-parameter exceeds 4, the \emph{performance 2} and \emph{performance 3}
-specification are unlikely to detect the true effect,
-\(\beta_{12} = .5\), and are under some circumstances likely to report a
-substitution effect. The latter results shows that the performance
-approaches currently used in the management accounting literature are
-inappropriate to test for interdependencies with most parameter
-combinations in this simulation.
+\input{tex/main_table.tex}
 
-\begin{table}[ht]
-\centering
-\begingroup\footnotesize
-\begin{tabular}{lrlrrrrrr}
-  \hline
-method & $\gamma_2$ & type & 2 & 4 & 8 & 16 & 32 & 64 \\
-  \hline
-demand & -0.50 & type I & 0.03 & 0.04 & 0.04 & 0.04 & 0.04 & 0.04 \\
-  demand & 0.00 & type I & 0.03 & 0.04 & 0.03 & 0.04 & 0.05 & 0.04 \\
-  demand & 0.50 & type I & 0.05 & 0.03 & 0.04 & 0.04 & 0.04 & 0.03 \\
-  performance~1 & -0.50 & type I & 0.14 & 0.13 & 0.13 & 0.12 & 0.10 & 0.08 \\
-  performance~1 & 0.00 & type I & 0.14 & 0.12 & 0.11 & 0.12 & 0.08 & 0.08 \\
-  performance~1 & 0.50 & type I & 0.14 & 0.13 & 0.10 & 0.11 & 0.10 & 0.10 \\
-  performance~2 & -0.50 & type I & 0.23 & 0.27 & 0.26 & 0.21 & 0.14 & 0.11 \\
-  performance~2 & 0.00 & type I & 0.22 & 0.25 & 0.23 & 0.19 & 0.12 & 0.09 \\
-  performance~2 & 0.50 & type I & 0.22 & 0.25 & 0.23 & 0.18 & 0.14 & 0.13 \\
-  performance~3 & -0.50 & type I & 0.28 & 0.30 & 0.32 & 0.52 & 0.80 & 0.95 \\
-  performance~3 & 0.00 & type I & 0.21 & 0.23 & 0.22 & 0.17 & 0.11 & 0.09 \\
-  performance~3 & 0.50 & type I & 0.28 & 0.27 & 0.31 & 0.51 & 0.79 & 0.96 \\
-  demand & -0.50 & power & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 \\
-  demand & 0.00 & power & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 \\
-  demand & 0.50 & power & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 \\
-  performance~1 & -0.50 & power & 1.00 & 1.00 & 1.00 & 1.00 & 0.94 & 0.76 \\
-  performance~1 & 0.00 & power & 1.00 & 1.00 & 1.00 & 1.00 & 0.86 & 0.58 \\
-  performance~1 & 0.50 & power & 1.00 & 1.00 & 1.00 & 0.98 & 0.74 & 0.40 \\
-  performance~2 & -0.50 & power & 0.66 & 0.00 & 0.00 & 0.01 & 0.18 & 0.56 \\
-  performance~2 & 0.00 & power & 0.64 & 0.00 & 0.00 & 0.00 & 0.10 & 0.45 \\
-  performance~2 & 0.50 & power & 0.70 & 0.00 & 0.00 & 0.00 & 0.04 & 0.23 \\
-  performance~3 & -0.50 & power & 0.57 & 0.00 & 0.00 & 0.00 & 0.06 & 0.20 \\
-  performance~3 & 0.00 & power & 0.70 & 0.01 & 0.01 & 0.15 & 0.78 & 0.97 \\
-  performance~3 & 0.50 & power & 0.89 & 0.22 & 0.50 & 0.99 & 1.00 & 1.00 \\
-   \hline
-\end{tabular}
-\endgroup
-\caption[Error Rate and Power of the Demand and Performance Specification]{Type I error rates and power for the demand and
-performance specification at different levels optimality: 2, 4, 8,
-16, 32, 64. The parameters are the same as in Figure \ref{basic}.}
-\label{basic-error}
-\end{table}
+To investigate the performance of the demand and performance specifications in more detail, we report the type I error rate and power based on the simulations in Table \ref{main-table}.
+Under the parameters in the simulation study, the \emph{demand} approach has type I error rates slightly below or equal to the nominal value of \(0.05\). The theoretically appropriate \emph{performance 1} specification tends to have more elevated error rates, two to three times higher than for the \emph{demand} specification. The most worrying results are for the\emph{performance 2} and \emph{3} specification. Dropping the quadratic effects increases the error rates in the \emph{performance 2} specification to around \(.20\), four times the nominal error rate. The most common specification in the literature, \emph{performance 3}, has even higher type I error rates that increase with higher levels of optimality and when the environmental factor has a contingency effect on both practices. In conclusion, with the parameters in the simulation study only the \emph{demand} specification rejects the null hypothesis at the predetermined rate. While the theoretically derived \emph{performance 1} specification has elevated error rates, the two other performance approaches are vulnerable to false positives.
 
-To investigate the performance of the demand and performance
-specifications in more detail, we report the type I error rate and power
-based on the simulations in Table \ref{basic-error}. The type I error is
-the percentage of datasets with no complementarity where the t-statistic
-of \(\beta^d_{12}\) is higher than \(1.97\) or lower than \(-1.97\). The
-power is the percentage of datasets with a real effect where the
-t-statistic exceeds \(1.97\). An important caveat is that the power of a
-study will also be influenced by measurement error, random variation and
-the number of observations in the study. In the simulations, we assumed
-no measurement error, fixed the parameters that control random
-variation, \(\sigma_{\epsilon_1}\), \(\sigma_{\epsilon_2}\), and
-\(\sigma_{\nu}\), and the number of observations per dataset. As a
-result, the numbers in Table \ref{basic-error} should be interpreted
-with caution.
+The results for the power of the different specifications shows that with the parameters in the simulation, the trade-off between the demand specification and the performance specification is a second order problem when using the theoretically derived specification. Both the \emph{demand} and the \emph{performance 1} specification are able to detect a true interdependency with almost certainty for low to medium levels of optimality. However, the \emph{demand} specification is more likely to detect a true effect at higher levels of optimality. The reduced specifications \emph{performance 2} and \emph{3} are not able to detect the true interdependency for most of the parameter space under investigation and if they do it comes at the cost of high type I error rates.
 
-Under the parameters in the simulation study, the \emph{demand} approach
-has type I error rates slightly below the nominal value of \(0.05\). The
-theoretically appropriate \emph{performance 1} specification tends to
-have more elevated error rates, two to three times higher than for the
-\emph{demand} specification. The most worrying results are for the
-\emph{performance 2} and \emph{3} specification. Dropping the quadratic
-effects increases the error rates in the \emph{performance 2}
-specification to around \(.20\), four times the nominal error rate. The
-most common specification in the literature, \emph{performance 3}, has
-even higher type I error rates that increase with higher levels of
-optimality and when the effectiveness of both management controls varies
-with the environmental factor. In conclusion, with the parameters in the
-simulation study only the \emph{demand} specification rejects the null
-hypothesis at the predetermined rate. While the theoretically derived
-\emph{performance 1} specification has slightly elevated error rates,
-the two other performance approaches are vulnerable to false positives.
-
-The results for the power of the different specifications shows that
-with the parameters in the simulation, the trade-off between the demand
-specification and the performance specification is a second order
-problem when using the theoretically derived specification. Both the
-\emph{demand} and the \emph{performance 1} specification are able to
-detect a true interdependency with almost certainty for low to medium
-levels of optimality. However, the \emph{demand} specification is more
-likely to detect a true effect at higher levels of optimality. The
-reduced specifications \emph{performance 2} and \emph{3} are not able to
-detect the true interdependency for most of the parameter space under
-investigation. They are more likely to report a significant negative
-interdependency than the true positive interdependency.
-
-One way to interpret this result is to think about how a reader should
-react when observing a study with a significant positive interaction
-\(\mathbf{x_1 x_2}\). To demonstrate the problems with the
-\emph{performance 2} and \emph{3} specification, we provide one dramatic
-example for \(N = 4\) and \(\gamma_2 = -.05\). If we assume that a
-priori, we are indifferent between a null effect and a true
-interdependency of \(\beta_{12} = 0.5\), and we observe one study that
-reports a significant positive interaction \(\mathbf{x_{1} x_{2}}\), the
-study is more likely to be from a sample where the null holds than from
-a sample where there is a true interdependency!
+One way to interpret this result is to think about how a reader should react when observing a study with a significant positive interaction \(\mathbf{x_1 x_2}\). To demonstrate the problems with the \emph{performance 2} and \emph{3} specification, we provide one dramatic example for \(O = 4\) and \(\gamma_2 = 0.33\). If we assume that a priori, we are indifferent between a null effect and a true interdependency of \(\beta_{12} = 0.25\), and we observe one study that reports a significant positive interaction \(\mathbf{x_{1} x_{2}}\), the study is more likely to be from a sample where the null holds than from a sample where there is a true interdependency!
 
 \subsection{Parameter Variations}\label{parameter-variations}
 
-In this section, we explore the robustness of the above conclusions to
-variations in the structural parameters. Given the large number of
-possible variations, we restrict ourselves to theoretically driven
-comparisons.
+In this section, we explore the robustness of the above conclusions to variations in the structural parameters. Given the large number of possible variations, we restrict ourselves to theoretically driven comparisons.
 
-\subsubsection{Unobserved Performance
-Effects}\label{unobserved-performance-effects}
+\subsubsection{Unobserved Performance Effects}\label{unobserved-performance-effects}
 
-We first investigate whether increases in the variance of performance,
-\(\sigma_{\nu}\), change the conclusions. The first effect of increasing
-the variance is that it decreases the importance of the management
-controls for performance which decreases the power of the performance
-specification. The second effect follows from the first. When the
-management controls are less important, the optimality selection effects
-are less pronounced which in turn decreases the power of the demand
-specification and the omitted correlated variable bias in the
-\emph{performance 2} and \emph{performance 3} specification.
+We first investigate whether increases in the variance of performance,\(\sigma_{\nu}\), change the conclusions. The first effect of increasing the variance is that it decreases the importance of the management controls for performance which decreases the power of the performance specification. The second effect follows from the first. When the management controls are less important, the optimality selection effects are less pronounced which in turn decreases the power of the demand specification and the omitted correlated variable bias in the \emph{performance 2} and \emph{performance 3} specification.
 
-To investigate the role of \(\sigma_{\nu}\), we vary the parameter
-between 1, 2, and 4 while keeping most of the other parameters the same
-as in Figure \ref{basic-error}. For clarity of exposition, we limit the
-number of optimality variations (\(N = 2, 8, 32\)) and the number of
-variations of the moderating effect of \(\mathbf{x_2 z}\)
-(\(\gamma_2 = -.5, .5\)).
+To investigate the role of \(\sigma_{\nu}\), we vary the parameter between 1, 2, and 4 while keeping the other parameters the same as in Figure \ref{main}. For clarity of exposition, we limit the number of optimality variations (\(O = 2, 8, 32\)) and the number of variations of the moderating effect of \(\mathbf{x_2 z}\) (\(\gamma_2 = -.33, .33\)).
 
-The results in Figure \ref{noise} and Table \ref{noise-error} are not
-qualitatively different from the previous results. The \emph{demand} and
-\emph{performance 1} specification appear largely unbiased and have
-false positive rates below or close to the nominal rates. The
-\emph{performance 2} and \emph{performance 3} specification exhibit the
-same problem as before, elevated false positive rates as the result of
-omitted correlated variables. The increase in unobserved performance
-variation does lessen the impact of the bias.
+The results in Figure \ref{noise} and Table \ref{noise-table} are qualitatively the same as the previous results. The \emph{demand} and the \emph{performance 1} specification are unbiased and the \emph{demand} specification has false positive rates below or close to the nominal rates while the \emph{performance 1} specification has elevated type I error rates. The \emph{performance 2} and \emph{performance 3} specification exhibit the same problem as before, elevated false positive rates as the result of omitted correlated variables. The increase in unobserved performance variation does lessen the impact of the bias.
 
-More importantly, in the presence of an interdependency, the increase in
-performance variance hardly effects the performance of the \emph{demand}
-specification. For every simulated dataset with a real interdependency
-the \emph{demand} specification, correctly identifies this
-interdependency although the t-statistics decrease with higher
-performance variance. The drop-off in the t-statistic is steeper for the
-\emph{performance 1} specification to the extent that power drops to
-around \(50\%\) when \(N = 32\) and \(\sigma_{\nu} = 4\). In summary,
-these results indicate that the major impact of increasing the
-performance variance is to decrease the power of the performance
-specifications and only to a lesser extent decrease the effect of the
-optimality parameter.
+More importantly, in the presence of an interdependency, the increase in performance variance hardly effects the performance of the \emph{demand} specification. At all but the lowest level of optimality, the \emph{demand} specification correctly identifies the interdependency for every simulated dataset with a real interdependency although the t-statistics decrease with higher performance variance. The drop-off in the t-statistic is steeper for the \emph{performance 1} specification to the extent that power drops to around \(50\%\) when \(O = 32\) and \(\sigma_{\nu} = 4\). In summary, these results indicate that the major impact of increasing the performance variance is to decrease the power of the performance specifications and only to a lesser extent decrease the effect of the optimality parameter.
 
 \begin{figure}
 
-\includegraphics[width=500px]{figure-latex/unnamed-chunk-7-1}
+\includegraphics[width=500px]{figure-latex/noise_plot.pdf}
 \caption[Error Rate and Power with Increasing Levels of Variability in Performance]
 {\label{noise} t-static of the performance and demand approach to test
 for complementarities when there is a complementarity effect ($\beta_{12} = .5$)
@@ -581,67 +403,15 @@ variable, $\mathbf{z}$, on the second choice is either positive
 negative ($\gamma_1 = .5$ and $\gamma_2 = -.5$).}
 \end{figure}
 
-\begin{table}[ht]
-\centering
-\begingroup\footnotesize
-\begin{tabular}{lrrlrrr}
-  \hline
-method & $\gamma_2$ & $\sigma_{\nu}$ & type & 2 & 8 & 32 \\
-  \hline
-demand & -0.50 & 4.00 & type I & 0.03 & 0.04 & 0.04 \\
-  demand & 0.50 & 4.00 & type I & 0.04 & 0.03 & 0.05 \\
-  performance~1 & -0.50 & 4.00 & type I & 0.06 & 0.05 & 0.04 \\
-  performance~1 & 0.50 & 4.00 & type I & 0.06 & 0.04 & 0.05 \\
-  performance~2 & -0.50 & 4.00 & type I & 0.14 & 0.08 & 0.06 \\
-  performance~2 & 0.50 & 4.00 & type I & 0.16 & 0.07 & 0.06 \\
-  performance~3 & -0.50 & 4.00 & type I & 0.19 & 0.10 & 0.12 \\
-  performance~3 & 0.50 & 4.00 & type I & 0.18 & 0.10 & 0.10 \\
-  demand & -0.50 & 4.00 & power & 1.00 & 1.00 & 1.00 \\
-  demand & 0.50 & 4.00 & power & 1.00 & 1.00 & 1.00 \\
-  performance~1 & -0.50 & 4.00 & power & 1.00 & 0.95 & 0.56 \\
-  performance~1 & 0.50 & 4.00 & power & 1.00 & 0.94 & 0.47 \\
-  performance~2 & -0.50 & 4.00 & power & 0.70 & 0.00 & 0.00 \\
-  performance~2 & 0.50 & 4.00 & power & 0.69 & 0.00 & 0.00 \\
-  performance~3 & -0.50 & 4.00 & power & 0.61 & 0.00 & 0.00 \\
-  performance~3 & 0.50 & 4.00 & power & 0.84 & 0.11 & 0.37 \\
-   \hline
-\end{tabular}
-\endgroup
-\caption[Error Rate and Power with Increasing Levels of Variability in Performance]{Type I error rates and power for the demand and
-performance function approaches at different levels optimality: 2, 8, 32 The
-parameters are the same as in Figure \ref{noise}. For brevity, we only report the
-results for $\sigma_{\nu} = 4$}
-\label{noise-error}
-\end{table}
+\input{noise_table.tex}
 
 \subsubsection{Marginal Cost Effects}\label{marginal-cost-effects}
+ 
+In this section, we vary the size of the increase in marginal costs, \(\delta_1\) = \(\delta_2\). We keep the parameters the same for both management control practices but they become smaller in size. In the next section, we investigate the effect of asymmetrically increasing marginal costs.
 
-In this section, we vary the size of the increase in marginal costs,
-\(\delta_1\) = \(\delta_2\). We keep the parameters the same for both
-management control practices but they become smaller in size. In the
-next section, we investigate the effect of asymmetrically increasing
-marginal costs.
+There are two consequences of lowering the increase in marginal costs. First, the bias from omitting the quadratic terms should be smaller. Second, decreasing \(\delta_1 = \delta_2\) also increases the effect of optimality by increasing the conditional correlation between the management control practices. With \(r=0\), we know from equation \(\eqref{eq:conditional}\) that the conditional correlation, \(\rho^*_c\), depends on two parameters, \(\beta\) and \(\Delta\). While \(\Delta\) is only affected by the ratio \(\frac{\delta_1}{\delta_2}\), \(\beta = \frac{\beta_{12}}{\sqrt{\delta_1 \delta_2}}\) is determined by the size of the complementarity and the product of the decreasing marginal costs. When \(\delta_1 \delta_2\) increases, so thus \(\beta\) and the conditional correlation.
 
-There are two consequences of lowering the increase in marginal costs.
-First, the bias from omitting the quadratic terms should be smaller.
-Second, decreasing \(\delta_1 = \delta_2\) also increases the effect of
-optimality by increasing the conditional correlation between the
-management control practices. With \(r=0\), we know from equation
-\(\eqref{eq:conditional}\) that the conditional correlation,
-\(\rho^*_c\), depends on two parameters, \(\beta\) and \(\Delta\). While
-\(\Delta\) is only affected by the ratio \(\frac{\delta_1}{\delta_2}\),
-\(\beta = \frac{\beta_{12}}{\sqrt{\delta_1 \delta_2}}\) is determined by
-the size of the complementarity and the product of the decreasing
-marginal costs. When \(\delta_1 \delta_2\) increases, so thus \(\beta\)
-and the conditional correlation.
-
-In Figure \ref{basic} and \ref{noise}, we used
-\(\delta_1 = \delta_2 = 1\). In this section, we investigate two other
-values 0.5 and 0. \(\delta_1 = \delta = .5\) is the largest value for
-which the parameters violates the second-order optimality condition
-\(\beta_{12} < \sqrt{\delta_1 \delta_2}\). The extreme case is when
-\(\delta_1 = \delta_2 = 0\) which may impede the performance of the
-\emph{demand} specification even further.
+In Figure \ref{main} and \ref{noise}, we used \(\delta_1 = \delta_2 = 1\). In this section, we investigate two other values 0.5 and 0. \(\delta_1 = \delta = .25\) is the largest value for which the parameters violates the second-order optimality condition \(\beta_{12} < \sqrt{\delta_1 \delta_2}\). The extreme case is when \(\delta_1 = \delta_2 = 0\) which may impede the performance of the \emph{demand} specification even further.
 
 \begin{figure}
 
@@ -657,36 +427,13 @@ parameters are set at $\sigma_{\epsilon_1} = \sigma_{\epsilon_2} = .5$ and
 $\sigma_{\nu} = 1.$ }
 \end{figure}
 
-To visualise those effects on a simulated sample, we first generate a
-dataset for three levels of optimality and three values of
-\(\delta_1 = \delta_2\) and plot the values for \(\mathbf{x_1}\) and
-\(\mathbf{x_2}\) in a scatterplot. Figure \ref{scatter-delta} shows when
-marginal costs are constant, the practices, \(\mathbf{x_1}\) and
-\(\mathbf{x_2}\), are pushed towards the boundary values especially when
-there is a complementarity and with higher levels of optimality. At the
-intermediate level, \(\delta_1 = \delta_2 = 0.5\), the choices cluster
-around the origin with the null effect, while they are pushed toward the
-boundaries with a true interdependency. The large variations between the
-scatterplots show how visual inspection can help researchers to check
-whether the underlying assumption of their statistical test are met. A
-pattern to look for is whether the values for the choices are at the
-boundaries of the measurement scale (for small \(\delta_j\)) or not (for
-larger \(\delta_j\)).
+To visualise those effects on a simulated sample, we first generate a dataset for three levels of optimality and three values of \(\delta_1 = \delta_2\) and plot the values for \(\mathbf{x_1}\) and \(\mathbf{x_2}\) in a scatterplot. Figure \ref{scatter-delta} shows when marginal costs are constant, the practices, \(\mathbf{x_1}\) and \(\mathbf{x_2}\), are pushed towards the boundary values especially when there is a complementarity and with higher levels of optimality. At the intermediate level, \(\delta_1 = \delta_2 = 0.5\), the choices cluster around the origin with the null effect, while they are pushed toward the boundaries with a true interdependency. The large variations between the scatterplots show how visual inspection can help researchers to check whether the underlying assumption of their statistical test are met. A pattern to look for is whether the values for the choices are at the boundaries of the measurement scale (for small \(\delta_j\)) or not (for larger \(\delta_j\)).
 
-In Figure \ref{delta} and Table \ref{delta-error}, we report the
-performance of the different specifications to detect an
-interdependency. Especially at lower levels of optimality, the
-\emph{demand} approach suffers from elevated false positives when the
-marginal costs of the choices are constant. Under these conditions, the
-\emph{performance 1} specification is more appropriate to protect the
-null hypothesis. Nevertheless, the power of the \emph{demand approach}
-is generally better for all but the lowest level of optimality.
-Furthermore, the \emph{performance 1} approach suffers from steeper
-decreases in power as the result of increases in optimality.
+In Figure \ref{delta} and Table \ref{delta-table}, we report the performance of the different specifications to detect an interdependency. Especially at lower levels of optimality, the \emph{demand} approach suffers from elevated false positives when the marginal costs of the choices are constant. Under these conditions, the \emph{performance 1} specification is more appropriate to protect the null hypothesis. Nevertheless, the power of the \emph{demand approach} is generally better for all but the lowest level of optimality. Furthermore, the \emph{performance 1} approach suffers from steeper decreases in power as the result of increases in optimality.
 
 \begin{figure}
 
-\includegraphics[width=500px]{figure-latex/unnamed-chunk-9-1}
+\includegraphics[width=500px]{figure-latex/delta_plot.pdf}
 \caption[The Error Rate and Power with Different Levels of Marginal Costs]
 {\label{delta} t-static of the performance and demand approach to test
 for complementarities when there is a complementarity effect ($\beta_{12} = .5$)
@@ -698,99 +445,73 @@ variable, $\mathbf{z}$, on the second choice is either positive
 The increasing marginal costs varied between $\delta_1 = \delta_2 = 0, .5, 1$}
 \end{figure}
 
-\begin{table}[ht]
-\centering
-\begingroup\footnotesize
-\begin{tabular}{lrrlrrr}
-  \hline
-method & $\gamma_2$ & $\delta_{j}$ & type & 2 & 8 & 32 \\
-  \hline
-demand & -0.50 & 0.00 & type I & 0.14 & 0.17 & 0.08 \\
-  demand & 0.50 & 0.00 & type I & 0.14 & 0.15 & 0.07 \\
-  demand & -0.50 & 0.50 & type I & 0.05 & 0.04 & 0.05 \\
-  demand & 0.50 & 0.50 & type I & 0.04 & 0.03 & 0.05 \\
-  demand & -0.50 & 1.00 & type I & 0.05 & 0.03 & 0.04 \\
-  demand & 0.50 & 1.00 & type I & 0.05 & 0.04 & 0.04 \\
-  performance~1 & -0.50 & 0.00 & type I & 0.11 & 0.11 & 0.18 \\
-  performance~1 & 0.50 & 0.00 & type I & 0.11 & 0.11 & 0.19 \\
-  performance~1 & -0.50 & 0.50 & type I & 0.12 & 0.12 & 0.14 \\
-  performance~1 & 0.50 & 0.50 & type I & 0.14 & 0.12 & 0.14 \\
-  performance~1 & -0.50 & 1.00 & type I & 0.12 & 0.12 & 0.10 \\
-  performance~1 & 0.50 & 1.00 & type I & 0.15 & 0.13 & 0.11 \\
-   \hline
-\end{tabular}
-\endgroup
-\caption[Error Rate and Power with Different Levels of Marginal Costs]{ Type I error rates for the demand and performance 1
-approaches at different levels optimality: 2, 8, 32 The parameters are the same
-as in Figure \ref{delta}.}
-\label{delta-error}
-\end{table}
+\input{delta_table.tex}
 
-\subsubsection{Asymmetrically increasing marginal
-costs}\label{asymmetrically-increasing-marginal-costs}
+% \subsubsection{Asymmetrically increasing marginal
+% costs}\label{asymmetrically-increasing-marginal-costs}
+% 
+% The next variation we investigate are changes in the ratio
+% \(\frac{\delta_1}{\delta_2}\) while keeping \(\delta_1 \delta_2 = 1\).
+% This means that costs are increasing faster for one practice than for
+% the other. The ratio affects the conditional correlation only through
+% the parameter, \(\Delta\) (see equation \eqref{eq:conditional}). When
+% \(\delta_1\) and \(\delta_2\) are more different, \(\Delta\) increases,
+% and \(|\rho^*_c|\) gets closer to \(1\). In addition, as can be seen
+% from equation \eqref{eq:demand2}, the standard deviation of
+% \(\mathbf{x_1}\) (\(\mathbf{x_2}\)) increases when \(\delta_2\)
+% (\(\delta_1\)) increases and vice versa. Both effects, can be seen in
+% Figure \ref{scatter-delta} for the following values of
+% \(\delta_1 = \delta_2^{-1}\): \(1/3\), \(1\), and \(3\) \footnote{Equation
+%   \eqref{eq:coefficient} shows that the standard deviations of
+%   \(\mathbf{x_1}\) and \(\mathbf{x_2}\) also effect the regression
+%   estimate \(\beta_{12}^d\). As a result, the conditional correlation
+%   and the regression demand specification could be expected to yield
+%   different results. The simulation results show that the differences in
+%   the t-statistic are merely due to numerical differences. As before,
+%   for brevity we only report the results for the \emph{demand}
+%   regression specification.}.
+% 
+% \begin{figure}
+% 
+% \includegraphics[width=500px]{figure-latex/scatterplot-delta2-1}
+% \caption[Distribution of Choices with Asymmetric Marginal Costs]
+% {\label{scatter-delta2} Scatter plot of the choices $\mathbf{x_1}$ and
+% $\mathbf{x_2}$ for different levels (2, 8, 32) of the optimality parameter, $N$
+% with a null interdependency ($\beta_{12} = 0$) or a true effect
+% ($\beta_{12} = 0$). The increasing marginal costs are set as
+% $\delta_1 = \delta_2^{-1} = 1/3$,$1$, and $3$. The effect of the environmental
+% variable only affects one of the choices ($\gamma_1 = .5, \gamma_2 = 0$).
+% Lastly, the unobserved variation parameters are set at
+% $\sigma_{\epsilon_1} = \sigma_{\epsilon_2} = .5$ and $\sigma_{\nu} = 1.$ }
+% \end{figure}
+% 
+% The simulation results in Figure \ref{scatter-delta2} show that the
+% effects of asymmetrically increasing marginal costs is relatively small.
+% The general trends for both error rates and power remain the same. The
+% \emph{demand} approach has superior error rates and, except for low
+% levels of optimality, most power to detect a real effect. The
+% \emph{performance 2} and \emph{performance 3} specifications perform
+% badly. Nevertheless, asymmetrically increasing marginal costs decrease
+% the power of the \emph{demand} specification and increase the power of
+% the \emph{performance 1} specification, especially with lower levels of
+% optimality.
+% 
+% \begin{figure}
+% 
+% \includegraphics[width=500px]{figure-latex/unnamed-chunk-10-1}
+% \caption[Error Rate and Power with Asymmetric with Marginal Costs]
+% {\label{delta2} t-static of the performance and demand specification to test
+% for complementarities when there is a complementarity effect ($\beta_{12} = .5$)
+% or a null ($\beta_{12} = 0$). The boxplots represent the median (the dot) the
+% interquartile range (the gap), and the minimum and maximum (the whiskers). $N$
+% is varied between 2, 8, 32. The effect of the environmental
+% variable, $\mathbf{z}$, on the second choice is either positive
+% ($\gamma_1 = \gamma_2 = .5$), or
+% negative ($\gamma_1 = .5$ and $\gamma_2 = -.5$). The increasing marginal costs
+% are varied at $\delta_1 = \delta_2^{-1} = 1/3, 1$ and $3$}
+% \end{figure}
 
-The next variation we investigate are changes in the ratio
-\(\frac{\delta_1}{\delta_2}\) while keeping \(\delta_1 \delta_2 = 1\).
-This means that costs are increasing faster for one practice than for
-the other. The ratio affects the conditional correlation only through
-the parameter, \(\Delta\) (see equation \eqref{eq:conditional}). When
-\(\delta_1\) and \(\delta_2\) are more different, \(\Delta\) increases,
-and \(|\rho^*_c|\) gets closer to \(1\). In addition, as can be seen
-from equation \eqref{eq:demand2}, the standard deviation of
-\(\mathbf{x_1}\) (\(\mathbf{x_2}\)) increases when \(\delta_2\)
-(\(\delta_1\)) increases and vice versa. Both effects, can be seen in
-Figure \ref{scatter-delta} for the following values of
-\(\delta_1 = \delta_2^{-1}\): \(1/3\), \(1\), and \(3\) \footnote{Equation
-  \eqref{eq:coefficient} shows that the standard deviations of
-  \(\mathbf{x_1}\) and \(\mathbf{x_2}\) also effect the regression
-  estimate \(\beta_{12}^d\). As a result, the conditional correlation
-  and the regression demand specification could be expected to yield
-  different results. The simulation results show that the differences in
-  the t-statistic are merely due to numerical differences. As before,
-  for brevity we only report the results for the \emph{demand}
-  regression specification.}.
-
-\begin{figure}
-
-\includegraphics[width=500px]{figure-latex/scatterplot-delta2-1}
-\caption[Distribution of Choices with Asymmetric Marginal Costs]
-{\label{scatter-delta2} Scatter plot of the choices $\mathbf{x_1}$ and
-$\mathbf{x_2}$ for different levels (2, 8, 32) of the optimality parameter, $N$
-with a null interdependency ($\beta_{12} = 0$) or a true effect
-($\beta_{12} = 0$). The increasing marginal costs are set as
-$\delta_1 = \delta_2^{-1} = 1/3$,$1$, and $3$. The effect of the environmental
-variable only affects one of the choices ($\gamma_1 = .5, \gamma_2 = 0$).
-Lastly, the unobserved variation parameters are set at
-$\sigma_{\epsilon_1} = \sigma_{\epsilon_2} = .5$ and $\sigma_{\nu} = 1.$ }
-\end{figure}
-
-The simulation results in Figure \ref{scatter-delta2} show that the
-effects of asymmetrically increasing marginal costs is relatively small.
-The general trends for both error rates and power remain the same. The
-\emph{demand} approach has superior error rates and, except for low
-levels of optimality, most power to detect a real effect. The
-\emph{performance 2} and \emph{performance 3} specifications perform
-badly. Nevertheless, asymmetrically increasing marginal costs decrease
-the power of the \emph{demand} specification and increase the power of
-the \emph{performance 1} specification, especially with lower levels of
-optimality.
-
-\begin{figure}
-
-\includegraphics[width=500px]{figure-latex/unnamed-chunk-10-1}
-\caption[Error Rate and Power with Asymmetric with Marginal Costs]
-{\label{delta2} t-static of the performance and demand specification to test
-for complementarities when there is a complementarity effect ($\beta_{12} = .5$)
-or a null ($\beta_{12} = 0$). The boxplots represent the median (the dot) the
-interquartile range (the gap), and the minimum and maximum (the whiskers). $N$
-is varied between 2, 8, 32. The effect of the environmental
-variable, $\mathbf{z}$, on the second choice is either positive
-($\gamma_1 = \gamma_2 = .5$), or
-negative ($\gamma_1 = .5$ and $\gamma_2 = -.5$). The increasing marginal costs
-are varied at $\delta_1 = \delta_2^{-1} = 1/3, 1$ and $3$}
-\end{figure}
-
-\subsection{Spurious correlation}\label{spurious-correlation}
+\subsection{Omitted Correlated Variable}
 
 Finally, we investigate to what extent a spurious correlation induced by
 an omitted correlated environmental factor affects our conclusions. From
@@ -854,7 +575,7 @@ management controls.
 
 \begin{figure}
 
-\includegraphics[width=500px]{figure-latex/spurious-plot-1}
+\includegraphics[width=500px]{figure-latex/spurious_plot.pdf}
 \caption[Error Rate and Power with Unobserved Environmental Variables]
 {\label{spurious} t-static of the performance and demand specification to test
 for complementarities when there is a large complementarity effect
@@ -979,41 +700,40 @@ governing the lack of information can replace our optimality parameter,
 directly estimate the extent to which firms lack information and choose
 sub-optimal management control practices.
 
-\pagebreak
-
-\appendix
-\renewcommand{\theequation}{A.\arabic{equation}}
-\setcounter{equation}{0}
-
-\section{Appendix}\label{appendix}
-
-\subsection{Quotes}
-
-
-\begin{quote}
-Which {[}specification{]} to use is both a theoretical (assumption of agents as perfectly or boundedly rational) and an empirical (market imperfections, exogenous shocks, experimentation, etc) issue because the likelihood of finding evidence of the former depends on the latter and vice versa (Grabner and Moers, 2013; Gerdin and Greve, 2004). (in Johansson, 2016).
-\end{quote}
-
-\begin{quote}
-decision makers may not have been sufficiently well informed such that they chose efficiency or output enhancing combinations of practices.
-\citep{Carree2011}
-\end{quote}
-
-Others have argued that the performance specification can be applied ``as long a the populaetion of organizations includes a reasonable number of organizations that takes non-optimal combinations of practice'' \citep{Carree2011}.
-
-About the conditional correlation approach.
-\begin{quote}
-While this approach certainly has intuitive appeal and is easy to implement, it also relies on a strong assumption that the set of conditioning variables is reasonably complete. Without a well-specified reduced form regression, the correlation between the residual (p. 459) terms might not signal complementarity but rather the presence of a third factor that is correlated with the two organizational design choices under consideration. from (Hoffman and van Lent).
-\end{quote}
-
-\begin{quote}
-This focus is appropriate as the control problems examined in this study (i.e. the alignment of behaviours to the strategic objectives of the firm) are complex and require significant experimentation by top management, particularly in conditions characterized by uncertainty such as the prospector strategic context (Simons, 1995). Hence it is unlikely that firms will be, on average, in an optimal equilibrium. in \citep{Bedford2016}
-\end{quote}
-
+% \pagebreak
+% 
+% \appendix
+% \renewcommand{\theequation}{A.\arabic{equation}}
+% \setcounter{equation}{0}
+% 
+% \section{Appendix}\label{appendix}
+% 
+% \subsection{Quotes}
+% 
+% 
+% \begin{quote}
+% Which {[}specification{]} to use is both a theoretical (assumption of agents as perfectly or boundedly rational) and an empirical (market imperfections, exogenous shocks, experimentation, etc) issue because the likelihood of finding evidence of the former depends on the latter and vice versa (Grabner and Moers, 2013; Gerdin and Greve, 2004). (in Johansson, 2016).
+% \end{quote}
+% 
+% \begin{quote}
+% decision makers may not have been sufficiently well informed such that they chose efficiency or output enhancing combinations of practices.
+% \citep{Carree2011}
+% \end{quote}
+% 
+% Others have argued that the performance specification can be applied ``as long a the populaetion of organizations includes a reasonable number of organizations that takes non-optimal combinations of practice'' \citep{Carree2011}.
+% 
+% About the conditional correlation approach.
+% \begin{quote}
+% While this approach certainly has intuitive appeal and is easy to implement, it also relies on a strong assumption that the set of conditioning variables is reasonably complete. Without a well-specified reduced form regression, the correlation between the residual (p. 459) terms might not signal complementarity but rather the presence of a third factor that is correlated with the two organizational design choices under consideration. from (Hoffman and van Lent).
+% \end{quote}
+% 
+% \begin{quote}
+% This focus is appropriate as the control problems examined in this study (i.e. the alignment of behaviours to the strategic objectives of the firm) are complex and require significant experimentation by top management, particularly in conditions characterized by uncertainty such as the prospector strategic context (Simons, 1995). Hence it is unlikely that firms will be, on average, in an optimal equilibrium. in \citep{Bedford2016}
+% \end{quote}
+% 
 \newpage
 
 \bibliographystyle{agsm}
-%\bibliography{tex/complement.bib}
-\bibliography{mendeley.bib}
+\bibliography{references.bib}
 
 \end{document}
