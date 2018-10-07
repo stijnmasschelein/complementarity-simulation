@@ -8,7 +8,9 @@ make_sim_pretty = function(sim){
                       interaction_moderationaugmented = "performance~1"),
       optim = 1/rate,
       b2 = as.numeric(str_split(as.character(b2), ",", simplify = TRUE)[,1]),
-      g1 = as.numeric(str_split(as.character(g1), ",", simplify = TRUE)[,2])
+      g1 = as.numeric(str_split(as.character(g1), ",", simplify = TRUE)[,2]),
+      theta = as.numeric(str_split(as.character(g2), ",", simplify = TRUE)[,2]),
+      d1 = as.numeric(str_split(as.character(d), ",", simplify = TRUE)[,1])
     )
   return(result)
 }
