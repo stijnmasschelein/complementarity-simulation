@@ -52,11 +52,11 @@ table = dat %>%
     
 print(xtable(table,
              type = "pdf",
-             label = "basic-error",
+             label = "main-table",
              caption = "Type I error rates and power for the demand and
              performance function approaches at different levels optimality: 
              2, 4, 8, 16, 32, 64. The parameters are the same as in Figure 
-             \\ref{basic}."),
+             \\ref{main}."),
       size = "\\footnotesize",
       include.rownames = FALSE,
       sanitize.text.function = force,
