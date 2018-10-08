@@ -59,7 +59,7 @@ table = dat %>%
     
 print(xtable(table,
              type = "pdf",
-             label = "main-table",
+             label = "delta-table",
              caption = "Type I error rates and power for the \\emph{demand} and
              \\emph{performance 1} specification at different levels optimality: 
              2, 8, 32. The parameters are the same as in Figure \\ref{delta}.
