@@ -1,13 +1,16 @@
-source("R/prettify_functions.R")
 source("R/parameters.R")
+library(tidyverse)
 sim = readRDS("simulated_data/noise_simulation.Rds")
-dat = make_sim_pretty(sim) 
+dat = tbl_df(sim) %>%
+  unnest(rate, obs, sd) %>%
+  mutate(optim = 1/rate)
 
 dat_plot = 
   mutate(dat, 
          optim_fact = paste("O ==", optim),
          sd_fact = paste("sigma[nu] ==", sd),
-         g1_fact = paste("gamma[2] ==", g1)) %>%
+         g1_fact = paste("gamma[2] ==", map(g1, 2)),
+         b2_fact = paste(map(b2, 1))) %>%
   arrange(optim) %>%
   mutate(optim_fact = fct_relevel(optim_fact, unique(optim_fact)))
 
@@ -16,10 +19,10 @@ library(ggplot2)
 library(ggthemes)
 library(cowplot)
 
-plot = (ggplot(dat_plot, aes(y = stat, x = as.factor(b2)))
+plot = (ggplot(dat_plot, aes(y = stat, x = b2_fact))
          + geom_tufteboxplot()
          + theme_cowplot(font_size = 12)
-         + facet_grid(rows = vars(method),
+         + facet_grid(rows = vars(label),
                       cols = vars(optim_fact, sd_fact, g1_fact),
                       labeller = label_parsed)
          + geom_hline(yintercept = tint, linetype = 3, alpha = .25)
@@ -40,17 +43,18 @@ library(xtable)
 
 table = dat %>%
   filter(sd == 4) %>%
-  group_by(method, g1, b2, optim) %>%
-    summarise(type1 = round(sum(abs(stat) > tint)/nsim, 2),
-              power = round(sum(stat > tint)/nsim, 2)) %>%
+  group_by(label, g1 = unlist(map(g1, 2)), 
+           b2 = unlist(map(b2, 1)), optim) %>%
+    summarise(type1 = round(sum(pvalue < .05)/sim_params$nsim, 2),
+              power = round(sum(pvalue < .05 & coefficient > 0)/sim_params$nsim, 2)) %>%
     ungroup() %>%
     mutate(percentage = ifelse(b2 != 0, power, type1),
            statistic = ifelse(b2 != 0, "power", "type I")) %>%
     select(-c(type1, power, b2)) %>%
     spread(optim, percentage) %>%
-    arrange(desc(statistic), method, g1) %>%
+    arrange(desc(statistic), label, g1) %>%
     rename(`$\\gamma_2$` = g1,
-           specification = method)
+           specification = label)
     
 print(xtable(table,
              type = "pdf",

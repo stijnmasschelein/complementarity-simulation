@@ -55,3 +55,34 @@ invert_L = function(L){
   }
   return(invL %*% D)
 }
+
+##################################################
+
+source("R/parameters.R")
+library(simcompl)
+library(microbenchmark)
+library(boot)
+
+get_coefs = function(formula, data, indices){
+  d = data[indices, ]
+  coefficients(lm(formula, data = d))["x1:x2"]
+}
+
+test_boot = function(bootstrap = FALSE, R = 100, O = 8){
+  # data = create_sample(obs = 300, rate = 1/O, sd_eps = c(1, 1, 0),
+  #                      b2 = c(0.25, 0, 0), g1 = c(.3, -.3, 0))
+  formula = y ~ x1*x2 + (x1 + x2) * z + I(x1^2) + I(x2^2)
+  if (bootstrap){
+    test = boot(data = data, statistic = get_coefs, R = R,
+                formula = formula)
+  } else {
+    test = lm(formula, data = data)
+  }
+}
+
+bmark = microbenchmark(lm = test_boot(F),
+                       boot200 = test_boot(T, 200),
+                       boot2000 = test_boot(T, 2000),
+                       times = 50)
+
+

@@ -30,7 +30,7 @@ sim_vars = function(interval = c(-5, 5), obs = 200, rep = 1, rate = 0.5,
   par_vars = list(interval = interval, b12 = b12, d = d, g = g, s = s)
   par_sims = list(obs = obs, rep = rep, rate = rate, sd = sd, sd_eps = c(s, 0),
                   b1 = c(b1, 0), b2 = c(b12, 0, 0), d = c(d, 0), g1 = c(g, 0))
-  sample = do.call(simcompl::create_sample, par_sims)
+  sample = do.call(simcompl2::create_sample, par_sims)
   sample$opt = calc_opt(b1 = b1[1:2], b12 = b12, d = d, g = g, sample$z)
   var_sample = mean((sample$x1 - sample$z)^2)
   var_random = do.call(var1, par_vars)

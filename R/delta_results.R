@@ -1,17 +1,20 @@
-source("R/prettify_functions.R")
 source("R/parameters.R")
+library(tidyverse)
 sim = readRDS("simulated_data/delta_simulation.Rds")
 main = readRDS("simulated_data/main_simulation.Rds")
-dat_main = make_sim_pretty(main) %>%
-  filter(g1 %in% c(.33, -.33), optim %in% c(2, 8, 32))
-dat = make_sim_pretty(sim) %>% 
-  bind_rows(dat_main)
+dat_main = tbl_df(main) %>%
+  filter(g1 %in% data_params$g1[2:3], rate %in% data_params$rate[c(1, 3, 5)])
+dat = tbl_df(sim) %>%
+  bind_rows(dat_main) %>%
+  unnest(obs, rate) %>%
+  mutate(optim = 1/rate)
 
 dat_plot = 
   mutate(dat, 
          optim_fact = paste("O ==", optim),
-         g1_fact = paste("gamma[2] ==", g1),
-         d_fact = paste("delta[i] ==", d1)) %>%
+         g1_fact = paste("gamma[2] ==", map(g1, 2)),
+         d_fact = paste("delta[i] ==", map(d, 1)),
+         b2_fact = paste(map(b2, 1))) %>%
   arrange(optim) %>%
   mutate(optim_fact = fct_relevel(optim_fact, unique(optim_fact)))
 
@@ -20,10 +23,10 @@ library(ggplot2)
 library(ggthemes)
 library(cowplot)
 
-plot = (ggplot(dat_plot, aes(y = stat, x = as.factor(b2)))
+plot = (ggplot(dat_plot, aes(y = stat, x = b2_fact))
          + geom_tufteboxplot()
          + theme_cowplot(font_size = 12)
-         + facet_grid(rows = vars(method),
+         + facet_grid(rows = vars(label),
                       cols = vars(optim_fact, d_fact, g1_fact),
                       labeller = label_parsed)
          + geom_hline(yintercept = tint, linetype = 3, alpha = .25)
@@ -43,19 +46,21 @@ save_plot("figure-latex/delta_plot.pdf", plot = plot,
 library(xtable)
 
 table = dat %>%
-  filter(method %in% c("demand", "performance~1"), g1 == .33) %>%
-  group_by(method, g1, d1, b2, optim) %>%
-    summarise(type1 = round(sum(abs(stat) > tint)/nsim, 2),
-              power = round(sum(stat > tint)/nsim, 2)) %>%
+  filter(label %in% c("demand", "performance~1"), 
+         unlist(map(g1, 2)) > 0) %>%
+  group_by(label, g1 = unlist(map(g1, 2)), d = unlist(map(d, 1)), 
+           b2 = unlist(map(b2, 1)), optim) %>%
+    summarise(type1 = round(sum(pvalue < 0.05) / sim_params$nsim, 2),
+              power = round(sum(pvalue < 0.05 & coefficient > 0) / sim_params$nsim, 2)) %>%
     ungroup() %>%
     mutate(percentage = ifelse(b2 != 0, power, type1),
            statistic = ifelse(b2 != 0, "power", "type I")) %>%
     select(-c(type1, power, b2)) %>%
     spread(optim, percentage) %>%
-    arrange(desc(statistic), method, g1) %>%
+    arrange(desc(statistic), label, g1) %>%
     rename(`$\\gamma_2$` = g1,
-           `$\\delta_i$` = d1,
-           specification = method)
+           `$\\delta_i$` = d,
+           specification = label)
     
 print(xtable(table,
              type = "pdf",

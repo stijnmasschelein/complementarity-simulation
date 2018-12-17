@@ -3,15 +3,17 @@ title: "Statistical Methods for Accounting Systems"
 author: 
     - Stijn Masschelein (University of Western Australia) \newline
     - Frank Moers (Maastricht University)
-date: "03/07/2018"
+date: "26/10/2018"
 fontsize: 14pt
 header-includes: 
   - \definecolor{eqfocus}{HTML}{EB811B}
 output: 
-  beamer_presentation:
-    theme: "metropolis"
-    keep_tex: true
-classoption: "aspectratio=169"
+  binb::metropolis:
+    fig_caption: no
+  # beamer_presentation:
+  #   theme: "metropolis"
+  #   keep_tex: true
+# classoption: "aspectratio=169"
 bibliography: tex/complement.bib
 ---
 
@@ -20,6 +22,7 @@ We are revising the paper and mostly focusing on making the contribution
 clearer.
 -->
 
+# Introduction
 
 ## Complementarity of Accounting Practices
 
@@ -29,7 +32,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```{r packages, include = F, warnings = F, results = 'hide'}
 suppressMessages(library(tidyverse, quietly = TRUE, warn.conflicts = FALSE))
-folder = file.path("~", "Dropbox", "R", "simcompl", "application")
+suppressMessages(library(ggplot2, quietly = TRUE, warn.conflicts = FALSE))
+suppressMessages(library(cowplot, quietly = TRUE, warn.conflicts = FALSE))
+suppressMessages(library(ggthemes, quietly = TRUE, warn.conflicts = FALSE))
+suppressMessages(library(xtable, quietly = TRUE, warn.conflicts = FALSE))
+theme_set(theme_cowplot(font_size = 18)
+          + theme(strip.background = NULL))
 ```
 
 ### Management Accounting [@Grabner2013]
@@ -42,8 +50,8 @@ folder = file.path("~", "Dropbox", "R", "simcompl", "application")
 ### Financial Accounting
   - Audited financial reporting and voluntary disclosure [@Ball2012]
 
-> Because private information disclosure and audited financial reporting are
-> complements, their economic roles cannot be evaluated separately.
+> "Because private information disclosure and audited financial reporting are
+> complements, their economic roles cannot be evaluated separately."
 
 <!--
 There is a lot of literature that acknowledges the interaction between multiple
@@ -52,9 +60,9 @@ accounting choices which has implications of doing tests.
 
 ## Contingency Theory [@Chenhall2003]
 
-> Researchers have attempted to explain the effectiveness of MCS by examining
+> "Researchers have attempted to explain the effectiveness of MCS by examining
 designs that best suit the nature of the environment, technology, size,
-structure, strategy and national culture.
+structure, strategy and national culture."
 
 ## Two statistical models
 
@@ -68,97 +76,98 @@ Delegation = f(Incentive, Environment)
 
 ## Which one to use?
 
-> Which [specification] to use is both a theoretical (assumption of agents as
+> "Which [specification] to use is both a theoretical (assumption of agents as
 perfectly or boundedly rational) and an empirical (market imperfections,
 exogenous shocks, experimentation, etc) issue because the likelihood of finding
-evidence of the former depends on the latter and vice versa [@Grabner2013,
-@Gerdin2004] in (Johansson, -@Johansson2018).
+evidence of the former depends on the latter and vice versa [@Grabner2013;
+@Gerdin2004]" in -@Johansson2018.
+
+## Misunderstanding in the methodological literature
+
+1. The performance specification works as long as a sufficient amount of
+   firms do not adopt the optimal strategy
+2. The demand specification is *especially* vulnerable to omitted correlated
+   variables
+
+## Misunderstanding in the methodological literature
+
+1. ~~The performance specification works as long as a sufficient amount of
+   firms do not adopt the optimal strategy~~
+2. ~~The demand specification is *especially* vulnerable to omitted correlated    variables~~
+
+# Theory
 
 ## Structural Model
 
 ### Unobserved Structural Model
 
 $$
-y = \beta_0 + 
+\begin{aligned}
+y = &\beta_0 +
 \Bigl(
 \begin{bmatrix}
-  \beta_{11} \\
+  \beta_{11} &
   \beta_{22}
 \end{bmatrix}
-+ 
-zzzzz
++
+z
 \begin{bmatrix}
-  \gamma_{11} & \gamma_{12} \\
-  \gamma_{21} & \gamma_{22}
+  \gamma_{1} & \gamma_{2}
 \end{bmatrix}
 + \begin{bmatrix}
-  \epsilon_1 \\
-  \epsilon_2
+  \epsilon_1 & \epsilon_2
 \end{bmatrix}
 \Bigr)
 \begin{bmatrix}
-  x_1 & x_2 
+  {\color{eqfocus} x_1} \\ {\color{eqfocus} x_2}
 \end{bmatrix} +
-\frac{1}{2} 
+\\
+& \frac{1}{2}
 \begin{bmatrix}
-  x_1 & x_2 
+  {\color{eqfocus} x_1} & {\color{eqfocus} x_2}
 \end{bmatrix}
 \begin{bmatrix}
   - \delta_1 & \beta_{12} \\
   \beta_{12} & - \delta_2
 \end{bmatrix}
 \begin{bmatrix}
-  x_1 \\
-  x_2
+  {\color{eqfocus} x_1} \\ {\color{eqfocus} x_2}
 \end{bmatrix}
-$$
-
-
-$$
-\begin{aligned}
-{\color{eqfocus} y} = & \beta_0 + (\beta_1 + \gamma_1 z + \epsilon_{1})
-                 {\color{eqfocus} x_{1}}
-                 + (\beta_2 + \gamma_2 z + \epsilon_{2})
-                 {\color{eqfocus} x_{2}} \\
-                 & + \beta_{12} {\color{eqfocus} x_{1} x_{2}}
-                 - .5 \delta_1 {\color{eqfocus} x^2_{1}}
-                 - .5 \delta_2 {\color{eqfocus} x^2_{2}} + \nu
 \end{aligned}
 $$
 
-### Observable data
+### Observable Data
 
 $$
 \begin{aligned}
-{\color{eqfocus} y} &= \text{performance} \\
+y &= \text{performance} \\
 {\color{eqfocus} x_1, x_2} &= \text{management accounting practices} \\
 z &= \text{environmental factor}
 \end{aligned}
 $$
 
-## Structural Model 
+## Structural Model
 
 ### Unobserved Structural Model
-
 $$
 \begin{aligned}
-y = & \beta_0 + (\beta_1 + \gamma_1 {\color{eqfocus} z} + \epsilon_{1})
-                 {\color{eqfocus} x_{1}}
-                 + (\beta_2 + \gamma_2 {\color{eqfocus} z} + \epsilon_{2})
-                 {\color{eqfocus} x_{2}} \\
+y = & \beta_0 + (\beta_1 + \gamma_1 z + \epsilon_{1})
+                  x_{1}
+                 + (\beta_2 + \gamma_2 z + \epsilon_{2})
+                  x_{2} \\
                  & + \beta_{12} x_{1} x_{2}
                  - .5 \delta_1 x^2_{1}
                  - .5 \delta_2 x^2_{2} + \nu
 \end{aligned}
 $$
 
-### Observable data
+### Observable Data
 
 $$
 \begin{aligned}
 y &= \text{performance} \\
-\color{eqfocus}{x_1, x_2} &= \text{management accounting practices} \\
-\color{eqfocus}{z} &= \text{environmental factor}
+x_1, x_2 &= \text{management accounting practices} \\
+z &= \text{environmental factor}
 \end{aligned}
 $$
 
@@ -182,8 +191,9 @@ $$
 ### Regression model
 
 $$
-y = \alpha_0 + \alpha_1 x_1 + \alpha_2 x_2 + {\color{eqfocus} \alpha_{12}} 
-    x_1 x_2 + \alpha_z z + \nu
+y = \beta^{p3}_0 + \beta^{p3}_1 x_1 + \beta^{p3}_2 x_2 + 
+    {\color{eqfocus} \beta^{p3}_{12}} 
+    x_1 x_2 + \alpha^{p3} z + \nu^{p3}
 $$
 
 ## Demand Specification
@@ -193,109 +203,332 @@ $$
 $$
 \begin{aligned}
 \frac{\delta y}{\delta x_1} &= 0 \\
-{\color{eqfocus} \delta_1 } x_1 &= \beta_1 + \beta_{12} x_2 + \gamma_1 z + \epsilon_1
+{\color{eqfocus} \delta_1 } x_1 &= \beta_1 + \beta_{12} x_2 
+    + \gamma_1 z + \epsilon_1
 \end{aligned}
 $$
 
 ### Regression model
 
 $$
-x_1 = \alpha_1 + {\color{eqfocus} \alpha_{12}} x_2 + \alpha_z z + \epsilon
+x_1 = \beta^{d}_1 + {\color{eqfocus} \beta^{d}_{12}} x_2 
+        + \gamma^{d}_1 z + \epsilon_1^{d}
 $$
 
-## Main Message
+## Key Assumptions
 
-1. Always report the demand specification
-2. Always control for environmental factors and increasing marginal costs
+1. Optimal choices lead to empirical correlations
+2. $\beta_{ij}$ and $\gamma_{ik}$
+    - Determine partial correlations
+    - Determine performance effects
 
-## Differences in Specifications 
+## Correlated Omitted Variable Bias
 
-### Optimality of MA Practices
+1. Omitted Variable
 
-- The demand specification has lower Type I error and more power at all but the 
-  lowest levels of optimality.
+  - Third practice that is a compliment with both practices of interest
+  - Environmental factor that is contingency factor for both practices 
+    of interest 
 
-### Omitted Correlated Variables Bias (!!)
+2. Type of Omission
+  - Demand: $+ \gamma^d_2 \mathbf{z_2}$
+  - Performance: 
+    $+ \gamma^{p}_{21} \mathbf{z_2 x_1}  + \gamma^{p}_{22} \mathbf{z_2 x_2}$
 
-- Inflates Type I error rates 
-- Destroys power 
+## Statistical Issues
 
-## Differences in Specifications
+| Issue                           | Performance       | Demand          |
+|---------------------------------|-------------------|-----------------|
+|Lack of Power                    | Optimal           | Uninformed      |
+|Correlated Omitted Variable Bias | Optimal           | Optimal         |
 
-### Simultaneity Bias in Demand Specification
+# Simulation
 
-- Inconsequential for Type I error rates and power
+## Regressions
 
-### 2nd-order Condition for Demand Specification(!)
+- Demand Specification
+- Performance 1 (Theoretically Correct)
+- Performance 2 (Performance 1 but no quadratic terms)
+- Performance 3 (Performance 2 but no contingency interactions)
 
-- The complementarity cannot be too large
+## Optimisation Algorithm 
+
+$$
+\begin{aligned}
+	&z \sim \mathcal{N}(0, 1); \epsilon_i ~ \sim \mathcal{N}(0, \sigma_{\epsilon_i}) \\
+\end{aligned}
+$$
+
+## Optimisation Algorithm 
+
+$$
+\begin{aligned}
+	&z \sim \mathcal{N}(0, 1); \epsilon_i ~ \sim \mathcal{N}(0, \sigma_{\epsilon_i}) \\
+    \forall 0 < o \leq O: &x^o_i \sim U[-5,5] \\
+\end{aligned}
+$$
+
+## Optimisation Algorithm 
+
+$$
+\begin{aligned}
+	&z \sim \mathcal{N}(0, 1); \epsilon_i ~ \sim \mathcal{N}(0, \sigma_{\epsilon_i}) \\
+    \forall 0 < o \leq O: &x^o_i \sim U[-5,5] \\
+    \forall 0 < o \leq O: &\hat{y^o} = (\gamma_1 z + \epsilon_1) x^o_1 
+						+ (\gamma_2 z  + \epsilon_2) x^o_2+ \beta_{12} x^o_1 x^o_2 \\ 
+     &- \frac{1}{2}\delta_1 {x^o}^2_1 - \frac{1}{2}\delta_2 {x^o}^2_2 \\
+     \forall 0 < o \leq O: &y^o \sim \mathcal{N}(\hat{y^o}, \sigma_{\nu}) \\
+	 &y^{max} = max(y^1, y^2, ..., y^O)  \\
+\end{aligned}
+$$
+
+## Optimisation Algorithm 
+
+$$
+\begin{aligned}
+	&z \sim \mathcal{N}(0, 1); \epsilon_i ~ \sim \mathcal{N}(0, \sigma_{\epsilon_i}) \\
+    \forall 0 < o \leq O: &x^o_i \sim U[-5,5] \\
+    \forall 0 < o \leq O: &\hat{y^o} = (\gamma_1 z + \epsilon_1) x^o_1 
+						+ (\gamma_2 z  + \epsilon_2) x^o_2+ \beta_{12} x^o_1 x^o_2 \\ 
+     &+ \frac{1}{2}\delta_1 {x^o}^2_1 + \frac{1}{2}\delta_2 {x^o}^2_2 \\
+     \forall 0 < o \leq O: &y^o \sim \mathcal{N}(\hat{y^o}, \sigma_{\nu}) \\
+	 &y^{max} = max(y^1, y^2, ..., y^O)  \\
+     &\text{if } y^o = y^{max} \text{then } y = y^o, x_i = x^o_i
+\end{aligned}
+$$
 
 ## Simulation Method
 
-- Set fixed parameters $\beta$, $\gamma$, and $\delta$
-- for a firm, repeatedly: 
-    - Generate random, uncorrelated observables ($x, z$) and unobservables 
-      ($\epsilon, \nu$).
-    - Calculate $y$
-- Keep ($y, x, z$) with the highest $y$
+Vary parameters $\beta$ (e.g. $\beta_{12} = 0$ or $.25$), $\gamma$, $\delta$, 
+$\sigma$, and $O$. 
+
+- Generate 1000 complimentarity tests for each set of parameters
+    - Generate a dataset of 300 firms
+        - \textcolor{gray} For each firm run the optimisation algorithm
+    - Calculate t-statistic and p-value for complimentarity test
+- Calculate Type I error ($\beta_{12} = 0$) and power ($\beta_{12} \neq 0$)
+
+# Results
+
+## Is there sufficient variation in optimality?
+
+```{r descriptives, include=FALSE}
+source("R/sample_descriptives.R", echo = FALSE)
+```
+
+```{r plot_opt}
+print(plot_opt)
+```
+
+## Are the simulations representative of a typical study?
+
+```{r plot_xx}
+print(plot_xx)
+```
+
+## Are the simulations representative of a typical study?
+
+```{r plot_xz}
+print(plot_xz)
+```
+
+## Main Result: No environmental factor bias
+
+```{r main, include = FALSE}
+source("R/prettify_functions.R")
+source("R/parameters.R")
+sim = readRDS("simulated_data/main_simulation.Rds")
+dat = make_sim_pretty(sim) 
+
+dat_plot = 
+  mutate(dat, optim_fact = paste("O ==", optim),
+              g1_fact = paste("gamma[2] ==", g1)) %>%
+  filter(g1 %in% c(0, -.33)) %>%
+  arrange(optim) %>%
+  mutate(optim_fact = fct_relevel(optim_fact, unique(optim_fact)))
 
 
-## Simulation Method
+plot = (ggplot(filter(dat_plot, g1 == 0), aes(y = stat, x = as.factor(b2)))
+         + facet_grid(rows = vars(method),
+                      cols = vars(optim_fact, g1_fact),
+                      labeller = label_parsed)
+         + geom_hline(yintercept = tint, linetype = 3, alpha = .25)
+         + geom_hline(yintercept = 0, linetype = 4, alpha = .25)
+         + geom_hline(yintercept = -tint, linetype = 3, alpha = .25)
+         + labs(x = expression(beta[12]), y = "t-statistic")
+         + theme(strip.text.x = element_text(angle = 0, size = 16),
+                 strip.text.y = element_text(angle = 0))
+)
+``` 
 
-- \textcolor{gray}{Set fixed parameters $\beta$, $\gamma$, and $\delta$}
-- for a firm, repeatedly: 
-    - \textcolor{gray}{ Generate random, uncorrelated observables ($x, z$) and
-       unobservables ($\epsilon, \nu$)}.
-    - \textcolor{gray}{Calculate $y$}
-- \textcolor{gray}{Keep ($y, x, z$) with the highest $y$}
+```{r plot_main0}
+print(plot)
+```
 
-> The more repetitions the higher the optimality
+## Main Result: No environmental factor bias
 
-## Simulation 
+```{r plot_main1}
+print(plot + geom_tufteboxplot())
+```
 
-- \textcolor{gray}{Set fixed parameters $\beta$, $\gamma$, and $\delta$}
-- Generate a dataset of 300 firms
-    - \textcolor{gray}{for a firm, repeatedly}: 
-        - \textcolor{gray}{ Generate random, uncorrelated observables ($x, z$) and
-           unobservables ($\epsilon, \nu$)}.
-        - \textcolor{gray}{Calculate $y$}
-    - \textcolor{gray}{Keep ($y, x, z$) with the highest $y$}
-- Calculate t-statistic and p-value for complementarity
+## Main Result: Environmental factor bias
 
-## Simulation 
+```{r main2, include = FALSE}
+plot = (ggplot(filter(dat_plot, g1 == -.33), aes(y = stat, x = as.factor(b2)))
+         + facet_grid(rows = vars(method),
+                      cols = vars(optim_fact, g1_fact),
+                      labeller = label_parsed)
+         + geom_tufteboxplot()
+         + geom_hline(yintercept = tint, linetype = 3, alpha = .25)
+         + geom_hline(yintercept = 0, linetype = 4, alpha = .25)
+         + geom_hline(yintercept = -tint, linetype = 3, alpha = .25)
+         + labs(x = expression(beta[12]), y = "t-statistic")
+         + theme(strip.text.x = element_text(angle = 0, size = 16),
+                 strip.text.y = element_text(angle = 0))
+)
+```
 
-\textcolor{gray}{Set fixed parameters $\beta$, $\gamma$, and $\delta$}
+```{r plot_main2}
+print(plot)
+```
 
-Generate 1000 complementarity tests
+## Main Result: Type I error rate
 
-- \textcolor{gray}{Generate a dataset of 300 firms}
-    - \textcolor{gray}{for a firm, repeatedly}: 
-        - \textcolor{gray}{ Generate random, uncorrelated observables ($x, z$)
-           and unobservables ($\epsilon, \nu$)}
-        - \textcolor{gray}{Calculate $y$}
-    - \textcolor{gray}{Keep ($y, x, z$) with the highest $y$}
-- \textcolor{gray}{Calculate t-statistic and p-value for test}
-   
-Count Number of Significant Effects
+```{r main_table, echo = FALSE, results='asis'}
+table = dat %>%
+  group_by(method, g1, b2, optim) %>%
+    filter(g1 %in% c(0, -.33)) %>%
+    summarise(type1 = round(sum(abs(stat) > tint)/nsim, 2),
+              power = round(sum(stat > tint)/nsim, 2)) %>%
+    ungroup() %>%
+    mutate(percentage = ifelse(b2 != 0, power, type1),
+           statistic = ifelse(b2 != 0, "power", "type I")) %>%
+    select(-c(type1, power, b2)) %>%
+    spread(optim, percentage) %>%
+    arrange(desc(statistic), method, g1) %>%
+    rename(`$\\gamma_2$` = g1,
+           specification = method)
 
-## Simulation
+print(xtable(filter(table, statistic == "type I"),
+             type = "pdf",
+             label = "main-table"),
+      size = "\\footnotesize",
+      include.rownames = FALSE,
+      sanitize.text.function = force,
+      comment = FALSE
+)
+```
 
-Vary parameters $\beta$ (e.g. $\beta_{12} = 0$ or $.5$), $\gamma$, and $\delta$
+## Parameter Variations
 
-\textcolor{gray}{Generate 1000 complementarity tests for each set of parameters}
+1. Increase performance noise ($\sigma_{\nu}$)
+    - The omission of quadratic terms no longer picks up the demand effect.
+2. Decrease marginal costs increase ($\delta$)
+    - Little to no change with current parameters
+3. Binary/Dichotomised practices and Three Practices
+    - TODO
 
-- \textcolor{gray}{Generate a dataset of 300 firms}
-    - \textcolor{gray}{For a firm, repeatedly}: 
-        - \textcolor{gray}{ Generate random, uncorrelated ($x, z$) i
-           and ($\epsilon, \nu$)}
-        - \textcolor{gray}{Calculate $y$}
-    - \textcolor{gray}{Keep ($y, x, z$) with the highest $y$}
-- \textcolor{gray}{Calculate t-statistic and p-value for test}
+## Omitted Correlated Environmental Factor
 
-Calculate Type I error ($\beta_{12} = 0$) and power ($\beta_{12} \neq 0$)
+![Omitted Correlated Environmental Factor](figure-latex/spurious_plot.pdf)
 
-## Presentation is only the tip of the iceberg
+# Conclusion
 
-- Open source code
-- More details, sensitivity tests, and visual diagnostics in the paper
-- Seriously, the demand specification should be the default 
+## Main Takeaway Points
+
+- Always report demand specification
+- Always control for contingency factors
+    - Demand: control variables
+    - Production: interaction with practices
+- Demand specification does not imply perfectly optimal choices
+
+# Appendix
+
+## Omitted Correlated Environmental Factor
+
+$$
+\begin{aligned}
+\mathbf{z_m} &= \gamma_{im} \zeta^p_{im} \mathbf{x_i} + \gamma_{jm} \zeta^p_{jm} \mathbf{x_j} + \mathbf{\epsilon_z} \\
+\gamma_{im} \mathbf{z_m} \mathbf{x_i} + \gamma_{jm} \mathbf{z_m} \mathbf{x_j}
+&= \gamma^2_{im} \zeta^p_{im} \mathbf{x_i}^2 + \gamma^2_{jm} \zeta^p_{jm} \mathbf{x_i}^2 \\
+    & + {\color{eqfocus}\gamma_{im} \gamma_{jm} (\zeta^p_{im} + \zeta^p_{jm}) 
+    \mathbf{x_i x_j}}
+    + \epsilon_z ( \mathbf{x_i} + \mathbf{x_j})
+\end{aligned}
+$$
+
+## Omitted Quadratic Term
+
+$$
+\begin{aligned}
+\mathbf{x_i} &=  \beta_{ij} \lambda^p_{ij} \mathbf{x_j} + \mathbf{\epsilon_x} \\
+\delta_i \mathbf{x_i^2} &=
+  {\color{eqfocus}\beta_{ij} \delta_i \lambda^p_{ij} \mathbf{x_i x_j}} +
+  \delta_i \mathbf{x_i} \mathbf{\epsilon_x}
+\end{aligned}
+$$
+
+## Second order condition 
+
+### General condition
+
+$$
+\begin{bmatrix}
+  \delta_1 &  - \beta_{12} & \dots & - \beta_{1N} \\
+  - \beta_{12} &  \delta_2 & \dots & - \beta_{2N} \\
+  \vdots     & \vdots     & \ddots & \vdots \\
+  - \beta_{1N} & - \beta_{2N} & \dots & \delta_N
+\end{bmatrix}
+\text{is p.d.}
+$$
+
+### Two practice condition
+
+$$
+\delta_1 \delta_2 - \beta_{12}^2 > 0
+$$
+
+## Specifications
+
+\footnotesize
+$$
+\begin{aligned}
+\mathbf{x_1} &= \beta^d_{11} + {\color{eqfocus}\beta^d_{12} \mathbf{x_2}}
+    + \gamma_1^d \mathbf{z} + \mathbf{\epsilon^d} \\
+\mathbf{y} &=  \beta^{p1}_0 + (\beta^{p1}_{11} + \gamma_1^{p1} \mathbf{z} )\mathbf{x_1} 
+						+ (\beta_{22}^{p1} + \gamma_2 \mathbf{z} ) \mathbf{x_2} 
+            + {\color{eqfocus}\beta_{12}^{p1} \mathbf{x_1} \mathbf{x_2}}
+            + \delta_1^{p1} \mathbf{x^2_1} + \delta_2^{p1} \mathbf{x^2_2} 
+                        + \alpha^{p1} \mathbf{z}
+                        + \nu^{p1} \\
+ \mathbf{y} &=  \beta^{p2}_0 + (\beta^{p2}_{11} + \gamma_1^{p2} \mathbf{z} )\mathbf{x_1} 
+						+ (\beta_{22}^{p2} + \gamma_2 \mathbf{z} ) \mathbf{x_2} 
+            + {\color{eqfocus}\beta_{12}^{p2} \mathbf{x_1} \mathbf{x_2}}
+            + \alpha^{p2} \mathbf{z}
+            + \nu^{p2} \\
+ \mathbf{y} &=  \beta^{p3}_0 + \beta^{p3}_{11} \mathbf{x_1} 
+						+ \beta_{22}^{p3} \mathbf{x_2} 
+            + {\color{eqfocus}\beta_{12}^{p3} \mathbf{x_1} \mathbf{x_2}}
+            + \alpha^{p3} \mathbf{z}
+            + \nu^{p3}
+\end{aligned}
+$$
+
+## Simulation parameters
+
+$$
+\begin{aligned}
+\beta_1 &= \beta_2 = \beta_0 = 0 \\
+\delta_1 &= \delta_2 = 1 \\
+\sigma_{\epsilon_1}  &= \sigma_{\epsilon_1} = \sigma_{\nu} = 1 \\
+\beta_{12} &= .25 \\
+\gamma_1 &= .33, \gamma_2 = -.33
+\end{aligned}
+$$
+
+# Literature
+
+## References
+
+\tiny
+
