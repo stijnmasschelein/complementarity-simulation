@@ -24,6 +24,6 @@ test_params = list(list(formula = x1 ~ x2 + z,
                         variable = "x1:x2",
                         label = "performance~3"))
 
-sim_params = list(nsim = 1000, boot = FALSE, mc_cores = 4) 
+sim_params = list(nsim = 1000, boot = FALSE, mc_cores = 36) 
 
 tint = qt(.975, df = nobs[[1]] - 5)
