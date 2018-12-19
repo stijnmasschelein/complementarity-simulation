@@ -13,17 +13,21 @@ perf_form2 = y ~ x1*x2 + x1*z + x2*z
 perf_form3 = y ~ x1*x2 + z 
 test_params = list(list(formula = x1 ~ x2 + z, 
                         variable = "x2",
-                        label = "demand"),
+                        label = "demand",
+                        nearly_correction = FALSE),
                    list(formula = perf_form1,
                         variable = "x1:x2",
-                        label = "performance~1"),
+                        label = "performance~1",
+                        nearly_correction = FALSE),
                    list(formula = perf_form2,
                         variable = "x1:x2",
-                        label = "performance~2"),
+                        label = "performance~2",
+                        nearly_correction = FALSE),
                    list(formula = perf_form3,
                         variable = "x1:x2",
-                        label = "performance~3"))
+                        label = "performance~3",
+                        nearly_correction = FALSE))
 
-sim_params = list(nsim = 1000, boot = FALSE, mc_cores = 36) 
+sim_params = list(nsim = 1000, boot = FALSE, mc_cores = 4) 
 
 tint = qt(.975, df = nobs[[1]] - 5)
