@@ -1,0 +1,26 @@
+library(tidyverse)
+library(xtable)
+sim = tbl_df(readRDS("simulated_data/discrete_simulation.Rds"))
+dat = tbl_df(sim) %>%
+  unnest(rate, obs) %>%
+  mutate(label = as.character(label)) %>%
+  mutate(optim = 1/rate,
+         label = if_else(str_detect(label, "nearly_exact"),
+                         str_c(str_replace(label, "nearly_exact_", ""),
+                               "corrected", sep = " "),
+                         label))
+
+table = dat %>%
+  group_by(label, 
+           b2 = unlist(map(b2, 1)), optim) %>%
+  summarise(type1 = round(mean(pvalue < 0.05), 2),
+            power = round(mean(pvalue < 0.05 & coefficient > 0), 
+                          2)) %>%
+  ungroup() %>%
+  mutate(percentage = ifelse(b2 != 0, power, type1),
+         statistic = ifelse(b2 != 0, "power", "type I")) %>%
+  select(-c(type1, power, b2)) %>%
+  spread(optim, percentage) %>%
+  arrange(desc(statistic), label) %>%
+  rename(specification = label)
+ 
