@@ -62,7 +62,7 @@ print(xtable(table,
              caption = "Type I error rates and power for the demand and
              performance specifications at different levels optimality: 
              2, 8, 32. The parameters are the same as in Figure \\ref{noise}.
-             Only the results for $\\sigma{nu} = 4$ are reported"),
+             Only the results for $\\sigma{\\nu} = 4$ are reported"),
       size = "\\footnotesize",
       include.rownames = FALSE,
       sanitize.text.function = force,
