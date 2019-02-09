@@ -13,6 +13,7 @@ if (rerun_simulation){
 source("R/main_results.R")
 source("R/noise_results.R")
 source("R/delta_results.R")
+source("R/discrete_results.R")
 source("R/spurious_results.R")
 source("R/bootstrap_results.R")
 source("R/nearly_results.R")

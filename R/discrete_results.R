@@ -23,15 +23,14 @@ table = dat %>%
   spread(optim, percentage) %>%
   arrange(desc(statistic), label) %>%
   rename(specification = label)
- 
     
 print(xtable(filter(table, !str_detect(specification, "corrected")),
-             type = "pdf",
-             label = "noise-table",
-             caption = "Type I error rates and power for the demand and
-             performance specifications at different levels optimality: 
-             2, 4, 8, 16 The parameters are the same as in Figure      
-             \\ref{noise}. The results are aggregated over the parameter              values of $\\gamma_2$ (-0.33, 0, 0.33)"),
+  type = "pdf",
+  label = "discrete-table",
+  caption = "Type I error rates and power for the demand and 
+  performance specifications at different levels optimality: 2, 
+  4, 8, 16. The results are aggregated over the parameter values 
+  of $\\gamma_2$ (-0.33, 0, 0.33)."),
       size = "\\footnotesize",
       include.rownames = FALSE,
       sanitize.text.function = force,
