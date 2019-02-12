@@ -55,7 +55,7 @@ print(xtable(
   label = "bootstrap-table",
   caption = "Type I error rates and power for the demand and 
   performance function approaches at different levels optimality: 
-  2, 8, 32. \\gamma_2 is set at either -0.33 and 0.33. The other 
+  2, 8, 32. $\\gamma_2$ is set at either -0.33 and 0.33. The other 
   parameters are the same as in Figure \\ref{main}."),
   size = "\\footnotesize",
   include.rownames = FALSE,
