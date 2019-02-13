@@ -17,7 +17,7 @@ b12 = c(0, .25); opt = c(2, 4, 8, 16, 32, 64)
 #' ### Simulation parameters
 
 nsim = 100
-run_simulation_descriptive = FALSE
+run_simulation_descriptive = TRUE
 
 #' ### The simulation
 
