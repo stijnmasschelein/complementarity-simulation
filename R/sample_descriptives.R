@@ -61,7 +61,7 @@ plot_xz = ggplot(dat, aes(y = corxz, x = as.factor(b12))) +
   labs(x = expression(beta[12]), y = expression(cor(x[1], z))) +
   theme(strip.background = NULL)
 
-plot_summ = cowplot::plot_grid(plot_opt, plot_xx, plot_xz, nrow = 1, 
+plot_summ = cowplot::plot_grid(plot_xx, plot_xz, plot_opt, nrow = 1, 
                                labels = c("A", "B", "C"))
 cowplot::save_plot("figure-latex/sample_descriptives.pdf", 
                    plot_summ, ncol = 3)

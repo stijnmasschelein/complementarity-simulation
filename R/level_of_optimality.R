@@ -106,18 +106,19 @@ dat = tbl_df(dat) %>%
 plot_opt = ggplot(dat, aes(y = ratio, x = as.factor(b12))) +
   geom_point(alpha = .25) +
   facet_wrap(~ opt)
-cowplot::ggsave("figure-other/optimality.pdf", plot)
+# cowplot::ggsave("figure-other/optimality.pdf", plot)
 
 plot_xx = ggplot(dat, aes(y = corxx, x = as.factor(b12))) +
   geom_point(alpha = .25) +
   facet_wrap(~ opt)
-cowplot::ggsave("figure-other/correlation_complement.pdf", plot)
+# cowplot::ggsave("figure-other/correlation_complement.pdf", plot)
 
 plot_xz = ggplot(dat, aes(y = corxz, x = as.factor(b12))) +
   geom_point(alpha = .25) +
   facet_wrap(~ opt)
-cowplot::ggsave("figure-other/correlation_contingency.pdf", plot)
+# cowplot::ggsave("figure-other/correlation_contingency.pdf", plot)
 
-plot_summ = cowplot::plot_grid(plot_opt, plot_xx, plot_xz, nrow = 1, labels = c("A", "B", "C"))
-cowplot::save_plot("figure-other/summary.pdf", plot_summ, ncol = 3)
+plot_summ = cowplot::plot_grid(plot_xx, plot_xz, plot_opt, nrow = 1, labels = c("A", "B", "C"))
+cowplot::save_plot("figure-latex/sample_descriptives.pdf", 
+                   plot_summ, ncol = 3)
 
