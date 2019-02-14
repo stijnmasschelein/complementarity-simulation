@@ -46,29 +46,27 @@ save_plot("figure-latex/delta_plot.pdf", plot = plot,
 library(xtable)
 
 table = dat %>%
-  filter(label %in% c("demand", "performance~1"), 
-         unlist(map(g1, 2)) > 0) %>%
-  group_by(label, g1 = unlist(map(g1, 2)), d = unlist(map(d, 1)), 
+  filter(label %in% c("demand", "performance~1")) %>%
+  group_by(label, d = unlist(map(d, 1)), 
            b2 = unlist(map(b2, 1)), optim) %>%
-    summarise(type1 = round(sum(pvalue < 0.05) / sim_params$nsim, 2),
-              power = round(sum(pvalue < 0.05 & coefficient > 0) / sim_params$nsim, 2)) %>%
+    summarise(type1 = round(mean(pvalue < 0.05), 2),
+              power = round(mean(pvalue < 0.05 & coefficient > 0), 2)) %>%
     ungroup() %>%
     mutate(percentage = ifelse(b2 != 0, power, type1),
            statistic = ifelse(b2 != 0, "power", "type I")) %>%
     select(-c(type1, power, b2)) %>%
     spread(optim, percentage) %>%
-    arrange(desc(statistic), label, g1) %>%
-    rename(`$\\gamma_2$` = g1,
-           `$\\delta_i$` = d,
+    arrange(desc(statistic), label) %>%
+    rename(`$\\delta_i$` = d,
            specification = label)
     
 print(xtable(table,
              type = "pdf",
              label = "delta-table",
-             caption = "Type I error rates and power for the \\emph{demand} and
-             \\emph{performance 1} specification at different levels optimality: 
-             2, 8, 32. The parameters are the same as in Figure \\ref{delta}.
-             Only the results for $\\gamma_{2} = 0.33$ are reported"),
+             caption = "Type I error rates and power for the \\emph{demand}
+             and \\emph{performance 1} specification at different levels 
+             optimality: 2, 8, 32. The parameters are the same as in 
+             Figure \\ref{delta}. The results are aggregated over the values              of $\\gamma_2$ (-0.33, 0.33)"),
       size = "\\footnotesize",
       include.rownames = FALSE,
       sanitize.text.function = force,
