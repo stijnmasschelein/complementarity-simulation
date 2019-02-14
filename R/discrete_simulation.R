@@ -2,6 +2,7 @@ source("R/parameters.R")
 library(simcompl2)
 data_params_new = data_params
 data_params_new$rate = data_params$rate[1:4]
+data_params_new$d = list(c(0, 0, 0))
 data_params_new$xinteger = list(c(TRUE, TRUE, FALSE))
 discrete_demand = I(x1 == 1) ~ x2 + z 
 test_params_new = list(list(formula = x1 ~ x2 + z, 

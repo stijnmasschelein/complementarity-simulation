@@ -29,8 +29,9 @@ print(xtable(filter(table, !str_detect(specification, "corrected")),
   label = "discrete-table",
   caption = "Type I error rates and power for the demand and 
   performance specifications at different levels optimality: 2, 
-  4, 8, 16. The results are aggregated over the parameter values 
-  of $\\gamma_2$ (-0.33, 0, 0.33)."),
+  4, 8, 16. The practices can only take two values: $1$ and $-1$.
+  $\\delta_1 = \\delta_2 = 0$. The results are aggregated over 
+  the parameter values of $\\gamma_2$ (-0.33, 0, 0.33)."),
       size = "\\footnotesize",
       include.rownames = FALSE,
       sanitize.text.function = force,
