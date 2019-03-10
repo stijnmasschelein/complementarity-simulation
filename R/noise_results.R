@@ -45,6 +45,7 @@ table = dat %>%
   filter(sd == 4) %>%
   group_by(label, g1 = unlist(map(g1, 2)), 
            b2 = unlist(map(b2, 1)), optim) %>%
+  filter(g1 == -0.33) %>%
     summarise(type1 = round(sum(pvalue < .05)/sim_params$nsim, 2),
               power = round(sum(pvalue < .05 & coefficient > 0)/sim_params$nsim, 2)) %>%
     ungroup() %>%
