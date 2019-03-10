@@ -25,7 +25,7 @@ table = dat %>%
     select(-c(type1, power, b2)) %>%
     spread(optim, percentage) %>%
     arrange(desc(statistic), label, g1) %>%
-    rename(`$\\gamma_1$` = g1,
+    rename(`$\\gamma_2$` = g1,
            specification = label)
 
 print(xtable(table,
@@ -47,8 +47,7 @@ print(xtable(table,
 
 dat_plot_new = 
   filter(dat,
-         unlist(map(g1, 2)) != 0.33,
-         label != "performance~2") %>%
+         unlist(map(g1, 2)) != 0.33) %>%
   mutate(optim_fact = paste(optim),
          g1_fact = paste("gamma[2] ==", map(g1, 2)),
          b2_fact = paste(map(b2, 1))) %>%
@@ -66,8 +65,9 @@ plot_null = (ggplot(filter(dat_plot_new, unlist(map(b2, 1)) == 0),
          + geom_hline(yintercept = tint, linetype = 3, alpha = .25)
          + geom_hline(yintercept = 0, linetype = 4, alpha = .25)
          + geom_hline(yintercept = -tint, linetype = 3, alpha = .25)
+         + scale_y_continuous(breaks = scales::pretty_breaks(4))
          + ggtitle("Null Effect")
-         + labs(y = "t-statistic", x = NULL)
+         + labs(x = "level of optimality", y = "t-statistic")
          + theme(strip.text.x = element_text(angle = 0, size = 8),
                  strip.text.y = element_text(angle = 0),
                  strip.background = NULL)
@@ -83,20 +83,17 @@ plot_true = (ggplot(filter(dat_plot_new, unlist(map(b2, 1)) == 0.25),
          + geom_hline(yintercept = tint, linetype = 3, alpha = .25)
          + geom_hline(yintercept = 0, linetype = 4, alpha = .25)
          + geom_hline(yintercept = -tint, linetype = 3, alpha = .25)
+         + scale_y_continuous(breaks = scales::pretty_breaks(4))
          + ggtitle("True Effect")
-         + labs(x = "level of optimality", y = "t-statistic")
+         + labs(y = "t-statistic", x = NULL)
          + theme(strip.text.x = element_text(angle = 0, size = 8),
                  strip.text.y = element_text(angle = 0),
                  strip.background = NULL)
 )
 
-new_plot = plot_grid(plot_null, plot_true, labels = "AUTO",
+new_plot = plot_grid(plot_true, plot_null, labels = "AUTO",
                      ncol = 1)
 save_plot("figure-latex/main_new_plot.pdf", plot = new_plot,
           base_height = 6, base_width = 9,
           dpi = 600)
-save_plot("figure-latex/main_null_plot.pdf", plot = plot_null,
-          base_height = 4, base_width = 8)
-save_plot("figure-latex/main_true_plot.pdf", plot = plot_true,
-          base_height = 4, base_width = 8)
                    

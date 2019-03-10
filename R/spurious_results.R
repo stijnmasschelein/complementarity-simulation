@@ -68,8 +68,7 @@ print(xtable(table,
 
 dat_plot_new = 
   filter(dat,
-         unlist(map(g1, 2)) != 0.33,
-         label != "performance~2") %>%
+         unlist(map(g1, 2)) != 0.33) %>%
   mutate(optim_fact = paste(optim),
          theta_fact = paste("theta[2] ==", map(g2, 2)),
          b2_fact = paste(map(b2, 1))) %>%
@@ -86,11 +85,37 @@ plot_null = (ggplot(filter(dat_plot_new, unlist(map(b2, 1)) == 0),
          + geom_hline(yintercept = tint, linetype = 3, alpha = .25)
          + geom_hline(yintercept = 0, linetype = 4, alpha = .25)
          + geom_hline(yintercept = -tint, linetype = 3, alpha = .25)
+         + scale_y_continuous(breaks = scales::pretty_breaks(4))
          + ggtitle("Null Effect")
+         + labs(x = "level of optimality", y = "t-statistic")
+         + theme(strip.text.x = element_text(angle = 0, size = 8),
+                 strip.text.y = element_text(angle = 0),
+                 strip.background = NULL)
+)
+
+plot_true = (ggplot(filter(dat_plot_new, unlist(map(b2, 1)) == 0.25),
+                    aes(y = stat, x = optim_fact))
+         + geom_tufteboxplot()
+         + theme_cowplot(font_size = 12)
+         + facet_grid(rows = vars(label),
+                      cols = vars(theta_fact),
+                      labeller = label_parsed)
+         + geom_hline(yintercept = tint, linetype = 3, alpha = .25)
+         + geom_hline(yintercept = 0, linetype = 4, alpha = .25)
+         + geom_hline(yintercept = -tint, linetype = 3, alpha = .25)
+         + scale_y_continuous(breaks = scales::pretty_breaks(4))
+         + ggtitle("True Effect")
          + labs(y = "t-statistic", x = NULL)
          + theme(strip.text.x = element_text(angle = 0, size = 8),
                  strip.text.y = element_text(angle = 0),
                  strip.background = NULL)
 )
+
+new_plot = plot_grid(plot_true, plot_null, labels = "AUTO",
+                     ncol = 1)
+save_plot("figure-latex/spurious_new_plot.pdf", plot = new_plot,
+          base_height = 6, base_width = 9,
+          dpi = 600)
+
 
 

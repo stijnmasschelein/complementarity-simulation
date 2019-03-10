@@ -17,7 +17,7 @@ b12 = c(0, .25); opt = c(2, 4, 8, 16, 32, 64)
 #' ### Simulation parameters
 
 nsim = 100
-run_simulation_descriptive = TRUE
+run_simulation_descriptive = rerun_simulation
 
 #' ### The simulation
 
@@ -37,7 +37,7 @@ if (run_simulation_descriptive){
       cat("done: b12 =", comp, "and opt =", optim, "\n")
     }
   }
-saveRDS(dat, "simulated_data/descriptives_simulation.Rds")
+  saveRDS(dat, "simulated_data/descriptives_simulation.Rds")
 }
 
 dat = tbl_df(readRDS("simulated_data/descriptives_simulation.Rds")) %>%
@@ -65,4 +65,10 @@ plot_summ = cowplot::plot_grid(plot_xx, plot_xz, plot_opt, nrow = 1,
                                labels = c("A", "B", "C"))
 cowplot::save_plot("figure-latex/sample_descriptives.pdf", 
                    plot_summ, ncol = 3)
+
+group_by(dat, b12, opt) %>%
+  summarise_at(c("corxx", "corxz", "ratio"), 
+               .funs = list(av = mean, 
+                            li = function(x) quantile(x, 0.05),
+                            hi = function(x) quantile(x, 0.95)))
 
