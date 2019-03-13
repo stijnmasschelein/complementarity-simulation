@@ -21,7 +21,7 @@ table = dat %>%
          statistic = ifelse(b2 != 0, "power", "type I")) %>%
   select(-c(type1, power, b2)) %>%
   spread(optim, percentage) %>%
-  arrange(desc(statistic), label) %>%
+  arrange(statistic, label) %>%
   rename(specification = label)
     
 print(xtable(filter(table, !str_detect(specification, "corrected")),
