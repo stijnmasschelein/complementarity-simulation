@@ -56,21 +56,21 @@ filter(combined, b2 == 0) %>%
             ratio = sametype1/type1) %>%
   ungroup()
 
-group_by(dat, label, optim) %>%
-  summarise(se = mean(se)) %>%
-  ungroup() %>%
-  spread(optim, se) %>%
-  separate(label, c("specification", "corrected"), sep = " ") %>%
-  group_by(specification) %>%
-  summarise_if(is.numeric, function(x){x[2]/x[1] - 1})
-  
-group_by(dat, label, optim) %>%
-  summarise(df = mean(df)) %>%
-  ungroup() %>%
-  spread(optim, df) %>%
-  separate(label, c("specification", "corrected"), sep = " ") %>%
-  group_by(specification) %>%
-  summarise_if(is.numeric, function(x){x[2]/x[1] - 1})
+# group_by(dat, label, optim) %>%
+#   summarise(se = mean(se)) %>%
+#   ungroup() %>%
+#   spread(optim, se) %>%
+#   separate(label, c("specification", "corrected"), sep = " ") %>%
+#   group_by(specification) %>%
+#   summarise_if(is.numeric, function(x){x[2]/x[1] - 1})
+#   
+# group_by(dat, label, optim) %>%
+#   summarise(df = mean(df)) %>%
+#   ungroup() %>%
+#   spread(optim, df) %>%
+#   separate(label, c("specification", "corrected"), sep = " ") %>%
+#   group_by(specification) %>%
+#   summarise_if(is.numeric, function(x){x[2]/x[1] - 1})
  
 table = dat %>%
   group_by(label, 
@@ -83,7 +83,7 @@ table = dat %>%
          statistic = ifelse(b2 != 0, "power", "type I")) %>%
   select(-c(type1, power, b2)) %>%
   spread(optim, percentage) %>%
-  arrange(desc(statistic), label) %>%
+  arrange(statistic, label) %>%
   rename(specification = label)
 
 combined_table = combined %>%
@@ -95,7 +95,7 @@ combined_table = combined %>%
          statistic = ifelse(b2 != 0, "power", "type I")) %>%
   select(-c(type1, power, b2)) %>%
   spread(optim, percentage) %>%
-  arrange(desc(statistic))
+  arrange(statistic)
   
 print(xtable(bind_rows(table, combined_table),
   type = "pdf",

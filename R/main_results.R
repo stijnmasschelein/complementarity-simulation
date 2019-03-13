@@ -25,7 +25,7 @@ table = dat %>%
            statistic = ifelse(b2 != 0, "power", "type I")) %>%
     select(-c(type1, power, b2)) %>%
     spread(optim, percentage) %>%
-    arrange(desc(statistic), label, g1) %>%
+    arrange(statistic, label, g1) %>%
     rename(`$\\gamma_2$` = g1,
            specification = label)
 
