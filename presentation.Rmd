@@ -3,7 +3,7 @@ title: "Statistical Methods for Accounting Systems"
 author: 
     - Stijn Masschelein (University of Western Australia) \newline
     - Frank Moers (Maastricht University)
-date: "04/04/2019"
+date: "24/05/2019"
 fontsize: 14pt
 header-includes: 
   - \definecolor{eqfocus}{HTML}{EB811B}
@@ -28,6 +28,7 @@ clearer.
 
 ```{r setup, include=F}
 knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(dev = "pdf")
 ```
 
 ```{r packages, include = F, warnings = F, results = 'hide'}
@@ -92,19 +93,21 @@ depends on the latter and vice versa [@Grabner2013;
 
 ## Little guidance in the literature 
 
+\begin{quote}
 1. The performance specification works as long as a sufficient
-amount of firms do not adopt the optimal strategy
+number of firms do not adopt the optimal strategy
 
 2. The demand specification is vulnerable to omitted 
 environmental variables
+\end{quote}
 
 ## Our conclusions
 
 1. The performance specification has low power when a sufficient 
-amount of firms avoids the worst choices.
+number of firms avoids the worst choices.
 
-2. Omitted environment bias when the environment affects **both**
-choices.
+2. Omitted environmental variables bias when the environment
+affects *both* choices.
 
 3. Performance specification has high rate of false positives
 
@@ -138,6 +141,8 @@ $$
 
 ## Specifications
 
+### Specifications
+
 \footnotesize
 $$
 \begin{aligned}
@@ -170,8 +175,8 @@ $$
 y = & \beta_0 + (\beta_1 + \gamma_1 z + \epsilon_{1})
                   {\color{eqfocus} x_{1}}
                  + (\beta_2 + \gamma_2 z + \epsilon_{2})
-                  {\color{eqfocus} x_{2}} \\
-                 & + \beta_{12} {\color{eqfocus} x_{1} x_{2}}
+                  {\color{eqfocus} x_{2}} 
+                 + \beta_{12} {\color{eqfocus} x_{1} x_{2}}
                  - .5 \delta_1 x^2_{1}
                  - .5 \delta_2 x^2_{2} + \nu
 \end{aligned}
@@ -206,7 +211,7 @@ $$
 \scriptsize
 $$
 \frac{\partial y}{\partial x_1} = 0 \implies
-{\color{eqfocus} \delta_1 } x_1^* = \beta_1 + \beta_{12} x_2^*
+\delta_1 x_1^* = \beta_1 + \beta_{12} x_2^*
     + \gamma_1 z + \epsilon_1
 $$
 \scriptsize
@@ -280,67 +285,31 @@ $\gamma$, $\delta$, $\sigma$, and $O$.
 
 # Results
 
-## Main Result: No environmental factor bias
+## Main Result
 
-```{r main, include = FALSE}
-source("R/parameters.R")
-sim = readRDS("simulated_data/main_simulation.Rds")
-dat = tbl_df(sim) %>%
-  unnest(obs, rate) %>%
-  mutate(optim = 1/rate)
-
-dat_plot = 
-  mutate(dat, 
-         optim_fact = paste("O ==", optim),
-         b2_fact = paste(map(b2, 1))) %>%
-  filter(map(g1, 2) %in% c(0, -.33)) %>%
-  arrange(optim) %>%
-  mutate(optim_fact = fct_relevel(optim_fact, unique(optim_fact)))
-
-plot = (ggplot(filter(dat_plot, map(g1, 2) == 0), 
-               aes(y = stat, x = as.factor(b2_fact)))
-         + facet_grid(rows = vars(label),
-                      cols = vars(optim_fact),
-                      labeller = label_parsed)
-         + geom_hline(yintercept = tint, linetype = 3, alpha = .75)
-         + geom_hline(yintercept = 0, linetype = 4, alpha = .75)
-         + geom_hline(yintercept = -tint, linetype = 3, alpha = .75)
-         + labs(x = expression(beta[12]), y = "t-statistic")
-         + theme(strip.text.x = element_text(angle = 0, size = 16),
-                 strip.text.y = element_text(angle = 0))
-)
-``` 
-
-```{r plot_main0}
-print(plot)
+```{r main_empty}
+source("R/main_results.R")
+plot_null <- plot_null + theme(text = element_text(size = 18),
+                               axis.text = element_text(size = 16),
+                               strip.text.x = element_text(size = 16))
+plot_true <- plot_true + theme(text = element_text(size = 18),
+                               axis.text = element_text(size = 16),
+                               strip.text.x = element_text(size = 16))
+plot_empty <- plot_true
+plot_empty$layers[[1]] <- NULL
+print(plot_empty + geom_tufteboxplot(alpha = 0))
 ```
 
-## Main Result: No omitted environment bias
+## Main Result: Power
 
-```{r plot_main1}
-print(plot + geom_tufteboxplot())
+```{r main_true}
+print(plot_true)
 ```
 
-## Main Result: No omitted environment bias
+## Main Result: Type I error rate
 
-```{r main2, include = FALSE}
-plot = (ggplot(filter(dat_plot, map(g1, 2) == -0.33), 
-               aes(y = stat, x = as.factor(b2_fact)))
-         + facet_grid(rows = vars(label),
-                      cols = vars(optim_fact),
-                      labeller = label_parsed)
-         + geom_hline(yintercept = tint, linetype = 3, alpha = .75)
-         + geom_hline(yintercept = 0, linetype = 4, alpha = .75)
-         + geom_hline(yintercept = -tint, linetype = 3, alpha = .75)
-         + labs(x = expression(beta[12]), y = "t-statistic")
-         + theme(strip.text.x = element_text(angle = 0, size = 16),
-                 strip.text.y = element_text(angle = 0))
-         + geom_tufteboxplot()
-)
-```
-
-```{r plot_main2}
-print(plot)
+```{r main_null}
+print(plot_null)
 ```
 
 ## Main Result: Type I error rate
@@ -376,13 +345,13 @@ print(xtable(filter(table),
     - The omission of quadratic terms no longer picks up the 
       demand effect.
 2. Decrease marginal costs increase ($\delta$)
-    - Little to no change with current parameters
+    - Little to no change with baseline parameter values
 3. Binary practices
     - General decrease in power
 
 ## Omitted Environment Bias
 
-![Omitted Correlated Environmental Factor](figure-latex/spurious_plot.pdf)
+![Omitted Correlated Environmental Factor](figure-latex/spurious_new_plot.pdf)
 
 ## Improved Type I Errors 
 
