@@ -1,3 +1,11 @@
+if (!require("remotes")){
+  install.packages("remotes")
+  library("remotes")
+}
+if (!require(simcompl2)){
+  remotes::install_github("stijnmasschelein/simcompl2",
+                          ref = "only_files")
+}
 source("R/big_parameters.R")
 data_params_1 <- data_params
 data_params_1$sd = data_params$sd[3]
