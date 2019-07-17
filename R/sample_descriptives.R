@@ -4,6 +4,7 @@ library(simcompl2)
 library(tidyverse)
 library(cowplot)
 
+# Parameters ----
 #' ## Run a simulation
 #' ### Fixed parameters
 
@@ -18,6 +19,8 @@ b12 = c(0, .25); opt = c(2, 4, 8, 16, 32, 64)
 
 nsim = 100
 run_simulation_descriptive = rerun_simulation
+
+# variances ----
 
 #' ### The simulation
 
@@ -39,6 +42,8 @@ if (run_simulation_descriptive){
   }
   saveRDS(dat, "simulated_data/descriptives_simulation.Rds")
 }
+
+# Plots ----
 
 dat = tbl_df(readRDS("simulated_data/descriptives_simulation.Rds")) %>%
   mutate(ratio = (var_sample - var_optim) / var_sample)
@@ -71,4 +76,36 @@ group_by(dat, b12, opt) %>%
                .funs = list(av = mean, 
                             li = function(x) quantile(x, 0.05),
                             hi = function(x) quantile(x, 0.95)))
+
+# heterogeneity ----
+
+params_sim =  list(d = c(1, 1, 0), g1 = c(.33, 0, 0), sd = 1,
+                   sd_eps = c(1, 1, 1), obs = 300, rep = 1, 
+                   b1 = c(0, 0, 0, 0),
+                   b2 = NULL, rate = NULL)
+opt = c(2, 4, 8, 16, 32, 64)
+b2 = c(0, 0.25)
+nsim = 100
+
+dat2 <- tibble()
+for (comp in b2){
+  params_sim$b2 = c(comp, 0, 0)
+  for (optim in opt){
+    params_sim$rate = 1/optim
+    sample = simcompl2::create_sample()
+    sample = do.call(simcompl2::create_sample, params_sim)
+    p = params_sim 
+    dat2 <- mutate(sample,
+           optimal1 = (p$d[2] * (p$b1[1] + p$g1[1] * z) + 
+                       p$b2[1] * (p$b1[2] + p$g1[2] * z) /
+                         (p$d[1] * p$d[2] - p$b2[1])),
+           diff = x1 - optimal1) %>%
+      summarise(sd = sd(diff), m = mean(diff), sdo = sd(optimal1)) %>%
+      mutate(b2 = comp, optim = optim) %>%
+    bind_rows(dat2)   
+  }
+}
+
+
+
 
