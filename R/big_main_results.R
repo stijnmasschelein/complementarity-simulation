@@ -26,28 +26,26 @@ end <- Sys.time()
 print(end - start)
 # Save big tbl ----
 start <- Sys.time()
-saveRDS(dat, file = "simulated_data/robustness_simulation.RDS")
+saveRDS(dat, file = "simulated_data/big_main_simulation.RDS")
 end <- Sys.time()
 print(end - start)
 # Calculate summary statistics ----
 start <- Sys.time()
 summ <- dat %>%
-  group_by(optim, obs, sd, b1_str, b2_str, g1_str, 
-           d_str, sd_eps_str, label) %>%
-  mutate(stat_type = if_else(grepl("c\\(0,", b2_str), 
+group_by(optim, obs, sd, b1_str, b2_str, g1_str, 
+         d_str, sd_eps_str, label) %>%
+mutate(stat_type = if_else(grepl("c\\(0,", b2_str), 
                               "type~I", "power")) %>%
-  summarise(stat_type = first(stat_type),
+summarise(stat_type = first(stat_type),
           stat_value = if_else(stat_type == "type~I",
           mean(I(pvalue <= 0.05)),
-          mean(I(pvalue < 0.05 & 
-                ((grepl("3", label) & coefficient < 0) |
-                   (grepl("2", label) & coefficient > 0))))),
+          mean(I(pvalue < 0.05 & coefficient > 0))),
           N = n()) %>%
 ungroup()
 end <- Sys.time()
 print(end - start)
 # Write summary results to file ----
 start <- Sys.time()
-saveRDS(summ, "simulated_data/robustness_summary.RDS")
+saveRDS(summ, "simulated_data/simulation_summary.RDS")
 end <- Sys.time()
 print(end - start)

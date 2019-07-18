@@ -1,0 +1,1 @@
+*/10 * * 7 * ~/Dropbox/complimentarity/overleaf/copy_files_from_server.sh >> ~/Desktop/script_output.log 2>&1
