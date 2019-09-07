@@ -140,8 +140,25 @@ p2 <- xyplot(dat_sample$x1 ~ dat_sample$x2,
 print(p2 + as.layer(p1))
 ```
 
-
 This means [^collider] that the joint distribution can be written as
 $f(x_1, x_2) = O F_Y(\sqrt{2} (x1 + x2))^{O - 1} f_x(x_1) f_x(x_2)$
 
 [^collider]: It also looks like that this is collider bias. Does that open the possibility for bias in the demand specification?]
+
+## Sum of two discrete
+
+If $y = \beta x_1 + \beta x_2 + \epsilon$ 
+with $x_1$ and $x_2$ binomial (-1, 1) then
+we can think of $y_(n)$ as a mixture of four normals. 
+
+The joint distribution becomes. 
+
+$$
+O(\Phi(2 \beta/\sigma_{\nu}) + 2 \Phi(0) + \Phi(- 2 \beta / \sigma_{\nu}))^{O - 1}  Binomial(x_1)Binomial(x_2)\color{red}{N(0, \sigma_{\nu})}
+$$
+
+Integrating out $x_1$ and $x_2$ is easy it's just 1/2 for each option.
+
+Probability of making a mistake between two adjacent options $\Phi(-\beta/ \sqrt(4) \sigma_\{nu})$. 
+
+Probability of $2 \beta > 0$ equals $\Phi(2 * \beta_1/ \sqrt{2} (\gamma_1^2 + \sigma^2_{\epsilon_1}))$

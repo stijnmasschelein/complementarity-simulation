@@ -32,7 +32,9 @@ for (comp in b2){
 }
 
 random_sd_null = sqrt(100/12 + 0.33^2)
-random_sd_effect = sqrt(100/12 + 0.33^2 / (1 - .25)^2)
+random_sd_effect = sqrt(100/12 + 0.33^2 / (1 - .25)^2) # Double Check
+opt_sd_null = .33
+opt_sd_effect = .33 / (1 - .25)^2 # Double Check
 group_by(dat2, optim, b2) %>%
   summarise(msd = mean(sd), mm = mean(m), msdo = mean(sdo),
             msdx = mean(sdx))

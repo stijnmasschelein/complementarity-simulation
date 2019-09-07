@@ -15,4 +15,7 @@ git remote add simulation https://github.com/stijnmasschelein/complementarity-si
 git fetch simulation master
 git pull simulation master
 
+# install "remotes"
+# install simcompl2
+
 Rscript R/robustness_simulation.R
