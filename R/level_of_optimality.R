@@ -56,15 +56,18 @@ sim_vars = function(interval = c(-5, 5), obs = 200, rep = 1, rate = 0.5, sd = 1,
                   b1 = c(b1, 0), b2 = c(b12, 0, 0), d = c(d, 0), g1 = c(g, 0))
   sample = do.call(simcompl::create_sample, par_sims)
   sample$opt = calc_opt(b1 = b1[1:2], b12 = b12, d = d, g = g, sample$z)
-  var_sample = mean((sample$x1 - sample$z)^2)
+  var_sample = mean((sample$x1 - sample$opt)^2)
   var_random = do.call(var1, par_vars)
   var_optim  = do.call(var2, par_vars)
+  var_performance = var(sample$y) 
+  var_practice = var(sample$x1)
   r2 = (var_random - var_sample)/(var_random - var_optim)
   corxx = cor(sample$x1, sample$x2)
   corxz = cor(sample$x1, sample$z)
   return(list(var_sample = var_sample, var_random = var_random,
               var_optim = var_optim, r2 = r2, corxx = corxx,
-              corxz = corxz))
+              corxz = corxz, var_performance = var_performance, 
+              var_practice = var_practice))
 }
 res = do.call(sim_vars, params)
 
@@ -103,6 +106,14 @@ for (comp in b12){
 dat = tbl_df(dat) %>%
   mutate(ratio = (var_sample - var_optim) / var_sample)
 
+group_by(dat, opt, b12) %>%
+  mutate(sd_sample = sqrt(var_sample),
+         sd_optim = sqrt(var_optim),
+         sd_practice = sqrt(var_practice),
+         sd_performance = sqrt(var_performance)) %>%
+  summarise_at(vars(sd_sample, sd_optim, sd_performance,
+                    sd_practice, corxx, corxz), mean)
+
 plot_opt = ggplot(dat, aes(y = ratio, x = as.factor(b12))) +
   geom_point(alpha = .25) +
   facet_wrap(~ opt)
@@ -119,6 +130,6 @@ plot_xz = ggplot(dat, aes(y = corxz, x = as.factor(b12))) +
 # cowplot::ggsave("figure-other/correlation_contingency.pdf", plot)
 
 plot_summ = cowplot::plot_grid(plot_xx, plot_xz, plot_opt, nrow = 1, labels = c("A", "B", "C"))
-cowplot::save_plot("figure-latex/sample_descriptives.pdf", 
-                   plot_summ, ncol = 3)
+# cowplot::save_plot("figure-latex/sample_descriptives.pdf", 
+#                    plot_summ, ncol = 3)
 
