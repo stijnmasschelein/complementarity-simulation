@@ -42,9 +42,9 @@ type_plot <- ggplot(
  
 # # Construct power plot----
 power_plot <- ggplot(
-  filter(summ, stat_type == "power"),
+  filter(summ, stat_type == "power", !grepl("nearly", label)),
   aes(y = stat_value, x= factor(optim),
-      group = label, col = label)) +
+      group = specification, col = specification)) +
   stat_summary(fun.y = mean, geom = "line") +
   facet_wrap(~ b2_lab, labeller = label_parsed) +
   scale_y_continuous(breaks = c(0, .5, 1)) +
@@ -53,6 +53,6 @@ power_plot <- ggplot(
 
 # Save plots ----
 combined = plot_grid(power_plot, type_plot, labels = "AUTO")
-# save_plot("figure-latex/power_main_effects.pdf", 
-#           power_plot_main_effects, base_height = 7,
-#           base_aspect_ratio = 1.75)
+save_plot("figure-latex/contingent_complementarity.pdf",
+          combined, base_height = 5,
+          base_aspect_ratio = 2.5)
