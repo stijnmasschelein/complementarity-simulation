@@ -11,8 +11,9 @@ summ <- readRDS("simulated_data/mixed_simulation_summary.RDS") %>%
     grepl("\\(240", obs_str) ~ 4/5),
   correction = case_when(
     grepl("nearly_exact", label) ~ "nearly",
-    TRUE ~ "default"
-  ))
+    TRUE ~ "default"),
+  specification = str_replace_all(label, "~|_", " ")
+  )
 
 # Print average performance ----
 summ %>%
@@ -26,31 +27,28 @@ summ %>%
 # Construct type I plots ----
 
 type_plot <- ggplot(
-  filter(summ, stat_type == "type~I"),
-  aes(y = stat_value, x= factor(weight_optim), 
-      group = label, col = label)) +
+  filter(summ, stat_type == "type~I", !grepl("nearly", label)),
+  aes(y = stat_value, x = factor(weight_optim), 
+      group = specification, col = specification)) +
   stat_summary(fun.y = mean, geom = "line") +
   geom_hline(yintercept = 0.05, colour = "darkgrey") +
-  facet_wrap(~ correction) + 
   scale_colour_grey() +
   xlab("Optimality Mix") + ylab("Type I Error Rate")
 
 # Construct power plots ----
 
 power_plot <- ggplot(
-  filter(summ,  stat_type == "power"),
+  filter(summ,  stat_type == "power", !grepl("nearly", label)),
   aes(y = stat_value, x= factor(weight_optim),
-      group = label, col = label)) +
+      group = specification, col = specification)) +
   stat_summary(fun.y = mean, geom = "line") +
-  facet_wrap(~ correction) + 
-  scale_colour_viridis(discrete = TRUE, end = .9) +
   scale_y_continuous(breaks = c(0, .5, 1)) +
-  xlab("Optimality") + ylab("Power")
+  scale_colour_grey() +
+  xlab("Optimality Mix") + ylab("Power")
 
-# # Save power plots ----
-# save_plot("figure-latex/power_basis.pdf", 
-#           power_plot_basis, base_height = 7,
-#           base_aspect_ratio = 1.75)
-# save_plot("figure-latex/power_main_effects.pdf", 
-#           power_plot_main_effects, base_height = 7,
-#           base_aspect_ratio = 1.75)
+
+# Save power plots ----
+combined = plot_grid(power_plot, type_plot, labels = "AUTO")
+save_plot("figure-latex/mixed_optimality.pdf",
+          combined, base_height = 5,
+          base_aspect_ratio = 2.5)
