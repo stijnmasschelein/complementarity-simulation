@@ -441,21 +441,33 @@ y = (\gamma_1 z + \epsilon_1) x_1 + (\gamma_2 z + \epsilon_2) x_2 +
     (\beta_{12} + \gamma_{12} z) - \frac{1}{2} x^2_1 - \frac{1}{2} x^2_2 + \nu
 \end{equation}
 
-The management accounting literature has shows great interest in investigating whether the strength of complementarity effects varies by environmental factors \citep{moers_performance_2006, grabner_incentive_2014} (NEED TO CHECK. MAYBE EXPLICTLY MAKE CONNECTION WITH PAPERS). Some researchers test these contingent complementarity effects by splitting the sample into observations with high and low values for the environmental factors and running separate regressions for the both samples. Some researchers for instance expect a significant complementarity in one sample and no significant complementarity in the other sample. Our results and conclusions so far about the power and type I error respectively are highly relevant to this approach. 
+The management accounting literature has shows great interest in investigating whether the strength of complementarity effects varies by environmental factors \citep{moers_performance_2006, grabner_incentive_2014} (NEED TO CHECK. MAYBE EXPLICTLY MAKE CONNECTION WITH PAPERS). Some researchers test these contingent complementarity effects by splitting the sample into observations with high and low values for the environmental factors and running separate regressions for the both samples. Some researchers for instance expect a significant complementarity in one sample and no significant complementarity in the other sample. Our results and conclusions so far about the power and type I error respectively directly apply to this approach. The approach might miss a true effect in one sample if the power of the specification or erroneously report an effect in the other sample when the type I error rate of the specification is elevated. 
 
-Others estimate the parameter $\gamma_{12}$ directly. The results in figure \ref{contingent-complement} report the results of a simulation where we vary the level of optimality $O$ ($2, 4, 8, 16, 32$), the average complementarity, independent of the environmental factor, $\beta_{12}$ ($0$ or $0.25$), the direct contingency effects, $\gamma_1$ and $\gamma_2$ ($-0.33$ or $0.33$), and the contingency effect on the complementarity, $\gamma_{12}$ ($0$ or $0.33$). Figure \ref{contingent-complement} shows the power to detect a contingent complementarity ($\gamma_{12} = 0.33$) in Panel A and the the type I error rate in the absence of a contingent complementarity ($\gamma_{12} = 0$. The results show that demand specification also outperforms the performance specification to test for a contingent complementarity at all but the lowest levels of optimality. As before, the demand specification has similar or more power to detect a true effect while maintaining better control over Type I error rates at all levels of optimality.
+Others estimate the parameter $\gamma_{12}$ directly. The results in figure \ref{contingent-complement} report the results of a simulation where we vary the level of optimality $O$ ($2, 4, 8, 16, 32$), the average complementarity, independent of the environmental factor, $\beta_{12}$ ($0$ or $0.25$), the direct contingency effects, $\gamma_1$ and $\gamma_2$ ($-0.33$ or $0.33$), and the contingency effect on the complementarity, $\gamma_{12}$ ($0$ or $0.33$). Figure \ref{contingent-complement} shows the power to detect a contingent complementarity ($\gamma_{12} = 0.33$) in Panel A and the the type I error rate in the absence of a contingent complementarity ($\gamma_{12} = 0$ \footnote{In order to save space, the figure reports the power and type I error rate directly instead of the distribution of the t-statistics}. The results show that demand specification also outperforms the performance specification to test for a contingent complementarity at all but the lowest levels of optimality. As before, the demand specification has similar or more power to detect a true effect while maintaining better control over Type I error rates at all levels of optimality.
 
 \begin{figure}
 \centerfloat
-\includegraphics[width=450px]{figure-latex/contingent_complimentarity.pdf}
+\includegraphics[width=450px]{figure-latex/contingent_complementarity.pdf}
 \caption[Error Rate and Power with Contingent Complementarity]
 {\label{contingent-complement} Description }
 \end{figure}
 
-
 \subsection{Alternative Sample Construction}
 
+In order to investigate, the sensitivity of the results to the optimisation algorithm \ref{eq:firm-simulation}, we test whether the results are sensitive to a different method to construct the sample with varying levels of optimality. In the following simulation, we construct each sample of observations as a mix of a subsample with low optimality ($O = 2$) and a subsample with high optimality ($O = 3$). We vary the proportion of the high optimality subsample between $1/5, 2/5, 3/5$ and $4/5$. 
+
+Figure \ref{mixed-optimality} reports the results of the simulation where the complementarity is either present ($\beta_{12}$) in Panel A or absent ($\beta_{12}$ = 0) and $\gamma_1 = 0.33$ while $\gamma_2 = 0.33$ or $\gamma_2 = -33$. All other parameters are the same as in the baseline simulation. The results slightly differ from the baseline simulation but the overall conclusion remains the same. As long as at least $40\%$ of the sample is of low level optimality, the \emph{performance 1} and \emph{performance 2} specification have higher power than the \emph{demand} specification to detect a true complementarity. Nevertheless, the type I error rate of all three performance specification never comes close to the nominal $5\%$ level. Our conclusion remains that the demand specification is preferred not necessarily because a trade-off in power between demand and performance specifications but because the demand specifications controls type I error rates better. This result also confirms the intuition that our results hold for higher level interactions. 
+
+\begin{figure}
+\centerfloat
+\includegraphics[width=450px]{figure-latex/mixed_optimality.pdf}
+\caption[Error Rate and Power with Contingent Complementarity]
+{\label{mixed-optimality} Description }
+\end{figure}
+
 \subsection{Robustness and Limitations of the Demand Specification}
+
+In this last section, we explore under which part of the parameter space the
 
 \section{Going Forward}
 
