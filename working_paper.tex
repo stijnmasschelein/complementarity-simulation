@@ -432,18 +432,17 @@ The results are reported in Figure \ref{spurious} and Table \ref{spurious-table}
 
 \subsection{Contingent Complementarity}
 
-In this section, we extent the baseline model by allowing for a contingency effect on the complementarity. That is, we assume that not only the main effect of the practices depends on the environmental factor, $z$, but also the complementarity itself. The
-simplified objective function is then as follows where the parameter $\gamma_{12}$ governs how the complementarity depends on the environmental factor. 
+In this section we extent the baseline model by allowing for a contingency effect on the complementarity. That is, we assume that not only the main effect of the practices depends on the environmental factor, $z$, but also the complementarity itself. The simplified objective function for the simulations is then as follows where the parameter $\gamma_{12}$ governs how the complementarity depends on the environmental factor. 
 
 \begin{equation}
-\label{eq:contingent-compelment}
+\label{eq:contingent-complement}
 y = (\gamma_1 z + \epsilon_1) x_1 + (\gamma_2 z + \epsilon_2) x_2 + 
     (\beta_{12} + \gamma_{12} z) - \frac{1}{2} x^2_1 - \frac{1}{2} x^2_2 + \nu
 \end{equation}
 
-The management accounting literature has shows great interest in investigating whether the strength of complementarity effects varies by environmental factors \citep{moers_performance_2006, grabner_incentive_2014} (NEED TO CHECK. MAYBE EXPLICTLY MAKE CONNECTION WITH PAPERS). Some researchers test these contingent complementarity effects by splitting the sample into observations with high and low values for the environmental factors and running separate regressions for the both samples. Some researchers for instance expect a significant complementarity in one sample and no significant complementarity in the other sample. Our results and conclusions so far about the power and type I error respectively directly apply to this approach. The approach might miss a true effect in one sample if the power of the specification or erroneously report an effect in the other sample when the type I error rate of the specification is elevated. 
+The management accounting literature has shown great interest in investigating whether the strength of complementarity effects varies by environmental factors. For instance \citet{grabner_incentive_2014} reports that subjective performance evaluation and performance based pay are complement for creativity dependent firms but not for other firms. Some researchers test for contingent complementarity effects by splitting the sample into observations with high and low values for the environmental factors and running separate regressions for both samples. For instance, they expect a significant complementarity in one sample and no significant complementarity in the other sample. Our results and conclusions so far about the power and type I error respectively directly apply to this approach. The approach might miss a true effect in one sample if the power of the specification is low or it might erroneously report an effect in the other sample when the type I error rate of the specification is elevated. 
 
-Others estimate the parameter $\gamma_{12}$ directly. The results in figure \ref{contingent-complement} report the results of a simulation where we vary the level of optimality $O$ ($2, 4, 8, 16, 32$), the average complementarity, independent of the environmental factor, $\beta_{12}$ ($0$ or $0.25$), the direct contingency effects, $\gamma_1$ and $\gamma_2$ ($-0.33$ or $0.33$), and the contingency effect on the complementarity, $\gamma_{12}$ ($0$ or $0.33$). Figure \ref{contingent-complement} shows the power to detect a contingent complementarity ($\gamma_{12} = 0.33$) in Panel A and the the type I error rate in the absence of a contingent complementarity ($\gamma_{12} = 0$ \footnote{In order to save space, the figure reports the power and type I error rate directly instead of the distribution of the t-statistics}. The results show that demand specification also outperforms the performance specification to test for a contingent complementarity at all but the lowest levels of optimality. As before, the demand specification has similar or more power to detect a true effect while maintaining better control over Type I error rates at all levels of optimality.
+Others estimate the parameter $\gamma_{12}$ directly. The results in figure \ref{contingent-complement} report the results of a simulation to evaluate this approach. In the simulation, we vary the level of optimality $O$ ($2, 4, 8, 16, 32$), the average complementarity, independent of the environmental factor, $\beta_{12}$ ($0$ or $0.25$), the direct contingency effects, $\gamma_1$ and $\gamma_2$ ($-0.33$ or $0.33$), and the contingency effect on the complementarity, $\gamma_{12}$ ($0$ or $0.33$). Figure \ref{contingent-complement} shows the power to detect a contingent complementarity ($\gamma_{12} = 0.33$) in Panel A and the the type I error rate in the absence of a contingent complementarity ($\gamma_{12} = 0$) \footnote{In order to save space, the figure reports the power and type I error rate directly instead of the distribution of the t-statistics. The focus of the remaining results is not on the bias of the omitted correlated variables and rather on the power and type I error rate of the theoretically correct specification}. The results show that demand specification also outperforms the performance specifications to test for a contingent complementarity at all but the lowest levels of optimality. As before, the demand specification has similar or more power to detect a true effect while maintaining better control over Type I error rates at all levels of optimality.
 
 \begin{figure}
 \centerfloat
@@ -461,13 +460,51 @@ Figure \ref{mixed-optimality} reports the results of the simulation where the co
 \begin{figure}
 \centerfloat
 \includegraphics[width=450px]{figure-latex/mixed_optimality.pdf}
-\caption[Error Rate and Power with Contingent Complementarity]
+\caption[Error Rate and Power with Mixed Optimality Samples]
 {\label{mixed-optimality} Description }
 \end{figure}
 
 \subsection{Robustness and Limitations of the Demand Specification}
 
-In this last section, we explore under which part of the parameter space the
+In this last section, we explore under which part of the parameter space the demand specification is less robust. In a first simulation, we vary the following parameters. $\beta_{12}$ equals $0$, $0.25$, or $0.5$. $\delta_1 = \delta_2$ equal $0$, $.25$, $1$, and $1/\delta_1 = \delta_2 = 3$. $\gamma_1 = 0.33$ and $\gamma_2$ equals $0$, $-0.33$, or $0.33$. $\sigma_{\epsilon_1} = \sigma_{\epsilon_2}$ varies between $0.5$, $1$, and $2$ and $\sigma_{\nu}$ equals $1$, $2$, or $4$. These parameter combinations will no longer reflect the calibration in section \ref{calibration}.
+
+The results in Figure \ref{big-basis} panel A largely confirm that only for lower levels of optimality the \emph{performance 1} specification has more power to detect a true effect than the \emph{demand} specification. The major issue for the \emph{performance 1} specification is the inferior Type I error rates as reported in Panel B. The biggest issue for the \emph{demand} specification is the the slightly elevated Type I error rate when there are no increasing costs to the practices ($\delta_i = 0$) and the uncorrelated contingency factors are relatively small ($\sigma_{\epsilon_i} = 0.5$. This is not entirely surprising because these are the conditions where the optimal level for the practices are corner solutions and they violate the assumptions of the demand specification.
+
+\begin{figure}
+\centerfloat
+\includegraphics[width=450px]{figure-latex/big_basis.pdf}
+\caption[Error Rate and Power without Main Effects] 
+{\label{big-basis} Description }
+\end{figure}
+
+In the next simulation, we exaggerate the effect of the corner solutions by setting the main effects of the two practices, $\beta_{1}$ and $\beta_2$ equal to 0.5. This choice favours one of the four corners, namely where a firm would adopt both practices to their full extent. More specifically under the worst case scenario, $\sigma_{\epsilon_1} = \sigma_{\epsilon_2} = 0.5$ and $\delta_1 = \delta_2 = 0$, $80\%$ of observations should adopt practice 1 and $80\%$ should adopt practice 2 \footnote{The distribution of the effect of $x_1$ for each firm in the sample is given by a normal distribution with mean $beta_1$ and standard deviation $\sqrt{\sigma_{\epsilon_1}^2 + \gamma_1^2}$. In the worst case scenario for the demand specification this implies a standard deviation of $\sqrt{.25 + 0.11} \approx  0.6$. The probability that the practice is beneficial for a firm is then given by $\Phi(\frac{\beta_1}{0.6}) = \Phi(\frac{0.5}{0.6}) \approx 0.8$ where $\Phi$ is the cumulative standard normal distribution.}.
+This also implies that $64\%$ of the sample optimally adopts both practices to their full extent even in the absence of a complementarity effect. In other words, for almost two third of the sample the question whether the practices are complements is irrelevant.   
+
+The results in Figure \ref{big-main} Panel A show that the introduction of the main effects do not affect the power of the demand specification compared to the performance specification. Figure \ref{big-main} Panel B shows that the Type I error rate of the practices breaks down under the worst case scenario of one corner solution outlined above. Increases in unobserved variation in performances ($\sigma_{\epsilon_i}$) and marginal costs ($\delta_i$) largely mitigate the problem. 
+
+Given how extreme the worst case scenario is where the practices are optimally used at full extent by most of the firms in the sample even if they are not complements, we belief this result only marginally qualifies our main conclusion. In the majority of the management accounting studies we belief that variation in contingency factors and decreasing marginal returns will dominate over the direct benefits of the practices. In these situations, the demand specification has more power to detect a true complementarity at all but the lowest level of optimality while keeping Type I error rates in check.
+
+
+\begin{figure}
+\centerfloat
+\includegraphics[width=450px]{figure-latex/big_main.pdf}
+\caption[Error Rate and Power with Large Main Effects] 
+{\label{big-main} Description }
+\end{figure}
+
+Nevertheless, given that corner solutions violate the assumption of the demand specification, we run a last simulation to test the robustness of the demand specification. We extent the objective function to three practices where the first and the third practice are discrete practices. Panel A reports the power of both specifications to detect a true substitution effect between the first and the second practice ($\beta_{12} = -0.25$) and a true complementarity between the first and the third practice ($\beta_{13} = 0.25$). Panel A reports the resulting Type I error rates in the absence of these effects. In both panels there is a complementarity between the second and the first practice ($\beta_{23} = 0.25$. This simulation also helps us to investigate whether our conclusion hold for objective functions with multiple practices and multiple complementarities and for a combination of a discrete and continuous practices. 
+
+The remaining parameters are the same as in the previous simulation with two clarifications. First, we need to set the parameters for the direct effect ($\beta_3 = 0.5$) and the contingency effects for the third practice ($\sigma_{\epsilon_3} = \sigma_{\epsilon_1}$, $\gamma_3 = 0.33$). Second, only the continuous, second practice has decreasing marginal returns. 
+
+The results in Figure \ref{robustness-main} are consistent with Figure \ref{big-main}. The relative advantage of the demand specification to detect a true effect has not changed as can be seen from Panel B. The Type I error rates in Panel B again shows that the demand specification does not adequately control the false positive rate when $\sigma_{\epsilon_i} = 0.5$. When each combination of two practices is optimally adopted by almost two third of the sample in the absence of any interdependencies, the demand specification should not be trusted. The problem is less pronounced when there is more unobserved heterogeneity in performance and for the interdependency with only one discrete practice when marginal costs of the continuous practice increase. 
+
+The results largely confirm the superiority of the demand specification for a typical management accounting study with one more caveat. When the two practices are discrete and they should be adopted together in the absence of any interdependencies by the majority of the sample, the demand specification does not adequately control the type I error rate. We argue that this is an uncommon occurrence for most management accounting practices.
+\begin{figure}
+\centerfloat
+\includegraphics[width=450px]{figure-latex/robustness_main.pdf}
+\caption[Error Rate and Power with Large Main Effects and Discrete Practices] 
+{\label{robustness-main} Description }
+\end{figure}
 
 \section{Going Forward}
 
