@@ -12,12 +12,14 @@ data_params = list(obs = nobs, rate = rate, b2 = b2, g1 = g1,
                    h1= h1, d = d, sd_eps = sd_eps, b1 = b1, 
                    sd = sd)
 perf_form1 = y ~ x1*x2*z + I(x1^2) + I(x2^2)
+perf_form2 = y ~ x1*x2*z
 test_params = list(list(formula = x1 ~ x2*z,
                         variable = "x2:z",
-                        label = "demand",
-                        nearly_correction = TRUE),
+                        label = "demand"),
                    list(formula = perf_form1,
                         variable = "x1:x2:z",
-                        label = "performance~1",
-                        nearly_correction = TRUE))
+                        label = "performance~1"),
+                   list(formula = perf_form2,
+                        variable = "x1:x2:z",
+                        label = "performance~2"))
 sim_params = list(nsim = 1000, boot = FALSE, mc_cores = 4)

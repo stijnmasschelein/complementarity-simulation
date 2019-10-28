@@ -3,6 +3,7 @@ source("R/sample_descriptive_functions.R")
 library(simcompl2)
 library(tidyverse)
 library(cowplot)
+theme_set(cowplot_theme())
 
 # Parameters ----
 #' ## Run a simulation

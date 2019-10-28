@@ -25,6 +25,10 @@ summ <- mutate(summ,
   b2_lab = recode(b2_str,
     `c(0.25, 0, 0)` = "beta[12] == 0.25",
     `c(0, 0, 0)` = "beta[12] == 0"),
+  h1_lab = recode(h1_str,
+    `c(0, 0, 0)` = "gamma[12] == 0",
+    `c(-0.33, 0, 0)` = "gamma[12] == -0.33",
+    `c(0.33, 0, 0)` = "gamma[12] == 0.33"),
   specification = str_replace_all(label, "~|_", " ")
 )
 
@@ -46,13 +50,15 @@ power_plot <- ggplot(
   aes(y = stat_value, x= factor(optim),
       group = specification, col = specification)) +
   stat_summary(fun.y = mean, geom = "line") +
-  facet_wrap(~ b2_lab, labeller = label_parsed) +
+  facet_grid(cols = vars(h1_lab, b2_lab), 
+             labeller = label_parsed) +
   scale_y_continuous(breaks = c(0, .5, 1)) +
   scale_colour_grey() +
   xlab("Optimality") + ylab("Power")
 
 # Save plots ----
-combined = plot_grid(power_plot, type_plot, labels = "AUTO")
+combined = plot_grid(power_plot, type_plot, labels = "AUTO",
+                     rel_widths = c(2, 1.25))
 save_plot("figure-latex/contingent_complementarity.pdf",
           combined, base_height = 5,
           base_aspect_ratio = 2.5)
