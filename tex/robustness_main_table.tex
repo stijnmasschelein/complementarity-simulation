@@ -1,0 +1,64 @@
+\begin{table}
+
+\caption{\label{tab:robustness-main-table}Power and Type I Error Rate with Main Effects and Discrete Practices}
+\centering
+\fontsize{8}{10}\selectfont
+\begin{threeparttable}
+\begin{tabular}[t]{rrrrrrrrrrrrr}
+\toprule
+\multicolumn{3}{c}{ } & \multicolumn{5}{c}{demand specification} & \multicolumn{5}{c}{performance specification} \\
+\cmidrule(l{3pt}r{3pt}){4-8} \cmidrule(l{3pt}r{3pt}){9-13}
+$\sigma_{\epsilon_i}$ & $\delta_i$ & $\sigma_{\epsilon_i}$ & 2 & 4 & 8 & 16 & 32 & 2 & 4 & 8 & 16 & 32\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{13}{c}{\textbf{1 Discrete Practice - Power}}\\
+\hspace{1em}0.5 & 0.00 & 1 & 0.99 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 0.99\\
+\hspace{1em}0.5 & 0.25 & 1 & 0.98 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 0.97\\
+\hspace{1em}0.5 & 1.00 & 1 & 0.94 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 0.98\\
+\hspace{1em}1.0 & 0.00 & 1 & 0.92 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 0.96 & 0.77\\
+\hspace{1em}1.0 & 0.25 & 1 & 0.92 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 0.99 & 0.92 & 0.68\\
+\hspace{1em}1.0 & 1.00 & 1 & 0.86 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 0.99 & 0.97 & 0.89 & 0.76\\
+\hspace{1em}2.0 & 0.00 & 1 & 0.50 & 0.93 & 1.00 & 1.00 & 1.00 & 0.74 & 0.79 & 0.66 & 0.39 & 0.18\\
+\hspace{1em}2.0 & 0.25 & 1 & 0.54 & 0.96 & 1.00 & 1.00 & 1.00 & 0.73 & 0.75 & 0.60 & 0.30 & 0.15\\
+\hspace{1em}2.0 & 1.00 & 1 & 0.51 & 0.93 & 1.00 & 1.00 & 1.00 & 0.72 & 0.70 & 0.54 & 0.35 & 0.18\\
+\addlinespace[0.3em]
+\multicolumn{13}{c}{\textbf{1 Discrete Practice - Type I}}\\
+\hspace{1em}0.5 & 0.00 & 1 & 0.09 & 0.20 & 0.27 & 0.28 & 0.18 & 0.10 & 0.08 & 0.06 & 0.04 & 0.03\\
+\hspace{1em}0.5 & 0.25 & 1 & 0.08 & 0.15 & 0.19 & 0.19 & 0.14 & 0.10 & 0.08 & 0.06 & 0.05 & 0.04\\
+\hspace{1em}0.5 & 1.00 & 1 & 0.05 & 0.06 & 0.06 & 0.04 & 0.04 & 0.12 & 0.10 & 0.07 & 0.06 & 0.07\\
+\hspace{1em}1.0 & 0.00 & 1 & 0.05 & 0.07 & 0.08 & 0.09 & 0.08 & 0.10 & 0.08 & 0.07 & 0.04 & 0.05\\
+\hspace{1em}1.0 & 0.25 & 1 & 0.07 & 0.06 & 0.06 & 0.07 & 0.07 & 0.09 & 0.07 & 0.06 & 0.05 & 0.05\\
+\hspace{1em}1.0 & 1.00 & 1 & 0.05 & 0.06 & 0.06 & 0.05 & 0.04 & 0.08 & 0.09 & 0.07 & 0.06 & 0.05\\
+\hspace{1em}2.0 & 0.00 & 1 & 0.06 & 0.04 & 0.04 & 0.04 & 0.06 & 0.09 & 0.08 & 0.08 & 0.06 & 0.06\\
+\hspace{1em}2.0 & 0.25 & 1 & 0.06 & 0.07 & 0.05 & 0.05 & 0.06 & 0.07 & 0.09 & 0.07 & 0.05 & 0.05\\
+\hspace{1em}2.0 & 1.00 & 1 & 0.04 & 0.06 & 0.05 & 0.05 & 0.05 & 0.08 & 0.09 & 0.08 & 0.07 & 0.06\\
+\addlinespace[0.3em]
+\multicolumn{13}{c}{\textbf{2 Discrete Practices - Power}}\\
+\hspace{1em}0.5 & 0.00 & 1 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00\\
+\hspace{1em}0.5 & 0.25 & 1 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00\\
+\hspace{1em}0.5 & 1.00 & 1 & 0.98 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00\\
+\hspace{1em}1.0 & 0.00 & 1 & 0.97 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 0.91\\
+\hspace{1em}1.0 & 0.25 & 1 & 0.98 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 0.92\\
+\hspace{1em}1.0 & 1.00 & 1 & 0.88 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 0.99\\
+\hspace{1em}2.0 & 0.00 & 1 & 0.61 & 0.98 & 1.00 & 1.00 & 1.00 & 0.79 & 0.88 & 0.84 & 0.60 & 0.35\\
+\hspace{1em}2.0 & 0.25 & 1 & 0.58 & 0.98 & 1.00 & 1.00 & 1.00 & 0.84 & 0.90 & 0.85 & 0.61 & 0.30\\
+\hspace{1em}2.0 & 1.00 & 1 & 0.51 & 0.97 & 1.00 & 1.00 & 1.00 & 0.85 & 0.91 & 0.91 & 0.76 & 0.46\\
+\addlinespace[0.3em]
+\multicolumn{13}{c}{\textbf{2 Discrete Practices - Type I}}\\
+\hspace{1em}0.5 & 0.00 & 1 & 0.14 & 0.21 & 0.24 & 0.13 & 0.08 & 0.11 & 0.08 & 0.06 & 0.04 & 0.06\\
+\hspace{1em}0.5 & 0.25 & 1 & 0.13 & 0.27 & 0.29 & 0.17 & 0.11 & 0.09 & 0.08 & 0.07 & 0.06 & 0.04\\
+\hspace{1em}0.5 & 1.00 & 1 & 0.08 & 0.22 & 0.32 & 0.33 & 0.26 & 0.11 & 0.13 & 0.10 & 0.06 & 0.06\\
+\hspace{1em}1.0 & 0.00 & 1 & 0.08 & 0.09 & 0.06 & 0.07 & 0.07 & 0.09 & 0.08 & 0.08 & 0.05 & 0.05\\
+\hspace{1em}1.0 & 0.25 & 1 & 0.06 & 0.09 & 0.09 & 0.08 & 0.07 & 0.12 & 0.10 & 0.08 & 0.06 & 0.04\\
+\hspace{1em}1.0 & 1.00 & 1 & 0.05 & 0.10 & 0.11 & 0.10 & 0.08 & 0.09 & 0.09 & 0.10 & 0.07 & 0.05\\
+\hspace{1em}2.0 & 0.00 & 1 & 0.06 & 0.05 & 0.05 & 0.06 & 0.06 & 0.09 & 0.09 & 0.07 & 0.07 & 0.06\\
+\hspace{1em}2.0 & 0.25 & 1 & 0.04 & 0.05 & 0.05 & 0.05 & 0.06 & 0.11 & 0.08 & 0.07 & 0.07 & 0.05\\
+\hspace{1em}2.0 & 1.00 & 1 & 0.06 & 0.06 & 0.05 & 0.05 & 0.05 & 0.10 & 0.10 & 0.08 & 0.06 & 0.06\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item \textit{Note: } 
+\item Power and Type I error rate for the different levels of optimality (2, 4, 8, 16, 32) when $\beta_1 = \beta_2 = 0.5$ for the demand and performance 1 specification. Power refers to the proportion of samples with a significantly negative estimate for the interdependency between a discrete and a continuous practice ($\beta_{12} = -0.25$) and a significantly positive estimate for the interdependency between two discrete practices ($\beta_{13} = 0.25$). Type I refers to the proportion of samples with a significant estimate for the complementarity when $\beta_{12} = \beta_{13} = 0$. $\beta_1$, $\beta_2$, and $\beta_3$ equal $0.5$. Because two of the practices are discrete $\delta_1 = \delta_3 = 0$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

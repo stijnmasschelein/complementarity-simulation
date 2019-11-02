@@ -99,3 +99,50 @@ big_main_plot = plot_grid(power_plot_main, type_plot_main,
                           ncol = 1, labels = "AUTO")
 save_plot("figure-latex/robustness_main.pdf",
           big_main_plot, base_height = 9, base_asp = 1.2)
+# Tables ----
+library(kableExtra)
+footnote_main = "Power and Type I error rate for the different levels of optimality (2, 4, 8, 16, 32) when $\\\\beta_1 = \\\\beta_2 = 0.5$ for the demand and performance 1 specification. Power refers to the proportion of samples with a significantly negative estimate for the interdependency between a discrete and a continuous practice ($\\\\beta_{12} = -0.25$) and a significantly positive estimate for the interdependency between two discrete practices ($\\\\beta_{13} = 0.25$). Type I refers to the proportion of samples with a significant estimate for the complementarity when $\\\\beta_{12} = \\\\beta_{13} = 0$. $\\\\beta_1$, $\\\\beta_2$, and $\\\\beta_3$ equal $0.5$. Because two of the practices are discrete $\\\\delta_1 = \\\\delta_3 = 0$."
+
+filter(summ, b1_str == "c(0.5, 0.5, 0.5, 0.5)") %>%
+  mutate(specification = if_else(grepl("demand", label), 
+                                 "demand", "performance"),
+         complementarity = if_else(grepl("12", label),
+                                   "1 discrete", "2 discrete")) %>%
+  group_by(optim, sd, b2_str, d_str, sd_eps_str, 
+           complementarity, specification, stat_type) %>%
+  summarise(stat = mean(stat_value)) %>% 
+  ungroup() %>%
+  pivot_wider(values_from = stat,
+              names_from = c(specification, optim)) %>%
+  filter(!grepl("333", d_str), !grepl("0.5", b2_str), 
+         sd == 1) %>%
+  mutate(
+    sd_eps = case_when(
+      str_detect(sd_eps_str, "0.5") ~ 0.5,
+      str_detect(sd_eps_str, "1") ~ 1,
+      str_detect(sd_eps_str, "2") ~ 2),
+    d = case_when(
+      str_detect(d_str, "\\(0, 0,") ~ 0,
+      str_detect(d_str, "0.25") ~ 0.25,
+      str_detect(d_str, "1") ~ 1)) %>%
+  arrange(complementarity, stat_type, sd_eps, d, sd) %>%
+  select(sd_eps, d, sd, starts_with("demand"),
+         starts_with("performance")) %>% 
+  kable(format = "latex", booktabs = T, linesep = "", 
+        escape = F, digits = 2,
+        label = "robustness-main-table", 
+        caption = "Power and Type I Error Rate with Main Effects and Discrete Practices",
+        col.names = c("$\\sigma_{\\epsilon_i}$", 
+                      "$\\delta_i$", "$\\sigma_{\\epsilon_i}$",
+                       rep(c("2", "4", "8", "16", "32"), 2))) %>%
+  pack_rows("1 Discrete Practice - Power", 1, 9, latex_align = "c") %>%
+  pack_rows("1 Discrete Practice - Type I", 10, 18, latex_align = "c") %>%
+  pack_rows("2 Discrete Practices - Power", 19, 27, latex_align = "c") %>%
+  pack_rows("2 Discrete Practices - Type I", 28, 36, latex_align = "c") %>%
+  add_header_above(c(" " = 3, "demand specification" = 5, 
+                   "performance specification" = 5)) %>%
+  kable_styling(font_size = 8) %>%
+  footnote(
+    general = footnote_main,         
+    escape = FALSE, threeparttable = TRUE) %>%
+  cat(., file = "tex/robustness_main_table.tex")

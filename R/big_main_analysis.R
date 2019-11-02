@@ -176,9 +176,9 @@ filter(summ, b1_str == "c(0.5, 0.5, 0.5, 0)") %>%
                    "performance specification" = 5)) %>%
   kable_styling(font_size = 8) %>%
   footnote(
-    general = footnote_basis,         
+    general = footnote_main,         
     escape = FALSE, threeparttable = TRUE) %>%
-  cat(., file = "tex/big_basis_table.tex")
+  cat(., file = "tex/big_main_table.tex")
 
 filter(summ, b1_str == "c(0, 0, 0, 0)") %>%
   group_by(optim, sd, b2_str, d_str, sd_eps_str, label, stat_type) %>%
@@ -213,7 +213,7 @@ filter(summ, b1_str == "c(0, 0, 0, 0)") %>%
                    "performance specification" = 5)) %>%
   kable_styling(font_size = 8) %>%
   footnote(
-    general = footnote_main,         
+    general = footnote_basis,         
     escape = FALSE, threeparttable = TRUE) %>%
-  cat(., file = "tex/big_main_table.tex")
+  cat(., file = "tex/big_basis_table.tex")
 
