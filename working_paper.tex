@@ -8,6 +8,8 @@
 \usepackage[hyphens]{url} % not crucial - just used below for the URL
 \usepackage{hyperref}
 \usepackage{listings} 
+\usepackage{booktabs}
+\usepackage{float}
 \usepackage[onehalfspacing]{setspace}
 \usepackage[usenames,dvipsnames]{color}    
 \usepackage[font=small, font+=singlespacing,labelfont=bf]{caption}
@@ -444,12 +446,14 @@ The technical reason for the main weakness of the demand specification is that t
 
 In a first simulation, we vary the following parameters. $\beta_{12}$ equals $0$, $0.25$, or $0.5$. $\delta_1 = \delta_2$ equal $0$, $.25$, $1$, and $1/\delta_1 = \delta_2 = 3$. $\gamma_1 = 0.33$ and $\gamma_2$ equals $0$, $-0.33$, or $0.33$. $\sigma_{\epsilon_1} = \sigma_{\epsilon_2}$ varies between $0.5$, $1$, and $2$ and $\sigma_{\nu}$ equals $1$, $2$, or $4$. Note that these parameter combinations no longer reflect the calibration to a typical management accounting study in section \ref{calibration}. For computational reasons, we restrict ourselves to comparing the two theoretically derived specifications: the \emph{demand} in black and the \emph{performance 1} specification in grey.
 
-\begin{figure}
-\centerfloat
-\includegraphics[width=450px]{figure-latex/big_basis.pdf}
-\caption[Error Rate and Power without Main Effects] 
-{\label{big-basis} Panel A reports the proportion of samples with a significantly positive estimate for the complementarity when $\beta_{12} = .25$ or $.5$. Panel B reports the proportion of samples with a significant estimate for the complementarity when $\beta_{12} = 0$. The effect of the environmental variable, $\mathbf{z}$, on the second choice is either negative ($\gamma_1 = .33$ and $\gamma_2 = -.33$) or positive ($\gamma_1 = 0.33$ and $\gamma_2 = 0.33$). The results are averaged over the values of $\gamma_2$.}
-\end{figure}
+\input{tex/big_basis_table.tex}
+
+%\begin{figure}
+%\centerfloat
+%\includegraphics[width=450px]{figure-latex/big_basis.pdf}
+%\caption[Error Rate and Power without Main Effects] 
+%{\label{big-basis} Panel A reports the proportion of samples with a significantly positive estimate for the complementarity when $\beta_{12} = .25$ or $.5$. Panel B reports the proportion of samples with a significant estimate for the complementarity when $\beta_{12} = 0$. The effect of the environmental variable, $\mathbf{z}$, on the second choice is either negative ($\gamma_1 = .33$ and $\gamma_2 = -.33$) or positive ($\gamma_1 = 0.33$ and $\gamma_2 = 0.33$). The results are averaged over the values of $\gamma_2$.}
+%\end{figure}
 
 The results in Figure \ref{big-basis} panel A largely confirm that only for lower levels of optimality the \emph{performance 1} specification has more power to detect a true effect than the \emph{demand} specification. The major issue for the \emph{performance 1} specification is the inferior Type I error rates as reported in Panel B. The biggest issue for the \emph{demand} specification is the slightly elevated Type I error rate when there are both no increases in the marginal costs of the practices ($\delta_i = 0$) and the unobserved heterogeneity is relatively small ($\sigma_{\epsilon_i} = 0.5$). This is not entirely surprising because these are the conditions where the optimal level for the practices are corner solutions and they violate the second-order optimality condition underlying the demand specification.
 
