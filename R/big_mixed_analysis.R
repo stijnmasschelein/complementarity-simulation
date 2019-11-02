@@ -5,10 +5,11 @@ theme_set(theme_cowplot())
 # Load summary results ----
 summ <- readRDS("simulated_data/mixed_simulation_summary.RDS") %>%
   mutate(weight_optim = case_when(
-    grepl("\\(60", obs_str) ~ 1/5,
-    grepl("\\(120", obs_str) ~ 2/5,
-    grepl("\\(180", obs_str) ~ 3/5,
-    grepl("\\(240", obs_str) ~ 4/5),
+    grepl("\\(30", obs_str) ~ 1/10,
+    grepl("\\(90", obs_str) ~ 3/10,
+    grepl("\\(150", obs_str) ~ 5/10,
+    grepl("\\(210", obs_str) ~ 7/10,
+    grepl("\\(270", obs_str) ~ 9/10),
   correction = case_when(
     grepl("nearly_exact", label) ~ "nearly",
     TRUE ~ "default"),
@@ -52,3 +53,45 @@ combined = plot_grid(power_plot, type_plot, labels = "AUTO")
 save_plot("figure-latex/mixed_optimality.pdf",
           combined, base_height = 5,
           base_aspect_ratio = 2.5)
+
+# Read full results ----
+full <- readRDS("simulated_data/big_mixed_simulation.RDS")
+
+full <- mutate(full, b12 = map_dbl(map(b2, 1), 1))
+
+ggplot(filter(full, b12 == 0, grepl("nearly", label)), 
+       aes(y = stat, x = obs_str)) +
+  ggthemes::geom_tufteboxplot(varwidth = TRUE) + 
+  geom_hline(yintercept = 0, colour = "grey") +
+  facet_grid(rows= vars(label), 
+             cols =vars(g1_str)) 
+
+# Table ----
+full %>% filter(b12 == 0) %>%
+  group_by(label, obs_str) %>%
+  summarise(typeI = mean(I(pvalue < 0.05)),
+            N = n()) %>% 
+  print(n = 40)
+
+# Plot ----
+O_obs = 240
+sample = simcompl2::create_mixed_sample(
+  list(obs = O_obs, rate = 1/32,
+       sd_eps = c(0.5, 0.5, 0.5),
+       g1 = c(0.33, 0, 0),
+       b2 = c(0, 0, 0)),
+  list(obs = 300 - O_obs, rate = 1/2, 
+       sd_eps = c(0.5, 0.5, 0.5),
+       g1 = c(0.33, 0, 0),
+       b2 = c(0, 0, 0))) %>%
+  mutate(rn = row_number())
+
+qplot(data = sample, y, bins = 10)
+
+ggplot(sample, aes(y = x1, x = x2, 
+                   colour = as.factor(I(rn <= O_obs)))) + 
+  geom_point() +
+  scale_colour_viridis(discrete = TRUE)
+
+
+  

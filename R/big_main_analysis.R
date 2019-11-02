@@ -135,3 +135,66 @@ save_plot("figure-latex/big_main.pdf",
 #   group_by(g1_str, b2_str) %>%
 #   summarise(N = n())
 
+
+# Tables
+library(kableExtra)
+
+filter(summ, b1_str == "c(0.5, 0.5, 0.5, 0)") %>%
+  group_by(optim, sd, b2_str, d_str, sd_eps_str, label, stat_type) %>%
+  summarise(stat = mean(stat_value)) %>% 
+  ungroup() %>%
+  pivot_wider(values_from = stat,
+              names_from = c(label, optim)) %>%
+  filter(!grepl("333", d_str), !grepl("0.5", b2_str)) %>%
+  mutate(
+    sd_eps = case_when(
+      str_detect(sd_eps_str, "0.5") ~ 0.5,
+      str_detect(sd_eps_str, "1") ~ 1,
+      str_detect(sd_eps_str, "2") ~ 2),
+    d = case_when(
+      str_detect(d_str, "\\(0,") ~ 0,
+      str_detect(d_str, "0.25") ~ 0.25,
+      str_detect(d_str, "1") ~ 1)) %>%
+  select(stat_type, sd_eps, d, sd, starts_with("demand"),
+         starts_with("performance")) %>%
+  arrange(stat_type, sd_eps, d, sd) %>%
+  kable(format = "latex", booktabs = T, linesep = "", 
+        escape = F, digits = 2, 
+        col.names = c("Type", "$\\sigma_{\\epsilon_i}$", 
+                      "$\\delta_i$", "$\\sigma_{\\epsilon_i}$",
+                       rep(c("2", "4", "8", "16", "32"), 2))) %>%
+  add_header_above(c(" " = 4, "demand specification" = 5, 
+                   "performance specification" = 5)) %>%
+  kable_styling(font_size = 8) %>%
+  cat(., file = "tex/big_main_table.tex")
+
+filter(summ, b1_str == "c(0, 0, 0, 0)") %>%
+  group_by(optim, sd, b2_str, d_str, sd_eps_str, label, stat_type) %>%
+  summarise(stat = mean(stat_value)) %>% 
+  ungroup() %>%
+  pivot_wider(values_from = stat,
+              names_from = c(label, optim)) %>%
+  filter(!grepl("333", d_str), !grepl("0.5", b2_str)) %>%
+  mutate(
+    sd_eps = case_when(
+      str_detect(sd_eps_str, "0.5") ~ 0.5,
+      str_detect(sd_eps_str, "1") ~ 1,
+      str_detect(sd_eps_str, "2") ~ 2),
+    d = case_when(
+      str_detect(d_str, "\\(0,") ~ 0,
+      str_detect(d_str, "0.25") ~ 0.25,
+      str_detect(d_str, "1") ~ 1)) %>%
+  select(stat_type, sd_eps, d, sd, starts_with("demand"),
+         starts_with("performance")) %>%
+  arrange(stat_type, sd_eps, d, sd) %>%
+  kable(format = "latex", booktabs = T, linesep = "", 
+        escape = F, digits = 2, 
+        col.names = c("Type", "$\\sigma_{\\epsilon_i}$", 
+                      "$\\delta_i$", "$\\sigma_{\\epsilon_i}$",
+                       rep(c("2", "4", "8", "16", "32"), 2))) %>%
+  add_header_above(c(" " = 4, "demand specification" = 5, 
+                   "performance specification" = 5)) %>%
+  kable_styling(font_size = 8) %>%
+  cat(., file = "tex/big_basis_table.tex")
+
+
