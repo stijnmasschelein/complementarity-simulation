@@ -7,8 +7,10 @@
 \usepackage{textcomp}
 \usepackage[hyphens]{url} % not crucial - just used below for the URL
 \usepackage{hyperref}
-\usepackage{listings}
+\usepackage{listings} 
+\usepackage[onehalfspacing]{setspace}
 \usepackage[usenames,dvipsnames]{color}    
+\usepackage[font=small, font+=singlespacing,labelfont=bf]{caption}
 
 \lstset{ 
   language=R,                     % the language of the code
@@ -69,7 +71,7 @@
   \title{\bf Testing for Complementarities between Accounting Practices}
 
   \author{
-        Stijn Masschelein \thanks{The authors are grateful for comments by seminar participants at Leuven University, Australian National University, the University of Technology Sydney, the University of New South Wales, and the University of Western Australia, the 2018 AFAANZ conference, and the 2018 AOS conference on Management Control as System or Package in Maastricht.} \\
+        Stijn Masschelein \thanks{The authors are grateful for comments by David Bedford, seminar participants at Leuven University, Australian National University, the University of Technology Sydney, the University of New South Wales, and the University of Western Australia, the 2018 AFAANZ conference, and the 2018 AOS conference on Management Control as System or Package in Maastricht.} \\
     University of Western Australia Business School\\
      and \\     Frank Moers \\
     Maastricht University School of Business and Economics\\
@@ -103,13 +105,13 @@ Following the theoretical innovations of complementarity theory, management cont
 
 \section{Introduction}\label{introduction}
 
-The management accounting literature investigates firms' choices of interdependent practices such as delegation and incentives \citep{bouwens_assessing_2007, indjejikian_accounting_2012, moers_performance_2006}, or the levers of control \citep{simons_levers_1994, simons_performance_2000, widener_empirical_2007}, and has devoted considerable attention to investigating the fit between the practices and the firms' environment \citep{chenhall_management_2003, otley_contingency_2016}. The interdependencies between practices are the reason a collection of practices form an accounting system  \citep{grabner_management_2013,milgrom_complementarities_1995}. When two practices positively reinforce or complement each other, the firm benefits from using them together, as a system. When two practices negatively reinforce each other, they act as substitutes. In this paper, we compare the two most common specifications in the empirical literature to test whether practices are complements (or substitutes), i.e., the performance specification and the demand specification \citep{grabner_management_2013}, and examine the vulnerability of these specifications to their underlying assumptions. 
+The management accounting literature has investigated firms' choices of interdependent practices such as delegation and incentives \citep{bouwens_assessing_2007, indjejikian_accounting_2012, moers_performance_2006}, or the levers of control \citep{simons_levers_1994, simons_performance_2000, widener_empirical_2007}, and devoted considerable attention to investigating the fit between the practices and the firms' environment \citep{chenhall_management_2003, otley_contingency_2016}. The interdependencies between practices are the reason a collection of practices form an accounting system  \citep{grabner_management_2013,milgrom_complementarities_1995}. When two practices positively reinforce or complement each other, the firm benefits from using them together, as a system. When two practices negatively reinforce each other, they act as substitutes. In this paper, we compare the two most common specifications in the empirical literature to test whether practices are complements (or substitutes), i.e., the performance specification and the demand specification \citep{grabner_management_2013}, and examine the vulnerability of these specifications to their underlying assumptions. 
 
 The performance specification tests whether the interaction between two practices is postively correlated with performance \citep{athey_empirical_1998, carree_note_2011, grabner_management_2013, hofmann_organizational_2017}. For instance, the interaction between delegation and accounting based incentives is positively related to business unit performance. The performance specification assumes that there are a "sufficient number" of firms that deviate from the optimal choices which allows researchers to detect performance differences between optimal and suboptimal accounting systems. The extreme version of this assumption is that all firms make random choices. The demand specification tests whether two practices are positively correlated with each other after controlling for environmental factors \citep{arora_testing_1996, grabner_management_2013, johansson_testing_2018, hofmann_organizational_2017}.  For instance, delegation and accounting based incentives are correlated after controlling for environmental factors. The demand specification assumes that there are a "sufficient number" of firms that simultaneously choose the optimal level of the practices taking into account the interdependency and the firm's environment. The extreme version of this assumption is that all firms make optimal choices.
 
-In observational samples neither the assumption of completely randomly chosen practices nor the assumption of completely optimal choices will hold \citep{brynjolfsson_complementarity_2013}. While an individual decision is either optimal or not, a sample of those individual decisions can exhibit different levels of optimality. That is, different samples can contain different proportions of optimal decisions. The methodology literature has treated the assumption about the level of optimality in a sample as an untestable assumption and recommends that researchers argue whether their chosen specification is appropriate for their research setting. The demand specification is often seen as more appropriate than the performance specification when one decision maker has designed the entire accounting system, when the optimal design is not too complicated, and when the decision maker has had sufficient time and incentives to choose the optimal system \citep{grabner_management_2013, hofmann_organizational_2017, carree_note_2011, johansson_testing_2018}.  The performance specification is often deemed more appropriate when it involves relatively new practices and technologies that require experimentation \citep{carree_note_2011, bedford_management_2016}. While this recommendation is intuitive, its empirically validity is not clear, in terms of whether the typical arguments for choosing a specification are necessary and/or sufficient. That is, it is not clear how vulnerable each specification is to deviations from its underlying assumption of (lack of) optimality and whether this vulnerability differs between the two specifications. This is the key question that we address in this paper.
+In observational samples neither the assumption of completely randomly chosen practices nor the assumption of completely optimal choices will hold \citep{brynjolfsson_complementarity_2013}. While an individual decision is either optimal or not, a sample of those individual decisions can exhibit different levels of optimality. That is, different samples can contain different proportions of optimal decisions. The methodology literature has treated the assumption about the level of optimality in a sample as an untestable assumption and recommends that researchers argue whether their chosen specification is appropriate for their research setting. The demand specification is often seen as more appropriate than the performance specification when one decision maker has designed the entire accounting system, when the optimal design is not too complicated, and when the decision maker has had sufficient time and incentives to choose the optimal system \citep{grabner_management_2013, hofmann_organizational_2017, carree_note_2011, johansson_testing_2018}.  The performance specification is often deemed more appropriate when it involves relatively new practices and technologies that require experimentation \citep{carree_note_2011, bedford_management_2016}. While this recommendation is intuitive, its empirical validity is not clear. That is, it is not clear how vulnerable each specification is to deviations from its underlying assumption of (lack of) optimality and whether this vulnerability differs between the two specifications. The key question we address in this paper is whether the typical arguments for choosing a specification are necessary and/or sufficient.
 
-In addressing this question, we first show how the demand and performance specification arise from the same underlying and unobserved objective function. The objective function formalises the performance effects of management accounting practices and how those performance effects depend on other practices and contingency factors. As a result, the objective function captures the main insight of complementarity theory \citep{milgrom_complementarities_1995,grabner_management_2013} and contingency theory \citep{chenhall_management_2003,otley_contingency_2016} and is thus the theoretical foundation for hypothesis development regarding interdependencies. We then show the statistical problems that arise with the demand and performance specification when the assumptions underlying these specifications are not satisfied. First, the demand specification has more power to detect an interdependency when management control practices are closer to optimal while the performance specification is more likely to detect an interdependency when the control practices are further from optimal. But again, how close to or how far from optimal the practices need to be to have sufficient power is an open question. Second, while the omitted variable problem is widely recognised for the demand specification \citep{grabner_management_2013, arora_testing_1996, hofmann_organizational_2017}, it is largely ignored \citep{grabner_management_2013, hofmann_organizational_2017} or thought of as non-existing for the performance specification \citep{carree_note_2011}. We show that both specifications are vulnerable to the same omitted variable bias when they do not appropriately control for a contingency factor that affects both practices. When all relevant practices and contingency factors are observed, this bias can be easily addressed, although the most commonly used variant of the performance specification unfortunately does not address the bias. However, it is an open question how (differentially) vulnerable each specification is to correlated omitted variables.
+In addressing this question, we first show how the demand and performance specification arise from the same underlying and unobserved objective function. The objective function formalises the performance effects of management accounting practices and how those performance effects depend on other practices and contingency factors. As a result, the objective function captures the main insight of complementarity theory \citep{milgrom_complementarities_1995,grabner_management_2013} and contingency theory \citep{chenhall_management_2003,otley_contingency_2016} and is thus the theoretical foundation for hypothesis development regarding interdependencies. We then show the statistical problems that arise with the demand and performance specification when the assumptions underlying these specifications are not satisfied. First, the demand specification has more power to detect an interdependency when management control practices are closer to optimal while the performance specification is more likely to detect an interdependency when the control practices are further from optimal. But again, how close to or how far from optimal the practices need to be to have sufficient power is an open question. Second, while the omitted variable problem is widely recognised for the demand specification \citep{grabner_management_2013, arora_testing_1996, hofmann_organizational_2017}, it is largely ignored \citep{grabner_management_2013, hofmann_organizational_2017} or thought of as non-existing for the performance specification \citep{carree_note_2011}. We show that both specifications are vulnerable to the same omitted variable bias when they do not appropriately control for a contingency factor that affects both practices. When all relevant practices and contingency factors are observed, this bias can be easily addressed, although the most commonly used variant of the performance specification unfortunately does not address the bias. Furthermore, it is an open question whether the specifications are equally vulnerable to correlated omitted variables.
 
 To investigate the robustness of both specifications to variations in the level of optimality, we use a simulation. In doing this, we focus on Type I errors (rejection of a true null hypothesis of no complementarity) and power (or Type II errors, i.e., failure to reject a false null hypothesis of no complementarity). The results show that the demand specification has appropriate type I error rates while maintaining power to detect a real complementary effect even at low levels of optimality. In contrast, the theoretically derived performance specification suffers from elevated type I error rates at all levels of optimality and loses power to detect true interdependencies at higher levels of optimality. In addition, the performance specification as it is typically implemented in the literature is biased when the practices are contingent on the same environmental factor. Finally, in contrast to common belief, even in the presence of correlated omitted variables, the demand specification fares better than the performance specification.
 
@@ -134,9 +136,9 @@ $\delta_1$ and $\delta_2$, which we assume to be positive, represent increasing 
 
 The objective function \eqref{eq:objective} formalises management accounting theory. The key assumptions of complementarity theory and contingency theory are captured by the parameters $\beta_{12}$ and $\gamma_1, \gamma_2$ respectively. In order to test for a complementarity between delegation and accounting incentives, we need to make additional assumptions about the statistical model, which we will discuss below. The theoretical assumptions discussed above and the statistical assumptions discussed below are the same for both the demand specification and the performance specification.
 
-We assume that $\epsilon_1$ and $\epsilon_2$ and $\nu$ are independent which implies that the model contains all contingency variables and all practices that affect the performance of the two practices $x_1$ and $x_2$. The objective function \eqref{eq:objective} is similar to the the objective function in \citet{kretschmer_competitive_2012} with two exceptions. First, we assume that the values of $x_1$ and $x_2$ are continuous while \citet{kretschmer_competitive_2012} allow for binary practices. We return to the issue of binary practices as an extension to the current model. Second, we assume independence of the unobserved factors. We will relax this assumption, when we introduce the problem of correlated omitted variables further in this section.\footnote{\citet{athey_empirical_1998} discuss the implications of relaxing the independence assumption in more detail.}  In the remainder of this section, we will work with the simple objective function with two practices and one environmental factor. In Appendix \ref{appendix-general}, we show that all conclusions hold for an objective function with $N$ management accounting practices and $M$ environmental factors.
+We assume that $\epsilon_1$ and $\epsilon_2$ and $\nu$ are independent which implies that the model contains all contingency variables and all practices that affect the performance of the two practices $x_1$ and $x_2$. The objective function \eqref{eq:objective} is similar to the the objective function in \citet{kretschmer_competitive_2012} with two exceptions. First, we assume that the values of $x_1$ and $x_2$ are continuous while \citet{kretschmer_competitive_2012} allow for binary practices. We return to the issue of binary practices as an extension to the current model. Second, we assume independence of the unobserved factors. We will relax this assumption, when we introduce the problem of correlated omitted variables further in this section.\footnote{\citet{athey_empirical_1998} discuss the implications of relaxing the independence assumption in more detail.}  In the remainder of this section, we will work with the simple objective function with two practices and one environmental factor. 
 
-\subsection{Optimal level of practices}
+\subsection{Optimal level of practices} \label{optimal-level-of-practices}
 
 Profit maximising firms try to adopt the optimal level for each practice. As a benchmark, we derive the optimal level for all practices by setting the first derivative of the objective function \eqref{eq:objective} to each practice equal to $0$ and then solve for each practice, which results in:
 
@@ -156,7 +158,7 @@ A number of conclusions can be drawn from the optimality conditions \eqref{eq:op
 
 We define $r_{12}$, $r_{1z}$, and $r_{2z}$ as the observed sample correlations between delegation, $\mathbf{x_1}$, and accounting incentives, $\mathbf{x_2}$,  between delegation, $\mathbf{x_1}$, and environmental uncertainty, $\mathbf{z}$, and between accounting incentives, $\mathbf{x_2}$, and environmental uncertainty, $\mathbf{z}$, respectively. In samples with higher levels of optimality, the observed correlations are determined by the equations \eqref{eq:optimal}.  In samples where management control practices are randomly chosen, the correlations are $0$. 
 
-Finally, the second order condition for the optimality conditions \eqref{eq:optimal} equals $\delta_1 \delta_2 - \beta_{12}^2 > 0$. The intuition behind this condition is that the increase in marginal costs to delegation and accounting incentives needs to be relatively large so that the interdependency does not dominate the optimal solution. That is, it avoids corner solutions where management control practices are either optimally used to their full extent or not at all.\footnote{In the main analysis of this paper, we will assume that the second-order condition holds when the control practices are continuous. If the condition does not hold, we can treat the practices as binary choices.}
+Finally, the second order condition for the optimality conditions \eqref{eq:optimal} equals $\delta_1 \delta_2 - \beta_{12}^2 > 0$. The intuition behind this condition is that the increase in marginal costs to delegation and accounting incentives needs to be relatively large so that the interdependency does not dominate the optimal solution. That is, it avoids corner solutions where management control practices are either optimally used to their full extent or not at all.\footnote{In the main analysis of this paper, we will assume that the second-order condition holds when the control practices are continuous. In Section 4.4 we relax this assumption.}
 
 \subsection{Performance Specification}
 
@@ -237,7 +239,7 @@ A researcher's decision to use a performance specification or a demand specifica
 
 An additional decision rule by researchers seems to be the correlated omitted variable problem. The correlated omitted variable bias of the demand specification is a well known problem \citep{grabner_management_2013,arora_testing_1996,carree_note_2011}, which would suggest a preference for the performance specification when such omitted variables are expected to be present. However, the importance of this section is that it highlights the often ignored omitted variable bias in the performance specification. We show that both specifications are vulnerable to the same omitted variable bias. That is, both specification will be biased if they do not control appropriately for an environmental factor that is a contingency factor for both practices of interest and when firms (to some extent) take into account these contingencies when they design their accounting system. A second question is therefore: \emph{how} vulnerable is each method to correlated omitted variables? To address these two question, we perform a simulation study.
 
-\section{Simulation Study}\label{simulation- study}
+\section{Simulation Study}\label{simulation-study}
 
 In the simulation study that follows, we investigate the three performance specifications and the demand specification with respect to: (1) Type I errors, i.e., incorrectly rejecting a true null-hypothesis; and (2) power, i.e., the ability to reject a false null-hypothesis. Our main analysis focuses on the key question and examines how the level of optimality affects Type I errors and power of the theoretically appropriate \emph{demand} and \emph{performance 1} specifications, as well as how these compare to the \emph{performance 2} and \emph{performance 3} specification that researchers have used to test for the complementarity between management accounting practices.  
 
@@ -361,7 +363,7 @@ In sum, the results regarding power and type I errors indicate that the \emph{de
 
 \subsection{Parameter Variations}\label{parameter-variations}
 
-In this section, we explore the robustness of the above conclusions to variations in the parameters of the objective functions. Given the large number of possible variations, we restrict ourselves to theoretically driven comparisons.
+In this section, we explore the robustness of the above conclusions to variations in the parameters of the objective functions. Given the large number of possible variations, we first restrict ourselves to theoretically driven comparisons.
 
 \subsubsection{Performance Variation}\label{performance-variation}
 
@@ -413,7 +415,7 @@ The results are shown in Table \ref{discrete-table}. Because the results showed 
 
 \subsection{Correlated Omitted Variable}
 
-Finally, we investigate to what extent an omitted correlated environmental variable affects our conclusions for the \emph{demand} and \emph{performance 1} specification. The baseline simulation showed that the omission of a contingency factor that affects the performance of both practices, as in \emph{performance 3}, leads to type I errors. However, that correlated omitted variable problem was due to a misspecification, not due to not having access to the data about the variable. To test the vulnerability of the \emph{demand} specification and the \emph{performance 1} specification to spurious correlations in a well designed study, we run the following simulation. We introduce a new unobserved (to the researcher) environmental factor \(\mathbf{w}\) that impacts the performance effect of \(\mathbf{x_1}\) with \(\theta_1\) and the performance effect of \(\mathbf{x_2}\) with \(\theta_2\). 
+In this section, we investigate to what extent an omitted correlated environmental variable affects our conclusions for the \emph{demand} and \emph{performance 1} specification. The baseline simulation showed that the omission of a contingency factor that affects the performance of both practices, as in \emph{performance 3}, leads to type I errors. However, that correlated omitted variable problem was due to a misspecification, not due to not having access to the data about the variable. To test the vulnerability of the \emph{demand} specification and the \emph{performance 1} specification to spurious correlations in a well designed study, we run the following simulation. We introduce a new unobserved (to the researcher) environmental factor \(\mathbf{w}\) that impacts the performance effect of \(\mathbf{x_1}\) with \(\theta_1\) and the performance effect of \(\mathbf{x_2}\) with \(\theta_2\). 
 
 \begin{figure}
 \centerfloat
@@ -430,80 +432,112 @@ We set the parameters assuming a well designed study that controls for most but 
 
 The results are reported in Figure \ref{spurious} and Table \ref{spurious-table}. These results are consistent with our previous findings. The \emph{demand} specification has at all but the lowest levels of optimality more power to detect a true interdependency than the \emph{performance 1} specification. One logical finding is that the \emph{demand} specification becomes vulnerable to the omitted variable bias and thus higher type I error rates at higher levels of optimality. This effect is most pronounced with the largest spurious correlation (\(\theta_1 = .3\), \(\theta_2 = -.3\)) and \(O = 32\), where we find that in $12\%$ of the simulations with a null effect the \emph{demand} specification reports a significant effect. This finding reinforces that the \emph{demand} specification will only have appropriate type I error rates as part of a well designed study that controls for environmental factors that affect both choices, especially when firms adopt the optimal management controls. However, consistent with our arguments, the \emph{performance 1} specification exhibits the exact same bias and, as a result, the \emph{demand} specification still has superior type I error rates compared to the \emph{performance 1} specification.
 
-\subsection{Contingent Complementarity}
-
-In this section we extent the baseline model by allowing for a contingency effect on the complementarity. That is, we assume that not only the main effect of the practices depends on the environmental factor, $z$, but also the complementarity itself. The simplified objective function for the simulations is then as follows where the parameter $\gamma_{12}$ governs how the complementarity depends on the environmental factor. 
-
-\begin{equation}
-\label{eq:contingent-complement}
-y = (\gamma_1 z + \epsilon_1) x_1 + (\gamma_2 z + \epsilon_2) x_2 + 
-    (\beta_{12} + \gamma_{12} z) - \frac{1}{2} x^2_1 - \frac{1}{2} x^2_2 + \nu
-\end{equation}
-
-The management accounting literature has shown great interest in investigating whether the strength of complementarity effects varies by environmental factors. For instance \citet{grabner_incentive_2014} reports that subjective performance evaluation and performance based pay are complement for creativity dependent firms but not for other firms. Some researchers test for contingent complementarity effects by splitting the sample into observations with high and low values for the environmental factors and running separate regressions for both samples. For instance, they expect a significant complementarity in one sample and no significant complementarity in the other sample. Our results and conclusions so far about the power and type I error respectively directly apply to this approach. The approach might miss a true effect in one sample if the power of the specification is low or it might erroneously report an effect in the other sample when the type I error rate of the specification is elevated. 
-
-Others estimate the parameter $\gamma_{12}$ directly. The results in figure \ref{contingent-complement} report the results of a simulation to evaluate this approach. In the simulation, we vary the level of optimality $O$ ($2, 4, 8, 16, 32$), the average complementarity, independent of the environmental factor, $\beta_{12}$ ($0$ or $0.25$), the direct contingency effects, $\gamma_1$ and $\gamma_2$ ($-0.33$ or $0.33$), and the contingency effect on the complementarity, $\gamma_{12}$ ($0$ or $0.33$). Figure \ref{contingent-complement} shows the power to detect a contingent complementarity ($\gamma_{12} = 0.33$) in Panel A and the the type I error rate in the absence of a contingent complementarity ($\gamma_{12} = 0$) \footnote{In order to save space, the figure reports the power and type I error rate directly instead of the distribution of the t-statistics. The focus of the remaining results is not on the bias of the omitted correlated variables and rather on the power and type I error rate of the theoretically correct specification}. The results show that demand specification also outperforms the performance specifications to test for a contingent complementarity at all but the lowest levels of optimality. As before, the demand specification has similar or more power to detect a true effect while maintaining better control over Type I error rates at all levels of optimality.
-
-\begin{figure}
-\centerfloat
-\includegraphics[width=450px]{figure-latex/contingent_complementarity.pdf}
-\caption[Error Rate and Power with Contingent Complementarity]
-{\label{contingent-complement} Description }
-\end{figure}
-
-\subsection{Alternative Sample Construction}
-
-In order to investigate, the sensitivity of the results to the optimisation algorithm \ref{eq:firm-simulation}, we test whether the results are sensitive to a different method to construct the sample with varying levels of optimality. In the following simulation, we construct each sample of observations as a mix of a subsample with low optimality ($O = 2$) and a subsample with high optimality ($O = 3$). We vary the proportion of the high optimality subsample between $1/5, 2/5, 3/5$ and $4/5$. 
-
-Figure \ref{mixed-optimality} reports the results of the simulation where the complementarity is either present ($\beta_{12}$) in Panel A or absent ($\beta_{12}$ = 0) and $\gamma_1 = 0.33$ while $\gamma_2 = 0.33$ or $\gamma_2 = -33$. All other parameters are the same as in the baseline simulation. The results slightly differ from the baseline simulation but the overall conclusion remains the same. As long as at least $40\%$ of the sample is of low level optimality, the \emph{performance 1} and \emph{performance 2} specification have higher power than the \emph{demand} specification to detect a true complementarity. Nevertheless, the type I error rate of all three performance specification never comes close to the nominal $5\%$ level. Our conclusion remains that the demand specification is preferred not necessarily because a trade-off in power between demand and performance specifications but because the demand specifications controls type I error rates better. This result also confirms the intuition that our results hold for higher level interactions. 
-
-\begin{figure}
-\centerfloat
-\includegraphics[width=450px]{figure-latex/mixed_optimality.pdf}
-\caption[Error Rate and Power with Mixed Optimality Samples]
-{\label{mixed-optimality} Description }
-\end{figure}
-
 \subsection{Robustness and Limitations of the Demand Specification}
 
-In this last section, we explore under which part of the parameter space the demand specification is less robust. In a first simulation, we vary the following parameters. $\beta_{12}$ equals $0$, $0.25$, or $0.5$. $\delta_1 = \delta_2$ equal $0$, $.25$, $1$, and $1/\delta_1 = \delta_2 = 3$. $\gamma_1 = 0.33$ and $\gamma_2$ equals $0$, $-0.33$, or $0.33$. $\sigma_{\epsilon_1} = \sigma_{\epsilon_2}$ varies between $0.5$, $1$, and $2$ and $\sigma_{\nu}$ equals $1$, $2$, or $4$. These parameter combinations will no longer reflect the calibration in section \ref{calibration}.
+In this section we explore under which part of the parameter space the demand specification is less robust than the performance specification. In addition, we investigate whether our conclusion holds for objective functions with three practices and three complementarities and for a combination of discrete and continuous practices. There are two main conclusions to this section. First, the principal weakness of the demand specification is elevated Type I error rates when it is optimal for more than half of the sample to choose the highest level for both practices. This occurs when the practices have no increasing marginal costs (or alternatively, no decreasing marginal returns) and when contingency effects are small. Given how extreme the worst case scenario is, we belief this result only marginally qualifies our main conclusion. In the majority of the management accounting studies we belief that variation in contingency factors and/or decreasing marginal returns will dominate over the direct benefits of the practices. If that is the case, the demand specification has more power to detect a true complementarity at all but the lowest level of optimality while keeping Type I error rates at the nominal $5\%$ level.
 
-The results in Figure \ref{big-basis} panel A largely confirm that only for lower levels of optimality the \emph{performance 1} specification has more power to detect a true effect than the \emph{demand} specification. The major issue for the \emph{performance 1} specification is the inferior Type I error rates as reported in Panel B. The biggest issue for the \emph{demand} specification is the the slightly elevated Type I error rate when there are no increasing costs to the practices ($\delta_i = 0$) and the uncorrelated contingency factors are relatively small ($\sigma_{\epsilon_i} = 0.5$. This is not entirely surprising because these are the conditions where the optimal level for the practices are corner solutions and they violate the assumptions of the demand specification.
+Second, the demand specification generally deals well with discrete practices or an objective function with more than two practices and complementarities. Thus, our conclusion and recommendations generalise to this expanded objective function. Nevertheless, in this setting the demand specification suffers from the same inflated Type I error rate when it is optimal for more than half of the sample to choose the highest level for two practices. Because the decision to adopt a discrete practice is inherently all or nothing, the issue is more pronounced for a test of complementarity between two discrete practices. Similarly as before, when the benefits of the practices vary enough in the sample due to contingency effects, the demand specification outperforms the performance specification at all but the lowest level of optimality.
+
+The technical reason for the main weakness of the demand specification is that the corner solution of adopting both practices to their full extent violates the second order optimality condition as discussed in \ref{optimal-level-of-practices}. The three subsections that follow explain the technical details of the simulations and explain how we establish quantitatively that the worst case scenario is unlikely to occur in a typical management accounting setting. The first section investigates an expanded set of parameter combinations to show the robustness of the baseline results in \ref{Take-away of baseline simulation}. Under this simulation, corner solutions are possible for all four combinations and they are all equally likely to occur in the sample.\footnote{The four possible corner solutions are: (1) Fully adopt practice 1 and 2, (2) Fully adopt practice 1 and do not adopt practice 2 at all, (3) fully adopt practice 2 and do no adopt practice 1 at all, and (4) do not adopt practice 1 and 2 at all.} The second section changes the first simulation so that one corner solution (i.e. both practices should be adopted to their full extent) is more likely. The third simulation introduces a third practice in the objective function and allows for discrete practices when one corner solution is more likely. 
+
+\subsubsection{Robustness}
+
+In a first simulation, we vary the following parameters. $\beta_{12}$ equals $0$, $0.25$, or $0.5$. $\delta_1 = \delta_2$ equal $0$, $.25$, $1$, and $1/\delta_1 = \delta_2 = 3$. $\gamma_1 = 0.33$ and $\gamma_2$ equals $0$, $-0.33$, or $0.33$. $\sigma_{\epsilon_1} = \sigma_{\epsilon_2}$ varies between $0.5$, $1$, and $2$ and $\sigma_{\nu}$ equals $1$, $2$, or $4$. Note that these parameter combinations no longer reflect the calibration to a typical management accounting study in section \ref{calibration}. For computational reasons, we restrict ourselves to comparing the two theoretically derived specifications: the \emph{demand} in black and the \emph{performance 1} specification in grey.
 
 \begin{figure}
 \centerfloat
 \includegraphics[width=450px]{figure-latex/big_basis.pdf}
 \caption[Error Rate and Power without Main Effects] 
-{\label{big-basis} Description }
+{\label{big-basis} Panel A reports the proportion of samples with a significantly positive estimate for the complementarity when $\beta_{12} = .25$ or $.5$. Panel B reports the proportion of samples with a significant estimate for the complementarity when $\beta_{12} = 0$. The effect of the environmental variable, $\mathbf{z}$, on the second choice is either negative ($\gamma_1 = .33$ and $\gamma_2 = -.33$) or positive ($\gamma_1 = 0.33$ and $\gamma_2 = 0.33$). The results are averaged over the values of $\gamma_2$.}
 \end{figure}
 
-In the next simulation, we exaggerate the effect of the corner solutions by setting the main effects of the two practices, $\beta_{1}$ and $\beta_2$ equal to 0.5. This choice favours one of the four corners, namely where a firm would adopt both practices to their full extent. More specifically under the worst case scenario, $\sigma_{\epsilon_1} = \sigma_{\epsilon_2} = 0.5$ and $\delta_1 = \delta_2 = 0$, $80\%$ of observations should adopt practice 1 and $80\%$ should adopt practice 2 \footnote{The distribution of the effect of $x_1$ for each firm in the sample is given by a normal distribution with mean $beta_1$ and standard deviation $\sqrt{\sigma_{\epsilon_1}^2 + \gamma_1^2}$. In the worst case scenario for the demand specification this implies a standard deviation of $\sqrt{.25 + 0.11} \approx  0.6$. The probability that the practice is beneficial for a firm is then given by $\Phi(\frac{\beta_1}{0.6}) = \Phi(\frac{0.5}{0.6}) \approx 0.8$ where $\Phi$ is the cumulative standard normal distribution.}.
+The results in Figure \ref{big-basis} panel A largely confirm that only for lower levels of optimality the \emph{performance 1} specification has more power to detect a true effect than the \emph{demand} specification. The major issue for the \emph{performance 1} specification is the inferior Type I error rates as reported in Panel B. The biggest issue for the \emph{demand} specification is the slightly elevated Type I error rate when there are both no increases in the marginal costs of the practices ($\delta_i = 0$) and the unobserved heterogeneity is relatively small ($\sigma_{\epsilon_i} = 0.5$). This is not entirely surprising because these are the conditions where the optimal level for the practices are corner solutions and they violate the second-order optimality condition underlying the demand specification.
+
+\subsubsection{Corner Solutions}
+
+In the next simulation, we exaggerate the effect of the corner solutions by setting the main effects of the two practices, $\beta_{1}$ and $\beta_2$ equal to 0.5. This choice favours one of the four corners, namely where a firm would adopt both practices to their full extent. More specifically under the worst case scenario, i.e., $\sigma_{\epsilon_1} = \sigma_{\epsilon_2} = 0.5$ and $\delta_1 = \delta_2 = 0$, $80\%$ of observations should adopt practice 1 and $80\%$ should adopt practice 2.\footnote{The distribution of the effect of $x_1$ for each firm in the sample is given by a normal distribution with mean $beta_1$ and standard deviation $\sqrt{\sigma_{\epsilon_1}^2 + \gamma_1^2}$. In the worst case scenario for the demand specification this implies a standard deviation of $\sqrt{.25 + 0.11} \approx  0.6$. The probability that the practice is beneficial for a firm is then given by $\Phi(\frac{\beta_1}{0.6}) = \Phi(\frac{0.5}{0.6}) \approx 0.8$ where $\Phi$ is the cumulative standard normal distribution.}
 This also implies that $64\%$ of the sample optimally adopts both practices to their full extent even in the absence of a complementarity effect. In other words, for almost two third of the sample the question whether the practices are complements is irrelevant.   
 
-The results in Figure \ref{big-main} Panel A show that the introduction of the main effects do not affect the power of the demand specification compared to the performance specification. Figure \ref{big-main} Panel B shows that the Type I error rate of the practices breaks down under the worst case scenario of one corner solution outlined above. Increases in unobserved variation in performances ($\sigma_{\epsilon_i}$) and marginal costs ($\delta_i$) largely mitigate the problem. 
+The results in Figure \ref{big-main} Panel A show that the introduction of the main effects do not affect the power of the demand specification relative to the performance specification. Figure \ref{big-main} Panel B shows that the Type I error rate of the practices breaks down under the worst case scenario and one corner solution outlined above. Increases in unobserved variation in performances ($\sigma_{\epsilon_i}$) and marginal costs ($\delta_i$) largely mitigate the problem. 
 
-Given how extreme the worst case scenario is where the practices are optimally used at full extent by most of the firms in the sample even if they are not complements, we belief this result only marginally qualifies our main conclusion. In the majority of the management accounting studies we belief that variation in contingency factors and decreasing marginal returns will dominate over the direct benefits of the practices. In these situations, the demand specification has more power to detect a true complementarity at all but the lowest level of optimality while keeping Type I error rates in check.
-
+\subsubsection{Two Discrete and One Continuous Practice}
 
 \begin{figure}
 \centerfloat
 \includegraphics[width=450px]{figure-latex/big_main.pdf}
 \caption[Error Rate and Power with Large Main Effects] 
-{\label{big-main} Description }
+{\label{big-main} Panel A reports the proportion of samples with a significantly positive estimate for the complementarity when $\beta_{12} = .25$ or $.5$. Panel B reports the proportion of samples with a significant estimate for the complementarity when $\beta_{12} = 0$. $\beta_1$ and $\beta_2$ equal $0.5$. All other parameters are identical to Figure \ref{big-basis}.}
 \end{figure}
 
-Nevertheless, given that corner solutions violate the assumption of the demand specification, we run a last simulation to test the robustness of the demand specification. We extent the objective function to three practices where the first and the third practice are discrete practices. Panel A reports the power of both specifications to detect a true substitution effect between the first and the second practice ($\beta_{12} = -0.25$) and a true complementarity between the first and the third practice ($\beta_{13} = 0.25$). Panel A reports the resulting Type I error rates in the absence of these effects. In both panels there is a complementarity between the second and the first practice ($\beta_{23} = 0.25$. This simulation also helps us to investigate whether our conclusion hold for objective functions with multiple practices and multiple complementarities and for a combination of a discrete and continuous practices. 
+Nevertheless, given that corner solutions violate the assumption of the demand specification, we run a last simulation to test the robustness of the demand specification. We extend the objective function to three practices where the first and the third practice are discrete practices. Figure \ref{robustness-main} Panel A reports the power of both specifications to detect a true substitution effect between the first and the second practice ($\beta_{12} = -0.25$) and a true complementarity between the first and the third practice ($\beta_{13} = 0.25$). Figure \ref{robustness-main} Panel A reports the resulting Type I error rates in the absence of these effects. In both panels there is a complementarity between the second and the third practice ($\beta_{23} = 0.25$). $\beta_{12}$ represents a complementarity between a continuous and a discrete practice and the results for its estimates are reported as a full line. $\beta_{13}$ represents a complementarity between two discrete practices and the results for its estimates are reported as a dotted line.
 
-The remaining parameters are the same as in the previous simulation with two clarifications. First, we need to set the parameters for the direct effect ($\beta_3 = 0.5$) and the contingency effects for the third practice ($\sigma_{\epsilon_3} = \sigma_{\epsilon_1}$, $\gamma_3 = 0.33$). Second, only the continuous, second practice has decreasing marginal returns. 
+The remaining parameters are the same as in the previous simulation with two exceptions. First, we need to set the parameters for the direct effect ($\beta_3 = 0.5$) and the contingency effects for the third practice ($\sigma_{\epsilon_3} = \sigma_{\epsilon_1}$, $\gamma_3 = 0.33$). Second, only the continuous, second practice can have increasing marginal costs. 
 
-The results in Figure \ref{robustness-main} are consistent with Figure \ref{big-main}. The relative advantage of the demand specification to detect a true effect has not changed as can be seen from Panel B. The Type I error rates in Panel B again shows that the demand specification does not adequately control the false positive rate when $\sigma_{\epsilon_i} = 0.5$. When each combination of two practices is optimally adopted by almost two third of the sample in the absence of any interdependencies, the demand specification should not be trusted. The problem is less pronounced when there is more unobserved heterogeneity in performance and for the interdependency with only one discrete practice when marginal costs of the continuous practice increase. 
+The results in Figure \ref{robustness-main} are consistent with Figure \ref{big-main}. The relative advantage of the demand specification to detect a true effect has not changed as can be seen from Panel B. The Type I error rates in Panel B again show that the demand specification does not adequately control the false positive rate when there is low unobserved heterogeneity ($\sigma_{\epsilon_i} = 0.5$). When almost two third of the sample optimally adopts two practices (to their full extent) in the absence of an interdependency between these practices, the demand specification should not be trusted. The problem is less pronounced when there is more unobserved heterogeneity in performance. For the interdependency with only one discrete practice, the problem for the demand specification dissipates when marginal costs of the continuous practice increase ($\delta_1 = 1$). 
 
-The results largely confirm the superiority of the demand specification for a typical management accounting study with one more caveat. When the two practices are discrete and they should be adopted together in the absence of any interdependencies by the majority of the sample, the demand specification does not adequately control the type I error rate. We argue that this is an uncommon occurrence for most management accounting practices.
+The results largely confirm the superiority of the demand specification for a typical management accounting study with one more caveat. When the two practices are discrete and they should be adopted together in the absence of any interdependencies by the majority of the sample ($\sigma_{\epsilon_i} = 0.5$), the demand specification does not adequately control the type I error rate. We argue that this is an uncommon occurrence for most management accounting practices.
+
 \begin{figure}
 \centerfloat
 \includegraphics[width=450px]{figure-latex/robustness_main.pdf}
 \caption[Error Rate and Power with Large Main Effects and Discrete Practices] 
-{\label{robustness-main} Description }
+{\label{robustness-main} Panel A reports the proportion of samples with a significantly negative estimate for the interdependency between a discrete and a continuous practice ($\beta_{12} = -0.25$) in a full line and a significantly positive estimate for the interdependency between two discrete practices ($\beta_{13} = 0.25$) in a dotted line. Panel B reports the proportion of samples with a significant estimate for the complementarity when $\beta_{12} = \beta_{13} = 0$. $\beta_1$, $\beta_2$, and $\beta_3$ equal $0.5$. Because two of the practices are discrete $\delta_1 = \delta_3 = 0$. All other parameters are identical to Figure \ref{big-basis}.}
+\end{figure}
+
+\subsection{Contingent Complementarity}
+
+In this section we extend the baseline model by allowing for a contingency effect on the complementarity. That is, we assume that not only the main effect of the practices depends on the environmental factor, $z$, but also the complementarity itself. The simplified objective function for the simulations is then as follows where the parameter $\gamma_{12}$ governs how the complementarity depends on the environmental factor. 
+
+\begin{equation}
+\label{eq:contingent-complement}
+y = (\gamma_1 z + \epsilon_1) x_1 + (\gamma_2 z + \epsilon_2) x_2 + 
+    (\beta_{12} + \gamma_{12} z) x_1 x_2 - \frac{1}{2} x^2_1 - \frac{1}{2} x^2_2 + \nu
+\end{equation}
+
+The management accounting literature has shown great interest in investigating whether the strength of complementarity effects varies by environmental factors. For instance \citet{grabner_incentive_2014} reports that subjective performance evaluation and performance based pay are complement for creativity dependent firms but not for other firms. Some researchers test for contingent complementarity effects by splitting the sample into observations with high and low values for the environmental factors and running separate regressions for both samples (using either the performance specification or the demand specification). For instance, they expect a significant complementarity in one sample and no significant complementarity in the other sample. Our results and conclusions so far about the power and type I error respectively directly apply to this approach, where now these issues can also affect the comparison between the subsamples. For example, the approach might miss a true effect in one subsample if the power of the specification is low or alternatively it might erroneously report an effect when the type I error rate of the specification is elevated. 
+
+\begin{figure}
+\centerfloat
+\includegraphics[width=450px]{figure-latex/contingent_complementarity.pdf}
+\caption[Error Rate and Power with Contingent Complementarity]
+{\label{contingent-complement} Panel A reports the proportion of samples with a significantly negative (when $\gamma_{12} = -0.33$) or a significantly positive (when $\gamma_{12} = 0.33$) contingent complementarity. Panel B reports the proportion of samples with a significant contingent complementarity when $\gamma_{12} = 0$. $\beta_{12}$ is either $0$ or $0.25$. The effect of the environmental variable, $\mathbf{z}$, on the second choice is either negative ($\gamma_1 = .33$ and $\gamma_2 = -.33$) or positive ($\gamma_1 = 0.33$). The results are averaged over the values of $\gamma_2$. The remaining parameters are the same as in the baseline simulation in Figure \ref{main}.}
+\end{figure}
+
+Others try to estimate the parameter $\gamma_{12}$ more directly. In this approach, the demand specification and performance specification include an additional term to capture the contingent complementarity: respectively $\gamma^d_{12} \mathbf{x_2 z}$ and $\gamma^p_{12} \mathbf{x_1 x_2 z}$. The full \emph{demand}, \emph{performance 1}, and \emph{performance 2} specification are given below. We do not report the \emph{performance 3} specification because it is unlikely that a researcher would exclude $\mathbf{x_1 z}$ or $\mathbf{x_2 z}$ from the regression model when estimating the coefficient of $\mathbf{x_1 x_2 z}$.
+
+
+\begin{align*} 
+\mathbf{x_1} &= \beta_0^d + \beta_{12}^d \mathbf{x_2} + \gamma_{12}^d \mathbf{x_2 z}
+        + \gamma_{1}^d \mathbf{z}
+        + \mathbf{\epsilon^d} \\
+\mathbf{y} &=  \beta^{p1}_0 + (\beta^{p1}_{11} + \gamma_1^{p1} \mathbf{z} )\mathbf{x_1} 
+						+ (\beta_{22}^{p1} + \gamma_2 \mathbf{z} ) \mathbf{x_2} 
+                        + (\beta_{12}^{p1} + \gamma_{12}^{p1} \mathbf{z}) \mathbf{x_1} \mathbf{x_2} 
+                        + \delta_1^{p1} \mathbf{x^2_1} + \delta_2^{p1} \mathbf{x^2_2} 
+                        + \alpha^{p1} \mathbf{z}
+                        + \nu^{p1} \\
+ \mathbf{y} &=  \beta^{p2}_0 + (\beta^{p2}_{11} + \gamma_1^{p2} \mathbf{z} )\mathbf{x_1} 
+						+ (\beta_{22}^{p2} + \gamma_2 \mathbf{z} ) \mathbf{x_2} 
+                        + (\beta_{12}^{p2} + \gamma_{12}^{p2} \mathbf{z}) \mathbf{x_1} \mathbf{x_2} 
+                        + \alpha^{p2} \mathbf{z}
+                        + \nu^{p2} \\
+\end{align*}
+
+The results in figure \ref{contingent-complement} report the results of a simulation to evaluate this approach similar to the baseline simulation. In the simulation, we vary the level of optimality $O$ ($2, 4, 8, 16, 32$), the average complementarity, independent of the environmental factor, $\beta_{12}$ ($0$ or $0.25$), the direct contingency effects, $\gamma_1$ ($0.33$) and $\gamma_2$ ($-0.33$ or $0.33$), and the contingency effect on the complementarity, $\gamma_{12}$. Figure \ref{contingent-complement} shows the power to detect a contingent complementarity ($\gamma_{12} = 0.33$ or $-0.33$) in Panel A and the the type I error rate in the absence of a contingent complementarity ($\gamma_{12} = 0$).\footnote{In order to save space, the figure reports the power and type I error rate directly instead of the distribution of the t-statistics. The focus of the remaining results is not on the bias of the omitted correlated variables and rather on the power and type I error rate of the theoretically correct specifications.} The lines in each panel indicate the percentage of samples where a specification reports a significant positive estimate for the contingent complementarity (Panel A) or a significant contingent complementarity (Panel B). The black line reports the results for the \emph{demand} specification, the dark grey line for the \emph{performance 1} and the light grey line for the \emph{performance 2} specification.
+
+The results show that demand specification also outperforms the performance specifications to test for a contingent complementarity at all but the lowest levels of optimality. As before, the demand specification has similar or more power to detect a true effect while maintaining better control over Type I error rates at all levels of optimality.
+
+\subsection{Alternative Sample Construction}
+
+In order to investigate the sensitivity of the results to the optimisation algorithm (\ref{eq:firm-simulation}), we test whether the results are sensitive to a different method to construct the sample with varying levels of optimality. In the following simulation, we construct each sample of observations as a mix of a subsample with low optimality ($O = 2$) and a subsample with high optimality ($O = 32$). We vary the proportion of the high optimality subsample between $1/5, 2/5, 3/5$ and $4/5$. 
+
+Figure \ref{mixed-optimality} reports the results of the simulation where the complementarity is either present ($\beta_{12} = 0.25$) in Panel A or absent ($\beta_{12}$ = 0) and $\gamma_1 = 0.33$ while $\gamma_2 = 0.33$ or $\gamma_2 = -33$. All other parameters are the same as in the baseline simulation in Figure \ref{main}. While the results differ somewhat from the baseline simulation, the overall conclusion remains the same. The biggest difference is that as long as at least $40\%$ of the sample is of low level optimality, the \emph{performance 1} and \emph{performance 2} specification have higher power than the \emph{demand} specification to detect a true complementarity. Nevertheless, the Type I error rate of all three performance specifications never comes close to the nominal $5\%$ level. Our conclusion remains that the demand specification is preferred not necessarily because of a trade-off in power between demand and performance specifications but because the demand specifications controls type I error rates better.
+
+\begin{figure}
+\centerfloat
+\includegraphics[width=450px]{figure-latex/mixed_optimality.pdf}
+\caption[Error Rate and Power with Mixed Optimality Samples]
+{\label{mixed-optimality} Panel A reports the proportion of samples with a significantly positive estimate for the complementarity when $\beta_{12} = .25$. Panel B reports the proportion of samples with a significant estimate for the complementarity when $\beta_{12} = 0$. The samples are constructed as a mix of a high optimality sample ($O=32$) and a low optimality sample ($O=2$). The proportion of the high optimality sample is given on the x-axis of each panel. The effect of the environmental variable, $\mathbf{z}$, on the second choice is either negative ($\gamma_1 = .33$ and $\gamma_2 = -.33$) or positive ($\gamma_1 = 0.33$ and $\gamma_2 = 0.33$). The results are averaged over the values of $\gamma_2$. The remaining parameters are the same as in the baseline simulation in Figure \ref{main}.}
 \end{figure}
 
 \section{Going Forward}
@@ -570,228 +604,228 @@ Another limitation of the current study is that the level of optimality is imple
 \renewcommand{\theequation}{A.\arabic{equation}}
 \setcounter{equation}{0}
 
-\section{General Theory}\label{appendix-general}
-\subsection{General Objective Function}
- 
-Assume that a firm chooses the level of $N$ management accounting practices which depend on $M$ contingency factors. The levels of the management accounting practices are a vector $\mathbf{x}$ and the level of the environmental factors is a vector $\mathbf{z}$. Performance, $y$, depends on a factor $\nu$ while the performance effects of each management control practices further depends on a factor $\mathbf{\epsilon}$. In our model, $\mathbf{x}$ and $\mathbf{z}$ are observed by the researcher but $\mathbf{\epsilon}$ and $\nu$ are not. 
- 
-% z and x are column vectors (M x 1) and (N x 1)
- 
-In matrix notation, we can write
- 
-\begin{equation} \label{eq:structural-matrix}
-y = \beta_0 + (\mathbf{\beta_1}^T + \mathbf{z^T} G^T + \mathbf{\epsilon^T})
-     \mathbf{x} + \frac{1}{2}\mathbf{x^T} B \mathbf{x} + \nu
-\end{equation}
-
-$G$ is a $N \times M$ matrix where each element $\gamma_{nm}$ represents the contingency effect of, $z_m$, on practice $x_i$. $B$ is a symmetric $N \times N$ matrix with $\beta_{ij} = \beta_{ji}$ as off-diagonal elements and a vector $-\mathbf{\delta}$ on the diagonal. The off-diagonal elements represent the interdependency between two practices. This follows directly from the definition of an interdependency as the cross derivative of performance to two practices, $\frac{\partial y}{\partial x_i \partial x_j} = .5 \beta_{ij} + .5 \beta_{ji} = \beta_{ij}$. The elements of $\mathbf{\delta}$ represent the second derivative of the performance effects of the practices. We assume that all $\delta_n$ are positive which implies increasing marginal costs to the practices. The elements of $\mathbf{\epsilon}$ and $\nu$ are independent which implies that the model contains all environmental variables and practices that effect the performance of any two practices $x_i$ and $x_j$. 
- 
-\subsection{Optimal Level and Conditional Correlations}
-
-Next, we derive the optimal level for all practices. The quadratic optimisation problem has a standard solution for the performance function in equation \eqref{eq:structural-matrix} under the condition that $-B$ is positive definite. The second order condition that -B is positive definite implies that for every combination of practices, $\delta_i \delta_j - \beta_{ij}^2 > 0$. The solution can be written as follows.
- 
-\begin{equation} \label{eq:optimal-matrix}
-\begin{aligned} 
-    \mathbf{\beta_1} + G \mathbf{z} + \mathbf{\epsilon} & = -B \mathbf{x^*} \\
-    - B^{-1} (\mathbf{\beta_1} +  G \mathbf{z} + \mathbf{\epsilon})  & = \mathbf{x^*}
-\end{aligned}
-\end{equation}
- 
-In this formulation, the optimal level for each practice has mean $-B^{-1} (\mathbf{\beta_1} + G \mathbf{z})$ and covariance matrix $\Omega = -S_{\epsilon} B^{-1} S_{\epsilon}$ where $S_{\epsilon}$ is the a diagonal matrix with the standard deviations $\sigma_e$ on the diagonal. 
-
-Because $-B$ is positive definite, write $-B^{-1} = DRD$ where $R$ is the correlation matrix of $\Omega$ and $D$ is a diagonal matrix with strictly positive values on the diagonal. The partial correlation between the optimal level of two practices, $x^*_i$ and $x^*_j$ is than given by $-\frac{R^{-1}_{ij}}{\sqrt{R^{-1}_{ii} R^{-1}_{jj}}}$. 
-
-Because $R^{-1} = - D^{-1}BD^{-1}$, the partial correlation between the optimal level of two practices conditional on all other practices and environmental factors equals 
-
-\begin{equation}\label{eq:conditional-practices}
-cor(x_i^*, x_j^* | X_{-i, -j}, Z)  = \rho^*_{ij} = \beta_{ij}\lambda_{ij}^* \text{ with } \lambda_{ij}^* > 0. 
-\end{equation}
-
-Similarly
-
-\begin{equation}\label{eq:conditional-contingency}
-cor(x_i^*, z_k | X_{-i}, Z_{-m})  = \omega^*_{ik} = \gamma_{ik}\zeta_{ik}^* \text{ with } \zeta_{ik}^* > 0. 
-\end{equation}
- 
-We assume that with randomly chosen practices ($O = 0$) the empirical conditional correlations equal $0$. The conditional correlations are between $0$ and the maximum in \eqref{eq:conditional-practices} and \eqref{eq:conditional-contingency} when $O > 0$.
-
-\begin{align*}
-\rho_{ij} &= \lambda_{ij} \beta_{ij}
-& \omega_{ik} &= \zeta_{ik} \gamma{ik} \\
-\rho_{ij}(O = 0) &= \lambda_{ij}(O = 0) = 0 
-& \omega_{ik}(O = 0) &= \zeta_{ik}(O = 0) = 0 \\
-0 & \leq \lambda_{ij} \leq \lambda^*_{ij}
-& 0 & \leq \zeta_{ij} \leq \zeta^*_{ij} \\
-\frac{\delta \lambda_{ij}}{\delta O} & \geq 0 
-& \frac{\delta \zeta_{ij}}{\delta O} & \geq 0 
-\end{align*}
- 
-% \subsection{Binary Practices}
+%\section{General Theory}\label{appendix-general}
+%\subsection{General Objective Function}
 % 
-% With binary practices, the production function simplifies because $x = x^2$. We can set the parameters of decreasing marginal costs to zero, i.e. $\mathbf{\delta} = 0$. $\beta_{ii}$ now captures the increase in performance from adopting practice $x_i$ when no other practices are adopted and in the absence of any contingency effects. We replace $B$ with $B_0$ which has the same off-diagonal elements as $B$ but $0$ on the diagonal. The optimal decision rule for a firm is to adopt a practice $i$ when profit $y$ is higher for $x_i = 1$ than for $x_i = 0$. 
- 
-% \begin{equation} \label{eq:condition-binary}
-%     \beta_{ii} + \mathbf{z^T} \mathbf{\gamma_i} + \epsilon_i 
-%     + \sum^{N}_{k = 1, k \neq i} \beta_{ik} x_k > 0
-% \end{equation}
+%Assume that a firm chooses the level of $N$ management accounting practices which depend on $M$ contingency factors. The levels of the management accounting practices are a vector $\mathbf{x}$ and the level of the environmental factors is a vector $\mathbf{z}$. Performance, $y$, depends on a factor $\nu$ while the performance effects of each management control practices further depends on a factor $\mathbf{\epsilon}$. In our model, $\mathbf{x}$ and $\mathbf{z}$ are observed by the researcher but $\mathbf{\epsilon}$ and $\nu$ are not. 
 % 
-% Similarly, it is optimal for firms to adopt two practices $i$ and $j$ when the performance is higher than the performance compared to (1) adopting none of the practices, (2) adopting only practice $i$, and (3) adopting only practice $j$. 
+%% z and x are column vectors (M x 1) and (N x 1)
 % 
-% \begin{equation} \label{eq:condition-two-binary}
-%     \begin{aligned}
-%         \beta_{ii} + \mathbf{z^T} \mathbf{\gamma_i} + \epsilon_i
-%         + \beta_{jj} + \mathbf{z^T} \mathbf{\gamma_j} + \epsilon_j
-%         + \beta_{ij} + \sum^{N}_{k = 1, k \neq i,j} (\beta_{ik} + \beta_{jk}) x _k &> 0 \\
-%         \beta_{jj} + \mathbf{z^T} \mathbf{\gamma_j} + \epsilon_j 
-%         + \beta_{ij} + \sum^{N}_{k = 1, k \neq i,j} \beta_{jk} x_k &> 0 \\
-%         \beta_{ii} + \mathbf{z^T} \mathbf{\gamma_i} + \epsilon_i
-%         + \beta_{ij} + \sum^{N}_{k = 1, k \neq i,j} \beta_{ik} x_k &> 0 
-%     \end{aligned} 
-% \end{equation}
+%In matrix notation, we can write
 % 
-% This line of reasoning can be extended for the necessary inequality conditions for the optimal adoption of $p \leq N$ binary practices. However, we do not need the complete set of conditions to illustrate that the same set of conclusions hold as for the continuous practices. First, whether a practice is optimally adopted depends on the contingency factors. Second, whether two practices are adopted together depends the interdependency parameter $\beta_{ij}$. In the absence of interdependencies, $\beta_{12} = 0$, the second and third condition in equation \eqref{eq:condition-two-binary} simplify to the condition \eqref{eq:condition-binary} and when they are both satisfied, the first condition holds as well. That is, in the absence of an interdependency between practices, the adoption of one practice is not a function of the adoption of the other practice.
-
-% As explained in the previous section, when firms adopt the optimal practices, $x^*_i$, they are a function of the contingency factors, $z_m$, when $\gamma_{im} \neq 0$ and conditional on all other practices and contingency factors. Similarly, the practices $x^*_i$ and $x^*_j$ are a function of each other conditional on all other environmental factors when $\beta_{ij} \neq 0$. In the remainder of this section, we will work with the more tractable continuous model where the partial correlation is a either $\gamma_{im}$ or $\beta_{ij}$ scaled by a positive factor. The derivations for binary practices depend on additional assumptions about the distribution of the unobservable contingency factors $\epsilon$. Nevertheless, the qualitative conclusions are expected to hold for binary practices and we will test these expectations in the simulation study.
+%\begin{equation} \label{eq:structural-matrix}
+%y = \beta_0 + (\mathbf{\beta_1}^T + \mathbf{z^T} G^T + \mathbf{\epsilon^T})
+%     \mathbf{x} + \frac{1}{2}\mathbf{x^T} B \mathbf{x} + \nu
+%\end{equation}
+%
+%$G$ is a $N \times M$ matrix where each element $\gamma_{nm}$ represents the contingency effect of, $z_m$, on practice $x_i$. $B$ is a symmetric $N \times N$ matrix with $\beta_{ij} = \beta_{ji}$ as off-diagonal elements and a vector $-\mathbf{\delta}$ on the diagonal. The off-diagonal elements represent the interdependency between two practices. This follows directly from the definition of an interdependency as the cross derivative of performance to two practices, $\frac{\partial y}{\partial x_i \partial x_j} = .5 \beta_{ij} + .5 \beta_{ji} = \beta_{ij}$. The elements of $\mathbf{\delta}$ represent the second derivative of the performance effects of the practices. We assume that all $\delta_n$ are positive which implies increasing marginal costs to the practices. The elements of $\mathbf{\epsilon}$ and $\nu$ are independent which implies that the model contains all environmental variables and practices that effect the performance of any two practices $x_i$ and $x_j$. 
 % 
-% The strength of the conditional correlation between practices and environmental factors will also depend on the extent to which firms have adopted optimal practices. We assume that the conditional correlation between practices and environmental factors equals $0$ when firms adopt practices in complete ignorance of the optimal level, while the conditional correlation goes to $\gamma_{im}\zeta_{im}^*$ when all firms adopt the optimal level of each practice. Similarly, we assume that the actual observed conditional correlation between two practices will depend on the extent to which firms have adopted the optimal level for each practice. In complete absence of knowledge about the optimal levels, the conditional correlation is assumed to be $0$ while it goes to $\beta_{ij}\lambda_{ij}^*$ when firms adopt the optimal levels. 
- 
-\subsection{Performance Specification.}
- 
-The performance function approach estimates the performance equation \eqref{eq:structural-matrix} directly. 
-
-\subsubsection{Specifications}
-
-\emph{Performance 1}
- 
-\begin{equation*}
-    y = \beta_0^{p1} + \mathbf{\beta_z^{p1^T} z} + (\mathbf{\beta_1^{p1^T}} + \mathbf{z^T} G^{p1^T}) \mathbf{x} + 
-    \frac{1}{2}\mathbf{x^T} B^{p1} \mathbf{x} + \nu^{p1}
-\end{equation*}
-
-\emph{Performance 2}
-
-\begin{equation*}
-    y = \beta_0^{p2} + \mathbf{\beta_z^{p2^T} z} + (\mathbf{\beta_1^{p2}} + \mathbf{z^T} G^{p2}) \mathbf{x} + 
-    \frac{1}{2}\mathbf{x^T} B_0^{p2} \mathbf{x} + \nu^{p2}
-\end{equation*}
-
-\emph{Performance 3} 
- 
-\begin{equation*}
-    y = \beta_0^{p3} + \mathbf{\beta_z^{p3^T} z} + \mathbf{\beta_1^{p3}} \mathbf{x} + 
-    \frac{1}{2}\mathbf{x^T} B_0^{p3} \mathbf{x} + \nu^{p3}
-\end{equation*}
-
-% \subsubsection{Lack of Power}
- 
-% In the remainder of this section, we explain the potential problems with these three specifications. All three specifications, will suffer form the well known problem we explained above that performance is no longer a function of the management practices when firms adopt the optimal practices \citep{grabner_management_2013}. With strictly optimal practices, there is no longer information about the practices in the performance variable. The literature advises that for a performance specification to have sufficient power, there need to be a sufficient number of firms that are not adopting the optimal level of the practices \citep{bedford_management_2016, carree_note_2011, hofmann_organizational_2017}. However, the literature has not gone beyond this rule of thumb to investigate how strong the deviations from optimality need to be. Our simulation study will provide an answer to this question.
- 
-\subsubsection{Omitted Contingency Effect}
-
-Because of \eqref{eq:conditional-practices}, we can write $\mathbf{z_m} = \gamma_{im} \zeta^p_{im} \mathbf{x_i} + \gamma_{jm} \zeta^p_{jm} \mathbf{x_j} + \mathbf{\epsilon_z}$ with $E(\mathbf{x_i \epsilon_z}) = 0$ and $E(\mathbf{x_j \epsilon_z}) = 0$.
- 
-\begin{align*}
-\gamma_{im} \mathbf{z_m} \mathbf{x_i} + \gamma_{jm} \mathbf{z_m} \mathbf{x_j}
-= \gamma^2_{im} \zeta^p_{im} \mathbf{x_i}^2 + \gamma^2_{jm} \zeta^p_{jm} \mathbf{x_j}^2 
-    + \gamma_{im} \gamma_{jm} (\zeta^p_{im} + \zeta^p_{jm}) \mathbf{x_i x_j} 
-    + \epsilon_z ( \mathbf{x_i} + \mathbf{x_j})\\
-\end{align*}
-
-If $\mathbf{x_i}$, $\mathbf{x_j}$, $\mathbf{z}$ follow a multivariate standard normal distribution, 
-
-\begin{align*}
-    cov(\mathbf{x_i x_j}, \mathbf{x_i^2} | X_{-i, -j}, Z) 
-    &= E(\mathbf{x_i}^3 \mathbf{x_j}) - E(x_i x_j) E(x_i^2) \\
-    &= 2 E(\mathbf{x_i x_j}) E(\mathbf{x_i}^2) \\
-    &= 2 \widetilde{\lambda_{ij}} \beta_{ij}
-\end{align*}
-
-The bias of omitting $\mathbf{z_m x_i}$ and $\mathbf{z_m x_j}$ from the performance specification is then proportional to
-
-\begin{align*}
-    cov(\mathbf{x_1 x_2, \gamma_{im} \mathbf{z_m} \mathbf{x_i} + \gamma_{jm} \mathbf{z_m} \mathbf{x_j}} | X_{-i, -j}, Z_{-m}) = \\
-    (\gamma^2_{im} \zeta^p_{im} + \gamma^2_{jm} \zeta^p_{jm}) \lambda^p_{ij} \beta_{ij} + \gamma_{im} \gamma_{jm} (\zeta^p_{im} + \zeta^p_{jm})  
-\end{align*}
-
-The bias is 0 when $\zeta^p_{im} = \zeta^p_{jm} = 0$ or when $\beta_{ij} = 0$ and either $\gamma_{im} = 0$ or $\gamma_{jm} = 0$.
-
-\subsubsection{Omitted Third Practice}
-
-Because of \eqref{eq:conditional-practices}, we can write $\mathbf{x_k} = \beta_{ik} \lambda^p_{ik} \mathbf{x_i} + \beta_{jk} \lambda^p_{jk} \mathbf{x_j} + \mathbf{\epsilon_x}$ with $E(\epsilon_x x_i) = 0$ and $E(\epsilon_x x_j) = 0$
-
-\begin{align*}
-    \beta_{ik} \mathbf{x_k} \mathbf{x_i} + \beta_{jk} \mathbf{x_k} \mathbf{x_j}
-    = \beta^2_{ik} \lambda^p_{ik} \mathbf{x_i}^2 + \beta^2_{jk} \lambda^p_{jk} \mathbf{x_j}^2 
-    + \beta_{ik} \beta_{jk} (\lambda^p_{ik} + \lambda^p_{jk}) \mathbf{x_i x_j} 
-    + \epsilon_x ( \mathbf{x_i} + \mathbf{x_j})\\
-\end{align*}
-
-The bias of omitting $\mathbf{x_k x_i}$ and $\mathbf{x_k x_j}$ is then proportional to 
-
-\begin{align*}
-   cov(\mathbf{x_i x_j}, \beta_{ik} \mathbf{x_k} \mathbf{x_i} + \beta_{jk} \mathbf{x_k} \mathbf{x_j}| X_{-i, -j, -k}, Z) = \\
-   (\beta^2_{ik} \lambda^p_{ik} + \beta^2_{jk} \lambda^p_{jk}) \lambda_{ij}^p \beta_{ij} + \beta_{ik} \beta_{jk} (\lambda^p_{ik} + \lambda^p_{jk})
-\end{align*}
-
-The bias is 0 when $\lambda^p_{ik} = \lambda^p_{jk} = 0$ or when 
-$\beta_{ij} = 0$ and $\beta_{jk} = 0$ or $\beta_{ik} = 0$.
-
-% A special case of the above problem is the omission of the quadratic terms $\delta_i \mathbf{x_i}^2$ where $\mathbf{x_i} =  \beta_{ij} \lambda^p_{ij} \mathbf{x_j} + \mathbf{\epsilon_x}$. As a result, this omission will bias the estimate of $\beta_{ij}$ with $\beta_{ij} 
-% \delta_i \lambda^p_{ij}$. Since $\lambda^p_{ij} > 0$, this bias will not change the sign of the estimate but will inflate the estimate with a factor $1 + \delta_i \lambda^p_{ij}$.  This result also implies that the omission will not bias estimates when $\beta_{ij} = 0$. The omission of the quadratic term is the difference between the \emph{performance 1} and \emph{performance 2} specification.
-
-\subsection{Demand Specification}
-
-\begin{equation*} 
-    \mathbf{x_i} = \beta_0^d + \beta_{ij}^d \mathbf{x_j} 
-	+ \sum_{k = 1, k \neq i,j}^N \beta_{ik}^d \mathbf{x_k} 
-    + \sum_{m = 1}^M \gamma_{im}^d \mathbf{z_m}
-    + \mathbf{\epsilon^d}
-\end{equation*}
-
-\begin{align}
-\beta_{ij}^d & \propto cor(\mathbf{x_i}, \mathbf{x_j} | X_{-i, -j}, Z) \nonumber \\
-          & \propto \lambda_{ij} \beta_{ij} \label{eq:demand-propto}
-\end{align}
-
-% \subsubsection{Lack of Power}
-
-\subsubsection{Simultaneity Bias}
-
-Because of \eqref{eq:demand-propto} $\beta_{ij}^d$ always has the same sign as $\beta_{ij}$. $\beta_{ij}$ cannot be exactly estimated but inference about it's sign is correct. 
-
-\subsubsection{Omitted Contingency Factor}
-
-Because of \eqref{eq:conditional-contingency}, we can write $\mathbf{z_m} = \gamma_{im} \zeta^d_{im} \mathbf{x_i} + \gamma_{jm} \zeta^d_{jm} \mathbf{x_j} + \mathbf{\epsilon_z}$ with $E(\mathbf{x_i \epsilon_z}) = 0$ and $E(\mathbf{x_j \epsilon_z}) = 0$. When $\mathbf{z_m}$, $\mathbf{x_i}$, and $\mathbf{x_j}$ follow a multivariate normal distribution: $-1 \leq \gamma_{im} \zeta^d_{im}, \gamma_{jm} \zeta^d_{jm} \leq 1$. 
-
-\iffalse
-\begin{align*}
-\mathbf{x_i} &= \beta_{ij} \lambda^d_{ij} \mathbf{x_j} + 
-\gamma_{im} \zeta^d_{im} (\gamma_{im} \zeta^d_{im} \mathbf{x_i} + \gamma_{jm} \zeta^d_{jm} \mathbf{x_j} + \mathbf{\epsilon_z}) + \mathbf{\epsilon_i} \\
- (1 - (\gamma_{im} \zeta^d_{im})^2) \mathbf{x_i} &= \mathbf{x_j} (\beta_{ij} \lambda^d_{ij}
-+ \gamma_{im} \zeta^d_{im} \gamma_{jm} \zeta^d_{jm} )  +  \gamma_{im} \zeta^d_{im}  \mathbf{\epsilon_z} + \epsilon_{i} 
-\end{align*}
-\fi
-
-the bias of omitting $\mathbf{z_m}$ is then proportional to
-
-\begin{align*}
-    cov(\mathbf{x_j}, \gamma_{im} \zeta^d_{im} \mathbf{z_m} | X_{-i, -j}, Z_{-m}) = \frac{\gamma_{im} \gamma_{jm} \zeta^d_{im} \zeta^d_{jm}}{1 - (\gamma_{im} \zeta^d_{im})^2}
-\end{align*}
-
-the bias is 0 when either $\zeta^d_{im} = 0$, $\zeta^d_{jm} = 0$, $\gamma_{im} = 0$, or $\gamma_{jm} = 0$.
-
-\subsubsection{Omitted Third Practice}
-
-Because of \eqref{eq:conditional-practices}, we can write $\mathbf{x_k} = \beta_{ik} \lambda^d_{ik} \mathbf{x_i} + \beta_{jm} \lambda^d_{jk} \mathbf{x_j} + \mathbf{\epsilon_x}$ with $E(\mathbf{x_i \epsilon_x}) = 0$ and $E(\mathbf{x_j \epsilon_x}) = 0$. When $\mathbf{x_k}$, $\mathbf{x_i}$, and $\mathbf{x_j}$ follow a multivariate normal distribution: $-1 \leq \beta_{ik} \lambda^d_{ik}, \beta_{jk} \lambda^d_{jk} \leq 1$. 
-
-The bias of omitting $\mathbf{x_k}$ is then proportional to
-
-\begin{align*}
-    cov(\mathbf{x_j}, \beta_{ik} \lambda^d_{ik} \mathbf{x_k} | X_{-i, -j, -k}, Z) = \frac{\beta_{ik} \beta_{jk} \lambda^d_{ik} \lambda^d_{jk}}{1 - (\beta_{ik} \lambda^d_{ik})^2}
-\end{align*}
-
-The bias is 0 when either $\lambda^d_{ik} = 0$, $\lambda^d_{jk} = 0$, $\beta_{ik} = 0$, or $\beta_{jk} = 0$.
-
+%\subsection{Optimal Level and Conditional Correlations}
+%
+%Next, we derive the optimal level for all practices. The quadratic optimisation problem has a standard solution for the performance function in equation \eqref{eq:structural-matrix} under the condition that $-B$ is positive definite. The second order condition that -B is positive definite implies that for every combination of practices, $\delta_i \delta_j - \beta_{ij}^2 > 0$. The solution can be written as follows.
+% 
+%\begin{equation} \label{eq:optimal-matrix}
+%\begin{aligned} 
+%    \mathbf{\beta_1} + G \mathbf{z} + \mathbf{\epsilon} & = -B \mathbf{x^*} \\
+%    - B^{-1} (\mathbf{\beta_1} +  G \mathbf{z} + \mathbf{\epsilon})  & = \mathbf{x^*}
+%\end{aligned}
+%\end{equation}
+% 
+%In this formulation, the optimal level for each practice has mean $-B^{-1} (\mathbf{\beta_1} + G \mathbf{z})$ and covariance matrix $\Omega = -S_{\epsilon} B^{-1} S_{\epsilon}$ where $S_{\epsilon}$ is the a diagonal matrix with the standard deviations $\sigma_e$ on the diagonal. 
+%
+%Because $-B$ is positive definite, write $-B^{-1} = DRD$ where $R$ is the correlation matrix of $\Omega$ and $D$ is a diagonal matrix with strictly positive values on the diagonal. The partial correlation between the optimal level of two practices, $x^*_i$ and $x^*_j$ is than given by $-\frac{R^{-1}_{ij}}{\sqrt{R^{-1}_{ii} R^{-1}_{jj}}}$. 
+%
+%Because $R^{-1} = - D^{-1}BD^{-1}$, the partial correlation between the optimal level of two practices conditional on all other practices and environmental factors equals 
+%
+%\begin{equation}\label{eq:conditional-practices}
+%cor(x_i^*, x_j^* | X_{-i, -j}, Z)  = \rho^*_{ij} = \beta_{ij}\lambda_{ij}^* \text{ with } \lambda_{ij}^* > 0. 
+%\end{equation}
+%
+%Similarly
+%
+%\begin{equation}\label{eq:conditional-contingency}
+%cor(x_i^*, z_k | X_{-i}, Z_{-m})  = \omega^*_{ik} = \gamma_{ik}\zeta_{ik}^* \text{ with } \zeta_{ik}^* > 0. 
+%\end{equation}
+% 
+%We assume that with randomly chosen practices ($O = 0$) the empirical conditional correlations equal $0$. The conditional correlations are between $0$ and the maximum in \eqref{eq:conditional-practices} and \eqref{eq:conditional-contingency} when $O > 0$.
+%
+%\begin{align*}
+%\rho_{ij} &= \lambda_{ij} \beta_{ij}
+%& \omega_{ik} &= \zeta_{ik} \gamma{ik} \\
+%\rho_{ij}(O = 0) &= \lambda_{ij}(O = 0) = 0 
+%& \omega_{ik}(O = 0) &= \zeta_{ik}(O = 0) = 0 \\
+%0 & \leq \lambda_{ij} \leq \lambda^*_{ij}
+%& 0 & \leq \zeta_{ij} \leq \zeta^*_{ij} \\
+%\frac{\delta \lambda_{ij}}{\delta O} & \geq 0 
+%& \frac{\delta \zeta_{ij}}{\delta O} & \geq 0 
+%\end{align*}
+% 
+%% \subsection{Binary Practices}
+%% 
+%% With binary practices, the production function simplifies because $x = x^2$. We can set the parameters of decreasing marginal costs to zero, i.e. $\mathbf{\delta} = 0$. $\beta_{ii}$ now captures the increase in performance from adopting practice $x_i$ when no other practices are adopted and in the absence of any contingency effects. We replace $B$ with $B_0$ which has the same off-diagonal elements as $B$ but $0$ on the diagonal. The optimal decision rule for a firm is to adopt a practice $i$ when profit $y$ is higher for $x_i = 1$ than for $x_i = 0$. 
+% 
+%% \begin{equation} \label{eq:condition-binary}
+%%     \beta_{ii} + \mathbf{z^T} \mathbf{\gamma_i} + \epsilon_i 
+%%     + \sum^{N}_{k = 1, k \neq i} \beta_{ik} x_k > 0
+%% \end{equation}
+%% 
+%% Similarly, it is optimal for firms to adopt two practices $i$ and $j$ when the performance is higher than the performance compared to (1) adopting none of the practices, (2) adopting only practice $i$, and (3) adopting only practice $j$. 
+%% 
+%% \begin{equation} \label{eq:condition-two-binary}
+%%     \begin{aligned}
+%%         \beta_{ii} + \mathbf{z^T} \mathbf{\gamma_i} + \epsilon_i
+%%         + \beta_{jj} + \mathbf{z^T} \mathbf{\gamma_j} + \epsilon_j
+%%         + \beta_{ij} + \sum^{N}_{k = 1, k \neq i,j} (\beta_{ik} + \beta_{jk}) x _k &> 0 \\
+%%         \beta_{jj} + \mathbf{z^T} \mathbf{\gamma_j} + \epsilon_j 
+%%         + \beta_{ij} + \sum^{N}_{k = 1, k \neq i,j} \beta_{jk} x_k &> 0 \\
+%%         \beta_{ii} + \mathbf{z^T} \mathbf{\gamma_i} + \epsilon_i
+%%         + \beta_{ij} + \sum^{N}_{k = 1, k \neq i,j} \beta_{ik} x_k &> 0 
+%%     \end{aligned} 
+%% \end{equation}
+%% 
+%% This line of reasoning can be extended for the necessary inequality conditions for the optimal adoption of $p \leq N$ binary practices. However, we do not need the complete set of conditions to illustrate that the same set of conclusions hold as for the continuous practices. First, whether a practice is optimally adopted depends on the contingency factors. Second, whether two practices are adopted together depends the interdependency parameter $\beta_{ij}$. In the absence of interdependencies, $\beta_{12} = 0$, the second and third condition in equation \eqref{eq:condition-two-binary} simplify to the condition \eqref{eq:condition-binary} and when they are both satisfied, the first condition holds as well. That is, in the absence of an interdependency between practices, the adoption of one practice is not a function of the adoption of the other practice.
+%
+%% As explained in the previous section, when firms adopt the optimal practices, $x^*_i$, they are a function of the contingency factors, $z_m$, when $\gamma_{im} \neq 0$ and conditional on all other practices and contingency factors. Similarly, the practices $x^*_i$ and $x^*_j$ are a function of each other conditional on all other environmental factors when $\beta_{ij} \neq 0$. In the remainder of this section, we will work with the more tractable continuous model where the partial correlation is a either $\gamma_{im}$ or $\beta_{ij}$ scaled by a positive factor. The derivations for binary practices depend on additional assumptions about the distribution of the unobservable contingency factors $\epsilon$. Nevertheless, the qualitative conclusions are expected to hold for binary practices and we will test these expectations in the simulation study.
+%% 
+%% The strength of the conditional correlation between practices and environmental factors will also depend on the extent to which firms have adopted optimal practices. We assume that the conditional correlation between practices and environmental factors equals $0$ when firms adopt practices in complete ignorance of the optimal level, while the conditional correlation goes to $\gamma_{im}\zeta_{im}^*$ when all firms adopt the optimal level of each practice. Similarly, we assume that the actual observed conditional correlation between two practices will depend on the extent to which firms have adopted the optimal level for each practice. In complete absence of knowledge about the optimal levels, the conditional correlation is assumed to be $0$ while it goes to $\beta_{ij}\lambda_{ij}^*$ when firms adopt the optimal levels. 
+% 
+%\subsection{Performance Specification.}
+% 
+%The performance function approach estimates the performance equation \eqref{eq:structural-matrix} directly. 
+%
+%\subsubsection{Specifications}
+%
+%\emph{Performance 1}
+% 
+%\begin{equation*}
+%    y = \beta_0^{p1} + \mathbf{\beta_z^{p1^T} z} + (\mathbf{\beta_1^{p1^T}} + \mathbf{z^T} G^{p1^T}) \mathbf{x} + 
+%    \frac{1}{2}\mathbf{x^T} B^{p1} \mathbf{x} + \nu^{p1}
+%\end{equation*}
+%
+%\emph{Performance 2}
+%
+%\begin{equation*}
+%    y = \beta_0^{p2} + \mathbf{\beta_z^{p2^T} z} + (\mathbf{\beta_1^{p2}} + \mathbf{z^T} G^{p2}) \mathbf{x} + 
+%    \frac{1}{2}\mathbf{x^T} B_0^{p2} \mathbf{x} + \nu^{p2}
+%\end{equation*}
+%
+%\emph{Performance 3} 
+% 
+%\begin{equation*}
+%    y = \beta_0^{p3} + \mathbf{\beta_z^{p3^T} z} + \mathbf{\beta_1^{p3}} \mathbf{x} + 
+%    \frac{1}{2}\mathbf{x^T} B_0^{p3} \mathbf{x} + \nu^{p3}
+%\end{equation*}
+%
+%% \subsubsection{Lack of Power}
+% 
+%% In the remainder of this section, we explain the potential problems with these three specifications. All three specifications, will suffer form the well known problem we explained above that performance is no longer a function of the management practices when firms adopt the optimal practices \citep{grabner_management_2013}. With strictly optimal practices, there is no longer information about the practices in the performance variable. The literature advises that for a performance specification to have sufficient power, there need to be a sufficient number of firms that are not adopting the optimal level of the practices \citep{bedford_management_2016, carree_note_2011, hofmann_organizational_2017}. However, the literature has not gone beyond this rule of thumb to investigate how strong the deviations from optimality need to be. Our simulation study will provide an answer to this question.
+% 
+%\subsubsection{Omitted Contingency Effect}
+%
+%Because of \eqref{eq:conditional-practices}, we can write $\mathbf{z_m} = \gamma_{im} \zeta^p_{im} \mathbf{x_i} + \gamma_{jm} \zeta^p_{jm} \mathbf{x_j} + \mathbf{\epsilon_z}$ with $E(\mathbf{x_i \epsilon_z}) = 0$ and $E(\mathbf{x_j \epsilon_z}) = 0$.
+% 
+%\begin{align*}
+%\gamma_{im} \mathbf{z_m} \mathbf{x_i} + \gamma_{jm} \mathbf{z_m} \mathbf{x_j}
+%= \gamma^2_{im} \zeta^p_{im} \mathbf{x_i}^2 + \gamma^2_{jm} \zeta^p_{jm} \mathbf{x_j}^2 
+%    + \gamma_{im} \gamma_{jm} (\zeta^p_{im} + \zeta^p_{jm}) \mathbf{x_i x_j} 
+%    + \epsilon_z ( \mathbf{x_i} + \mathbf{x_j})\\
+%\end{align*}
+%
+%If $\mathbf{x_i}$, $\mathbf{x_j}$, $\mathbf{z}$ follow a multivariate standard normal distribution, 
+%
+%\begin{align*}
+%    cov(\mathbf{x_i x_j}, \mathbf{x_i^2} | X_{-i, -j}, Z) 
+%    &= E(\mathbf{x_i}^3 \mathbf{x_j}) - E(x_i x_j) E(x_i^2) \\
+%    &= 2 E(\mathbf{x_i x_j}) E(\mathbf{x_i}^2) \\
+%    &= 2 \widetilde{\lambda_{ij}} \beta_{ij}
+%\end{align*}
+%
+%The bias of omitting $\mathbf{z_m x_i}$ and $\mathbf{z_m x_j}$ from the performance specification is then proportional to
+%
+%\begin{align*}
+%    cov(\mathbf{x_1 x_2, \gamma_{im} \mathbf{z_m} \mathbf{x_i} + \gamma_{jm} \mathbf{z_m} \mathbf{x_j}} | X_{-i, -j}, Z_{-m}) = \\
+%    (\gamma^2_{im} \zeta^p_{im} + \gamma^2_{jm} \zeta^p_{jm}) \lambda^p_{ij} \beta_{ij} + \gamma_{im} \gamma_{jm} (\zeta^p_{im} + \zeta^p_{jm})  
+%\end{align*}
+%
+%The bias is 0 when $\zeta^p_{im} = \zeta^p_{jm} = 0$ or when $\beta_{ij} = 0$ and either $\gamma_{im} = 0$ or $\gamma_{jm} = 0$.
+%
+%\subsubsection{Omitted Third Practice}
+%
+%Because of \eqref{eq:conditional-practices}, we can write $\mathbf{x_k} = \beta_{ik} \lambda^p_{ik} \mathbf{x_i} + \beta_{jk} \lambda^p_{jk} \mathbf{x_j} + \mathbf{\epsilon_x}$ with $E(\epsilon_x x_i) = 0$ and $E(\epsilon_x x_j) = 0$
+%
+%\begin{align*}
+%    \beta_{ik} \mathbf{x_k} \mathbf{x_i} + \beta_{jk} \mathbf{x_k} \mathbf{x_j}
+%    = \beta^2_{ik} \lambda^p_{ik} \mathbf{x_i}^2 + \beta^2_{jk} \lambda^p_{jk} \mathbf{x_j}^2 
+%    + \beta_{ik} \beta_{jk} (\lambda^p_{ik} + \lambda^p_{jk}) \mathbf{x_i x_j} 
+%    + \epsilon_x ( \mathbf{x_i} + \mathbf{x_j})\\
+%\end{align*}
+%
+%The bias of omitting $\mathbf{x_k x_i}$ and $\mathbf{x_k x_j}$ is then proportional to 
+%
+%\begin{align*}
+%   cov(\mathbf{x_i x_j}, \beta_{ik} \mathbf{x_k} \mathbf{x_i} + \beta_{jk} \mathbf{x_k} \mathbf{x_j}| X_{-i, -j, -k}, Z) = \\
+%   (\beta^2_{ik} \lambda^p_{ik} + \beta^2_{jk} \lambda^p_{jk}) \lambda_{ij}^p \beta_{ij} + \beta_{ik} \beta_{jk} (\lambda^p_{ik} + \lambda^p_{jk})
+%\end{align*}
+%
+%The bias is 0 when $\lambda^p_{ik} = \lambda^p_{jk} = 0$ or when 
+%$\beta_{ij} = 0$ and $\beta_{jk} = 0$ or $\beta_{ik} = 0$.
+%
+%% A special case of the above problem is the omission of the quadratic terms $\delta_i \mathbf{x_i}^2$ where $\mathbf{x_i} =  \beta_{ij} \lambda^p_{ij} \mathbf{x_j} + \mathbf{\epsilon_x}$. As a result, this omission will bias the estimate of $\beta_{ij}$ with $\beta_{ij} 
+%% \delta_i \lambda^p_{ij}$. Since $\lambda^p_{ij} > 0$, this bias will not change the sign of the estimate but will inflate the estimate with a factor $1 + \delta_i \lambda^p_{ij}$.  This result also implies that the omission will not bias estimates when $\beta_{ij} = 0$. The omission of the quadratic term is the difference between the \emph{performance 1} and \emph{performance 2} specification.
+%
+%\subsection{Demand Specification}
+%
+%\begin{equation*} 
+%    \mathbf{x_i} = \beta_0^d + \beta_{ij}^d \mathbf{x_j} 
+%	+ \sum_{k = 1, k \neq i,j}^N \beta_{ik}^d \mathbf{x_k} 
+%    + \sum_{m = 1}^M \gamma_{im}^d \mathbf{z_m}
+%    + \mathbf{\epsilon^d}
+%\end{equation*}
+%
+%\begin{align}
+%\beta_{ij}^d & \propto cor(\mathbf{x_i}, \mathbf{x_j} | X_{-i, -j}, Z) \nonumber \\
+%          & \propto \lambda_{ij} \beta_{ij} \label{eq:demand-propto}
+%\end{align}
+%
+%% \subsubsection{Lack of Power}
+%
+%\subsubsection{Simultaneity Bias}
+%
+%Because of \eqref{eq:demand-propto} $\beta_{ij}^d$ always has the same sign as $\beta_{ij}$. $\beta_{ij}$ cannot be exactly estimated but inference about it's sign is correct. 
+%
+%\subsubsection{Omitted Contingency Factor}
+%
+%Because of \eqref{eq:conditional-contingency}, we can write $\mathbf{z_m} = \gamma_{im} \zeta^d_{im} \mathbf{x_i} + \gamma_{jm} \zeta^d_{jm} \mathbf{x_j} + \mathbf{\epsilon_z}$ with $E(\mathbf{x_i \epsilon_z}) = 0$ and $E(\mathbf{x_j \epsilon_z}) = 0$. When $\mathbf{z_m}$, $\mathbf{x_i}$, and $\mathbf{x_j}$ follow a multivariate normal distribution: $-1 \leq \gamma_{im} \zeta^d_{im}, \gamma_{jm} \zeta^d_{jm} \leq 1$. 
+%
+%\iffalse
+%\begin{align*}
+%\mathbf{x_i} &= \beta_{ij} \lambda^d_{ij} \mathbf{x_j} + 
+%\gamma_{im} \zeta^d_{im} (\gamma_{im} \zeta^d_{im} \mathbf{x_i} + \gamma_{jm} \zeta^d_{jm} \mathbf{x_j} + \mathbf{\epsilon_z}) + \mathbf{\epsilon_i} \\
+% (1 - (\gamma_{im} \zeta^d_{im})^2) \mathbf{x_i} &= \mathbf{x_j} (\beta_{ij} \lambda^d_{ij}
+%+ \gamma_{im} \zeta^d_{im} \gamma_{jm} \zeta^d_{jm} )  +  \gamma_{im} \zeta^d_{im}  \mathbf{\epsilon_z} + \epsilon_{i} 
+%\end{align*}
+%\fi
+%
+%the bias of omitting $\mathbf{z_m}$ is then proportional to
+%
+%\begin{align*}
+%    cov(\mathbf{x_j}, \gamma_{im} \zeta^d_{im} \mathbf{z_m} | X_{-i, -j}, Z_{-m}) = \frac{\gamma_{im} \gamma_{jm} \zeta^d_{im} \zeta^d_{jm}}{1 - (\gamma_{im} \zeta^d_{im})^2}
+%\end{align*}
+%
+%the bias is 0 when either $\zeta^d_{im} = 0$, $\zeta^d_{jm} = 0$, $\gamma_{im} = 0$, or $\gamma_{jm} = 0$.
+%
+%\subsubsection{Omitted Third Practice}
+%
+%Because of \eqref{eq:conditional-practices}, we can write $\mathbf{x_k} = \beta_{ik} \lambda^d_{ik} \mathbf{x_i} + \beta_{jm} \lambda^d_{jk} \mathbf{x_j} + \mathbf{\epsilon_x}$ with $E(\mathbf{x_i \epsilon_x}) = 0$ and $E(\mathbf{x_j \epsilon_x}) = 0$. When $\mathbf{x_k}$, $\mathbf{x_i}$, and $\mathbf{x_j}$ follow a multivariate normal distribution: $-1 \leq \beta_{ik} \lambda^d_{ik}, \beta_{jk} \lambda^d_{jk} \leq 1$. 
+%
+%The bias of omitting $\mathbf{x_k}$ is then proportional to
+%
+%\begin{align*}
+%    cov(\mathbf{x_j}, \beta_{ik} \lambda^d_{ik} \mathbf{x_k} | X_{-i, -j, -k}, Z) = \frac{\beta_{ik} \beta_{jk} \lambda^d_{ik} \lambda^d_{jk}}{1 - (\beta_{ik} \lambda^d_{ik})^2}
+%\end{align*}
+%
+%The bias is 0 when either $\lambda^d_{ik} = 0$, $\lambda^d_{jk} = 0$, $\beta_{ik} = 0$, or $\beta_{jk} = 0$.
+%
 \section{Omitted Variable Bias} \label{appendix-omitted}
 
 The bias of omitting the term $\mathbf{x_1 z}$ on the estimate of $\beta^{p3}_{12}$ is given by $\gamma_1 \frac{cov(\widetilde{\mathbf{x_1 x_2}}, \widetilde{\mathbf{x_1 z}})} {var(\widetilde{\mathbf{x_1 z}})}$ where $\widetilde{\mathbf{x_1 x_2}}$ and $\widetilde{\mathbf{x_1 z}}$ are the residual vector of regressing $\mathbf{x1}$, $\mathbf{x2}$, and $\mathbf{z}$ on $\mathbf{x_1 z}$ and $\mathbf{x_1 z}$ respectively \citep{angrist2008mostly,cunningham_causal_2018}. 
@@ -834,6 +868,7 @@ Similarly, the bias of omitting the term $\mathbf{x_1 z}$ on the estimate of $\b
 
 The bias of omitting the terms $\mathbf{x_1^2}$ and $\mathbf{x_2^2}$ is respectively $\delta_1 r_{12}$ and $\delta_2 r_{12}$
 
+\newpage
 \section{R Functions Nearly Exact Correction} \label{appendix-R}
 \begin{lstlisting}[language=R]
 #' Install the sandwich package if necessary
