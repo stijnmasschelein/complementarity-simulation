@@ -204,6 +204,7 @@ filter(summ, b1_str == "c(0, 0, 0, 0)") %>%
   add_header_above(c(" " = 4, "demand specification" = 5, 
                    "performance specification" = 5)) %>%
   kable_styling(font_size = 8) %>%
+  footnote(general = footnote_basis) %>%
   cat(., file = "tex/big_basis_table.tex")
 
 
