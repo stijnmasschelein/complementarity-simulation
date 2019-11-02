@@ -139,9 +139,9 @@ save_plot("figure-latex/big_main.pdf",
 # Tables
 library(kableExtra)
 
-footnote_main <- "Power and Type I error rate for the different levels of optimality (2, 4, 8, 16, 32) when $\\beta_1 = \\beta_2 = 0.5$ for the demand and performance 1 specification. Power rows report the proportion of samples with a significantly positive estimate for the complementarity when $\beta_{12} = .25$. Type I rows reports the proportion of samples with a significant estimate for the complementarity when $\\beta_{12} = 0$. The effect of the environmental variable, $\\mathbf{z}$, on the second choice is either negative ($\\gamma_1 = .33$ and $\\gamma_2 = -.33$) or positive ($\\gamma_1 = 0.33$ and $\\gamma_2 = 0.33$). The results are averaged over the values of $\\gamma_2$.}"
+footnote_main = "Power and Type I error rate for the different levels of optimality (2, 4, 8, 16, 32) when $\\\\beta_1 = \\\\beta_2 = 0.5$ for the demand and performance 1 specification. The effect of the environmental variable, $\\\\mathbf{z}$, on the second choice is either negative ($\\\\gamma_1 = .33$ and $\\\\gamma_2 = -.33$) or positive ($\\\\gamma_1 = 0.33$ and $\\\\gamma_2 = 0.33$). The results are averaged over the values of $\\\\gamma_2$."
 
-footnote_basis <- "Power and Type I error rate for the different levels of optimality (2, 4, 8, 16, 32) when $\\beta_1 = \\beta_2 = 0$ for the demand and performance 1 specification. Power rows report the proportion of samples with a significantly positive estimate for the complementarity when $\beta_{12} = .25$. Type I rows reports the proportion of samples with a significant estimate for the complementarity when $\\beta_{12} = 0$. The effect of the environmental variable, $\\mathbf{z}$, on the second choice is either negative ($\\gamma_1 = .33$ and $\\gamma_2 = -.33$) or positive ($\\gamma_1 = 0.33$ and $\\gamma_2 = 0.33$). The results are averaged over the values of $\\gamma_2$.}"
+footnote_basis = "Power and Type I error rate for the different levels of optimality (2, 4, 8, 16, 32) when $\\\\beta_1 = \\\\beta_2 = 0$ for the demand and performance 1 specification. The effect of the environmental variable, $\\\\mathbf{z}$, on the second choice is either negative ($\\\\gamma_1 = .33$ and $\\\\gamma_2 = -.33$) or positive ($\\\\gamma_1 = 0.33$ and $\\\\gamma_2 = 0.33$). The results are averaged over the values of $\\\\gamma_2$."
 
 filter(summ, b1_str == "c(0.5, 0.5, 0.5, 0)") %>%
   group_by(optim, sd, b2_str, d_str, sd_eps_str, label, stat_type) %>%
@@ -149,7 +149,8 @@ filter(summ, b1_str == "c(0.5, 0.5, 0.5, 0)") %>%
   ungroup() %>%
   pivot_wider(values_from = stat,
               names_from = c(label, optim)) %>%
-  filter(!grepl("333", d_str), !grepl("0.5", b2_str)) %>%
+  filter(!grepl("333", d_str), !grepl("0.5", b2_str), 
+         sd != 4) %>%
   mutate(
     sd_eps = case_when(
       str_detect(sd_eps_str, "0.5") ~ 0.5,
@@ -159,21 +160,25 @@ filter(summ, b1_str == "c(0.5, 0.5, 0.5, 0)") %>%
       str_detect(d_str, "\\(0,") ~ 0,
       str_detect(d_str, "0.25") ~ 0.25,
       str_detect(d_str, "1") ~ 1)) %>%
-  select(stat_type, sd_eps, d, sd, starts_with("demand"),
-         starts_with("performance")) %>%
   arrange(stat_type, sd_eps, d, sd) %>%
+  select(sd_eps, d, sd, starts_with("demand"),
+         starts_with("performance")) %>%
   kable(format = "latex", booktabs = T, linesep = "", 
         escape = F, digits = 2,
         label = "big-main-table", 
-        caption = "Power and Type I Error Rate with Main Effects",
-        col.names = c("Type", "$\\sigma_{\\epsilon_i}$", 
+        caption = "Power and Type I Error Rate without Main Effects",
+        col.names = c("$\\sigma_{\\epsilon_i}$", 
                       "$\\delta_i$", "$\\sigma_{\\epsilon_i}$",
                        rep(c("2", "4", "8", "16", "32"), 2))) %>%
-  add_header_above(c(" " = 4, "demand specification" = 5, 
+  pack_rows("Power", 1, 18, latex_align = "c") %>%
+  pack_rows("Type I", 19, 36, latex_align = "c") %>%
+  add_header_above(c(" " = 3, "demand specification" = 5, 
                    "performance specification" = 5)) %>%
   kable_styling(font_size = 8) %>%
-  footnote(general = footnote_main) %>%
-  cat(., file = "tex/big_main_table.tex")
+  footnote(
+    general = footnote_basis,         
+    escape = FALSE, threeparttable = TRUE) %>%
+  cat(., file = "tex/big_basis_table.tex")
 
 filter(summ, b1_str == "c(0, 0, 0, 0)") %>%
   group_by(optim, sd, b2_str, d_str, sd_eps_str, label, stat_type) %>%
@@ -181,7 +186,8 @@ filter(summ, b1_str == "c(0, 0, 0, 0)") %>%
   ungroup() %>%
   pivot_wider(values_from = stat,
               names_from = c(label, optim)) %>%
-  filter(!grepl("333", d_str), !grepl("0.5", b2_str)) %>%
+  filter(!grepl("333", d_str), !grepl("0.5", b2_str), 
+         sd != 4) %>%
   mutate(
     sd_eps = case_when(
       str_detect(sd_eps_str, "0.5") ~ 0.5,
@@ -191,20 +197,23 @@ filter(summ, b1_str == "c(0, 0, 0, 0)") %>%
       str_detect(d_str, "\\(0,") ~ 0,
       str_detect(d_str, "0.25") ~ 0.25,
       str_detect(d_str, "1") ~ 1)) %>%
-  select(stat_type, sd_eps, d, sd, starts_with("demand"),
-         starts_with("performance")) %>%
   arrange(stat_type, sd_eps, d, sd) %>%
+  select(sd_eps, d, sd, starts_with("demand"),
+         starts_with("performance")) %>%
   kable(format = "latex", booktabs = T, linesep = "", 
-        escape = F, digits = 2, 
-        label = "big-basis-table",
-        caption = "Power and Type I Error Rate without Main Effects",
-        col.names = c("Type", "$\\sigma_{\\epsilon_i}$", 
+        escape = F, digits = 2,
+        label = "big-main-table", 
+        caption = "Power and Type I Error Rate with Main Effects",
+        col.names = c("$\\sigma_{\\epsilon_i}$", 
                       "$\\delta_i$", "$\\sigma_{\\epsilon_i}$",
                        rep(c("2", "4", "8", "16", "32"), 2))) %>%
-  add_header_above(c(" " = 4, "demand specification" = 5, 
+  pack_rows("Power", 1, 18, latex_align = "c") %>%
+  pack_rows("Type I", 19, 36, latex_align = "c") %>%
+  add_header_above(c(" " = 3, "demand specification" = 5, 
                    "performance specification" = 5)) %>%
   kable_styling(font_size = 8) %>%
-  footnote(general = footnote_basis) %>%
-  cat(., file = "tex/big_basis_table.tex")
-
+  footnote(
+    general = footnote_main,         
+    escape = FALSE, threeparttable = TRUE) %>%
+  cat(., file = "tex/big_main_table.tex")
 
