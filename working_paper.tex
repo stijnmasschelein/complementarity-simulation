@@ -10,6 +10,8 @@
 \usepackage{listings} 
 \usepackage{booktabs}
 \usepackage{float}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
 \usepackage[onehalfspacing]{setspace}
 \usepackage[usenames,dvipsnames]{color}    
 \usepackage[font=small, font+=singlespacing,labelfont=bf]{caption}
@@ -448,13 +450,6 @@ In a first simulation, we vary the following parameters. $\beta_{12}$ equals $0$
 
 \input{tex/big_basis_table.tex}
 
-%\begin{figure}
-%\centerfloat
-%\includegraphics[width=450px]{figure-latex/big_basis.pdf}
-%\caption[Error Rate and Power without Main Effects] 
-%{\label{big-basis} Panel A reports the proportion of samples with a significantly positive estimate for the complementarity when $\beta_{12} = .25$ or $.5$. Panel B reports the proportion of samples with a significant estimate for the complementarity when $\beta_{12} = 0$. The effect of the environmental variable, $\mathbf{z}$, on the second choice is either negative ($\gamma_1 = .33$ and $\gamma_2 = -.33$) or positive ($\gamma_1 = 0.33$ and $\gamma_2 = 0.33$). The results are averaged over the values of $\gamma_2$.}
-%\end{figure}
-
 The results in Figure \ref{big-basis} panel A largely confirm that only for lower levels of optimality the \emph{performance 1} specification has more power to detect a true effect than the \emph{demand} specification. The major issue for the \emph{performance 1} specification is the inferior Type I error rates as reported in Panel B. The biggest issue for the \emph{demand} specification is the slightly elevated Type I error rate when there are both no increases in the marginal costs of the practices ($\delta_i = 0$) and the unobserved heterogeneity is relatively small ($\sigma_{\epsilon_i} = 0.5$). This is not entirely surprising because these are the conditions where the optimal level for the practices are corner solutions and they violate the second-order optimality condition underlying the demand specification.
 
 \subsubsection{Corner Solutions}
@@ -466,12 +461,7 @@ The results in Figure \ref{big-main} Panel A show that the introduction of the m
 
 \subsubsection{Two Discrete and One Continuous Practice}
 
-\begin{figure}
-\centerfloat
-\includegraphics[width=450px]{figure-latex/big_main.pdf}
-\caption[Error Rate and Power with Large Main Effects] 
-{\label{big-main} Panel A reports the proportion of samples with a significantly positive estimate for the complementarity when $\beta_{12} = .25$ or $.5$. Panel B reports the proportion of samples with a significant estimate for the complementarity when $\beta_{12} = 0$. $\beta_1$ and $\beta_2$ equal $0.5$. All other parameters are identical to Figure \ref{big-basis}.}
-\end{figure}
+\input{tex/big_basis_table.tex}
 
 Nevertheless, given that corner solutions violate the assumption of the demand specification, we run a last simulation to test the robustness of the demand specification. We extend the objective function to three practices where the first and the third practice are discrete practices. Figure \ref{robustness-main} Panel A reports the power of both specifications to detect a true substitution effect between the first and the second practice ($\beta_{12} = -0.25$) and a true complementarity between the first and the third practice ($\beta_{13} = 0.25$). Figure \ref{robustness-main} Panel A reports the resulting Type I error rates in the absence of these effects. In both panels there is a complementarity between the second and the third practice ($\beta_{23} = 0.25$). $\beta_{12}$ represents a complementarity between a continuous and a discrete practice and the results for its estimates are reported as a full line. $\beta_{13}$ represents a complementarity between two discrete practices and the results for its estimates are reported as a dotted line.
 
