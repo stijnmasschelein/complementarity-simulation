@@ -1,0 +1,36 @@
+\begin{table}
+
+\caption{\label{tab:mix-optimality-table}Power and Type I Error Rate for Contingent
+                   Complementarity}
+\centering
+\begin{threeparttable}
+\begin{tabular}[t]{lrrrrrr}
+\toprule
+\multicolumn{2}{c}{ } & \multicolumn{5}{c}{Level of Optimality} \\
+\cmidrule(l{3pt}r{3pt}){3-7}
+specification & $\beta_{12}$ & 2 & 4 & 8 & 16 & 32\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{7}{c}{\textbf{Power}}\\
+\hspace{1em}demand & 0.00 & 0.94 & 1.00 & 1.00 & 1.00 & 1.00\\
+\hspace{1em}demand & 0.25 & 0.92 & 1.00 & 1.00 & 1.00 & 1.00\\
+\hspace{1em}performance~1 & 0.00 & 1.00 & 1.00 & 0.99 & 0.81 & 0.37\\
+\hspace{1em}performance~1 & 0.25 & 1.00 & 1.00 & 0.99 & 0.82 & 0.48\\
+\hspace{1em}performance~2 & 0.00 & 0.72 & 0.54 & 0.82 & 0.97 & 0.99\\
+\hspace{1em}performance~2 & 0.25 & 0.80 & 0.67 & 0.87 & 0.94 & 0.94\\
+\addlinespace[0.3em]
+\multicolumn{7}{c}{\textbf{Type I}}\\
+\hspace{1em}demand & 0.00 & 0.05 & 0.05 & 0.05 & 0.04 & 0.05\\
+\hspace{1em}demand & 0.25 & 0.05 & 0.03 & 0.05 & 0.04 & 0.04\\
+\hspace{1em}performance~1 & 0.00 & 0.15 & 0.17 & 0.18 & 0.16 & 0.15\\
+\hspace{1em}performance~1 & 0.25 & 0.15 & 0.17 & 0.17 & 0.18 & 0.17\\
+\hspace{1em}performance~2 & 0.00 & 0.19 & 0.19 & 0.19 & 0.17 & 0.17\\
+\hspace{1em}performance~2 & 0.25 & 0.19 & 0.18 & 0.17 & 0.17 & 0.19\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item \textit{Note: } 
+\item Power is the proportion of samples reporting a significantly negative (when $\gamma_{12} = -0.33$) or a significantly positive (when $\gamma_{12} = 0.33$) contingent complementarity. Type I is the proportion of samples reporting a significant contingent complementarity when $\gamma_{12} = 0$. The remaining parameters are the same as in the baseline simulation in Figure \ref{main}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

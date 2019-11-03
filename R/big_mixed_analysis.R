@@ -93,5 +93,34 @@ ggplot(sample, aes(y = x1, x = x2,
   geom_point() +
   scale_colour_viridis(discrete = TRUE)
 
+# Tables ----
+library(kableExtra)
+footnote = "The samples are constructed as a mix of a high optimality sample ($O=32$) and a low optimality sample ($O=2$). The proportion of the high optimality sample is given in the table. The remaining parameters are the same as in the baseline simulation in Figure \\\\ref{main}"
 
+summ %>%
+  filter(correction == "default", !grepl("0.33, 0, 0", g1_str)) %>%
+  group_by(stat_type, specification, weight_optim) %>%
+  summarise(stat = mean(stat_value)) %>%
+  pivot_wider(values_from = stat, names_from = weight_optim) %>%
+  ungroup() %>%
+  select(2:7) %>%
+  kable(format = "latex", booktabs = T, linesep = "", 
+        escape = F, digits = 2,
+        label = "mix-optimality-table", 
+        caption = "Power and Type I Error Rate with Mixed Optimality") %>%
+  pack_rows("Power", 1, 4, latex_align = "c") %>%
+  pack_rows("Type I", 5, 8, latex_align = "c") %>%
+  add_header_above(c(" " = 1, "Proportion High Optimality" = 5)) %>%
+  footnote(
+    general = footnote,         
+    escape = FALSE, threeparttable = TRUE) %>%
+  cat(., file = "tex/mix_optimality_table.tex") 
+  
+  
+  
+  
+  
+  
+  
+  
   
