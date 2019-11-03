@@ -166,7 +166,7 @@ filter(summ, b1_str == "c(0.5, 0.5, 0.5, 0)") %>%
   kable(format = "latex", booktabs = T, linesep = "", 
         escape = F, digits = 2,
         label = "big-main-table", 
-        caption = "Power and Type I Error Rate without Main Effects",
+        caption = "Power and Type I Error Rate with Main Effects",
         col.names = c("$\\sigma_{\\epsilon_i}$", 
                       "$\\delta_i$", "$\\sigma_{\\epsilon_i}$",
                        rep(c("2", "4", "8", "16", "32"), 2))) %>%
@@ -203,7 +203,7 @@ filter(summ, b1_str == "c(0, 0, 0, 0)") %>%
   kable(format = "latex", booktabs = T, linesep = "", 
         escape = F, digits = 2,
         label = "big-basis-table", 
-        caption = "Power and Type I Error Rate with Main Effects",
+        caption = "Power and Type I Error Rate without Main Effects",
         col.names = c("$\\sigma_{\\epsilon_i}$", 
                       "$\\delta_i$", "$\\sigma_{\\epsilon_i}$",
                        rep(c("2", "4", "8", "16", "32"), 2))) %>%
