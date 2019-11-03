@@ -93,18 +93,18 @@ power_plot_main <- ggplot(
 
 
 # Save basis plots ----
-big_basis_plot = plot_grid(power_plot_basis, type_plot_basis,
-                           rel_heights = c(7,5), ncol = 1, 
-                           labels = "AUTO")
-save_plot("figure-latex/big_basis.pdf", 
-          big_basis_plot, base_height = 14, base_asp = .8)
+# big_basis_plot = plot_grid(power_plot_basis, type_plot_basis,
+                           # rel_heights = c(7,5), ncol = 1, 
+                           # labels = "AUTO")
+# save_plot("figure-latex/big_basis.pdf", 
+          # big_basis_plot, base_height = 14, base_asp = .8)
 
 # Save main plots ----
-big_main_plot = plot_grid(power_plot_main, type_plot_main,
-                           rel_heights = c(7,5), ncol = 1, 
-                           labels = "AUTO")
-save_plot("figure-latex/big_main.pdf",
-          big_main_plot, base_height = 14, base_asp = .8)
+# big_main_plot = plot_grid(power_plot_main, type_plot_main,
+                           # rel_heights = c(7,5), ncol = 1, 
+                           # labels = "AUTO")
+# save_plot("figure-latex/big_main.pdf",
+          # big_main_plot, base_height = 14, base_asp = .8)
 
 # Check for completeness ----
 

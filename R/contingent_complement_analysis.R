@@ -57,11 +57,11 @@ power_plot <- ggplot(
   xlab("Optimality") + ylab("Power")
 
 # Save plots ----
-combined = plot_grid(power_plot, type_plot, labels = "AUTO",
-                     rel_widths = c(2, 1.25))
-save_plot("figure-latex/contingent_complementarity.pdf",
-          combined, base_height = 5,
-          base_aspect_ratio = 2.5)
+# combined = plot_grid(power_plot, type_plot, labels = "AUTO",
+                     # rel_widths = c(2, 1.25))
+# save_plot("figure-latex/contingent_complementarity.pdf",
+          # combined, base_height = 5,
+          # base_aspect_ratio = 2.5)
 
 # Tables ----
 library(kableExtra)
