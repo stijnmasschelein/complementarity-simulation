@@ -174,7 +174,7 @@ filter(summ, b1_str == "c(0.5, 0.5, 0.5, 0)") %>%
   pack_rows("Type I", 19, 36, latex_align = "c") %>%
   add_header_above(c(" " = 3, "demand specification" = 5, 
                    "performance specification" = 5)) %>%
-  kable_styling(font_size = 8) %>%
+  kable_styling(font_size = 9) %>%
   footnote(
     general = footnote_main,         
     escape = FALSE, threeparttable = TRUE) %>%
@@ -202,7 +202,7 @@ filter(summ, b1_str == "c(0, 0, 0, 0)") %>%
          starts_with("performance")) %>%
   kable(format = "latex", booktabs = T, linesep = "", 
         escape = F, digits = 2,
-        label = "big-main-table", 
+        label = "big-basis-table", 
         caption = "Power and Type I Error Rate with Main Effects",
         col.names = c("$\\sigma_{\\epsilon_i}$", 
                       "$\\delta_i$", "$\\sigma_{\\epsilon_i}$",
@@ -211,7 +211,7 @@ filter(summ, b1_str == "c(0, 0, 0, 0)") %>%
   pack_rows("Type I", 19, 36, latex_align = "c") %>%
   add_header_above(c(" " = 3, "demand specification" = 5, 
                    "performance specification" = 5)) %>%
-  kable_styling(font_size = 8) %>%
+  kable_styling(font_size = 9) %>%
   footnote(
     general = footnote_basis,         
     escape = FALSE, threeparttable = TRUE) %>%

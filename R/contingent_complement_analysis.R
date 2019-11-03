@@ -78,12 +78,13 @@ summ %>%
   select(specification, `$\\beta_{12}$`, `2`, `4`, `8`, `16`, `32`) %>%
   kable(format = "latex", booktabs = T, linesep = "", 
         escape = F, digits = 2,
-        label = "mix-optimality-table", 
+        label = "contingent-complementarity-table", 
         caption = "Power and Type I Error Rate for Contingent
                    Complementarity") %>%
   pack_rows("Power", 1, 6, latex_align = "c") %>%
   pack_rows("Type I", 7, 12, latex_align = "c") %>%
   add_header_above(c(" " = 2, "Level of Optimality" = 5)) %>%
+  kable_styling(font_size = 9) %>%
   footnote(
     general = footnote,         
     escape = FALSE, threeparttable = TRUE) %>%

@@ -111,6 +111,7 @@ summ %>%
   pack_rows("Power", 1, 4, latex_align = "c") %>%
   pack_rows("Type I", 5, 8, latex_align = "c") %>%
   add_header_above(c(" " = 1, "Proportion High Optimality" = 5)) %>%
+  kable_styling(font_size = 9) %>%
   footnote(
     general = footnote,         
     escape = FALSE, threeparttable = TRUE) %>%
