@@ -1,28 +1,41 @@
-\begin{table}[ht]
+\begin{table}
+
+\caption{\label{tab:delta-table}Power and Type I Error Rate and Marginal Costs}
 \centering
-\begingroup\footnotesize
-\begin{tabular}{lrlrrr}
-  \hline
-specification & $\delta_i$ & statistic & 2 & 8 & 32 \\ 
-  \hline
-demand & 0.00 & power & 0.99 & 1.00 & 1.00 \\ 
-  demand & 0.25 & power & 1.00 & 1.00 & 1.00 \\ 
-  demand & 1.00 & power & 0.85 & 1.00 & 1.00 \\ 
-  performance~1 & 0.00 & power & 1.00 & 0.72 & 0.01 \\ 
-  performance~1 & 0.25 & power & 1.00 & 0.23 & 0.00 \\ 
-  performance~1 & 1.00 & power & 1.00 & 0.83 & 0.16 \\ 
-  demand & 0.00 & type I & 0.05 & 0.06 & 0.05 \\ 
-  demand & 0.25 & type I & 0.06 & 0.05 & 0.05 \\ 
-  demand & 1.00 & type I & 0.04 & 0.05 & 0.04 \\ 
-  performance~1 & 0.00 & type I & 0.11 & 0.09 & 0.07 \\ 
-  performance~1 & 0.25 & type I & 0.14 & 0.10 & 0.11 \\ 
-  performance~1 & 1.00 & type I & 0.15 & 0.16 & 0.14 \\ 
-   \hline
+\fontsize{9}{11}\selectfont
+\begin{threeparttable}
+\begin{tabular}[t]{lrrrr}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{1}{c}{ } & \multicolumn{3}{c}{Level of Optimality} \\
+\cmidrule(l{3pt}r{3pt}){3-5}
+specification & $\delta_i$ & 2 & 8 & 32\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{5}{c}{\textbf{Power}}\\
+\hspace{1em}demand & 0.00 & 0.99 & 1.00 & 1.00\\
+\hspace{1em}demand & 0.25 & 1.00 & 1.00 & 1.00\\
+\hspace{1em}demand & 1.00 & 0.85 & 1.00 & 1.00\\
+\hspace{1em}performance~1 & 0.00 & 1.00 & 0.72 & 0.01\\
+\hspace{1em}performance~1 & 0.25 & 1.00 & 0.23 & 0.00\\
+\hspace{1em}performance~1 & 1.00 & 1.00 & 0.83 & 0.16\\
+\addlinespace[0.3em]
+\multicolumn{5}{c}{\textbf{Type I}}\\
+\hspace{1em}demand & 0.00 & 0.05 & 0.06 & 0.05\\
+\hspace{1em}demand & 0.25 & 0.06 & 0.05 & 0.05\\
+\hspace{1em}demand & 1.00 & 0.04 & 0.05 & 0.04\\
+\hspace{1em}performance~1 & 0.00 & 0.11 & 0.09 & 0.07\\
+\hspace{1em}performance~1 & 0.25 & 0.14 & 0.10 & 0.11\\
+\hspace{1em}performance~1 & 1.00 & 0.15 & 0.16 & 0.14\\
+\bottomrule
 \end{tabular}
-\endgroup
-\caption{Type I error rates and power for the \emph{demand}
-             and \emph{performance 1} specification at different levels 
-             optimality: 2, 8, 32. The parameters are the same as in 
-             Figure \ref{delta}. The results are aggregated over the values              of $\gamma_2$ (-0.33, 0.33)} 
-\label{delta-table}
+\begin{tablenotes}
+\item \textit{Note: } 
+\item Type I error rates and power for the \emph{demand} 
+            and performance specifications at different
+            levels optimality: 2, 8, 32. The
+            parameters are the same as in Figure
+            \ref{delta}. The results are aggregated over the
+            values for $\gamma_2$ ($-0.33$, $0.33$).
+\end{tablenotes}
+\end{threeparttable}
 \end{table}

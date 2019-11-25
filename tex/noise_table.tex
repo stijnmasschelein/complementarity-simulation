@@ -1,24 +1,45 @@
-\begin{table}[ht]
+\begin{table}
+
+\caption{\label{tab:noise-table}Power and Type I Error Rate with Performance Variation}
 \centering
-\begingroup\footnotesize
-\begin{tabular}{lrlrrr}
-  \hline
-specification & $\gamma_2$ & statistic & 2 & 8 & 32 \\ 
-  \hline
-demand & -0.33 & power & 0.75 & 1.00 & 1.00 \\ 
-  performance~1 & -0.33 & power & 0.98 & 0.53 & 0.20 \\ 
-  performance~2 & -0.33 & power & 0.30 & 0.06 & 0.16 \\ 
-  performance~3 & -0.33 & power & 0.25 & 0.04 & 0.12 \\ 
-  demand & -0.33 & type I & 0.04 & 0.05 & 0.04 \\ 
-  performance~1 & -0.33 & type I & 0.09 & 0.06 & 0.06 \\ 
-  performance~2 & -0.33 & type I & 0.12 & 0.07 & 0.07 \\ 
-  performance~3 & -0.33 & type I & 0.12 & 0.09 & 0.10 \\ 
-   \hline
+\fontsize{9}{11}\selectfont
+\begin{threeparttable}
+\begin{tabular}[t]{lrrrr}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{1}{c}{ } & \multicolumn{3}{c}{Level of Optimality} \\
+\cmidrule(l{3pt}r{3pt}){3-5}
+specification & $\gamma_2$ & 2 & 8 & 32\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{5}{c}{\textbf{Power}}\\
+\hspace{1em}demand & -0.33 & 0.75 & 1.00 & 1.00\\
+\hspace{1em}demand & 0.33 & 0.75 & 1.00 & 1.00\\
+\hspace{1em}performance~1 & -0.33 & 0.98 & 0.53 & 0.20\\
+\hspace{1em}performance~1 & 0.33 & 0.97 & 0.49 & 0.17\\
+\hspace{1em}performance~2 & -0.33 & 0.30 & 0.06 & 0.16\\
+\hspace{1em}performance~2 & 0.33 & 0.32 & 0.05 & 0.14\\
+\hspace{1em}performance~3 & -0.33 & 0.25 & 0.04 & 0.12\\
+\hspace{1em}performance~3 & 0.33 & 0.39 & 0.11 & 0.37\\
+\addlinespace[0.3em]
+\multicolumn{5}{c}{\textbf{Type I}}\\
+\hspace{1em}demand & -0.33 & 0.04 & 0.05 & 0.04\\
+\hspace{1em}demand & 0.33 & 0.05 & 0.05 & 0.05\\
+\hspace{1em}performance~1 & -0.33 & 0.09 & 0.06 & 0.06\\
+\hspace{1em}performance~1 & 0.33 & 0.08 & 0.06 & 0.07\\
+\hspace{1em}performance~2 & -0.33 & 0.12 & 0.07 & 0.07\\
+\hspace{1em}performance~2 & 0.33 & 0.13 & 0.07 & 0.07\\
+\hspace{1em}performance~3 & -0.33 & 0.12 & 0.09 & 0.10\\
+\hspace{1em}performance~3 & 0.33 & 0.14 & 0.08 & 0.11\\
+\bottomrule
 \end{tabular}
-\endgroup
-\caption{Type I error rates and power for the demand 
-  and performance specifications at different levels optimality: 
-  2, 8, 32. The parameters are the same as in Figure \ref{noise}.
-  Only the results for $\sigma_{\nu} = 4$ are reported} 
-\label{noise-table}
+\begin{tablenotes}
+\item \textit{Note: } 
+\item Type I error rates and power for the demand 
+            and performance specifications at different
+            levels optimality: 2, 8, 32. The
+            parameters are the same as in Figure
+            \ref{noise}. Only the results for 
+            $\sigma_{\nu} = 4$ are reported.
+\end{tablenotes}
+\end{threeparttable}
 \end{table}

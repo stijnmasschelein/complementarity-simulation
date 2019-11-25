@@ -2,7 +2,8 @@ source("R/parameters.R")
 library(tidyverse)
 sim = readRDS("simulated_data/spurious_simulation.Rds")
 dat = tbl_df(sim) %>%
-  unnest(rate, obs) %>%
+  mutate(rate = map_dbl(rate, ~ .x[[1]]),
+         obs = map_dbl(obs, ~ .x[[1]])) %>%
   mutate(optim = 1/rate)
 
 # dat_plot = dat %>%
@@ -52,19 +53,41 @@ table = dat %>%
   rename(`$\\theta_2$` = theta,
          specification = label)
     
-print(xtable(table,
-             type = "pdf",
-             label = "spurious-table",
-             caption = "Type I error rates and power for the \\emph{demand} and
-             \\emph{performance 1} specification at different levels of 
-             optimality: 2, 8, 32. The parameters are the same as in Figure 
-             \\ref{spurious}."),
-      size = "\\footnotesize",
-      include.rownames = FALSE,
-      sanitize.text.function = force,
-      comment = FALSE,
-      file = "tex/spurious_table.tex"
-)
+# print(xtable(table,
+#              type = "pdf",
+#              label = "spurious-table",
+#              caption = "Type I error rates and power for the \\emph{demand} and
+#              \\emph{performance 1} specification at different levels of 
+#              optimality: 2, 8, 32. The parameters are the same as in Figure 
+#              \\ref{spurious}."),
+#       size = "\\footnotesize",
+#       include.rownames = FALSE,
+#       sanitize.text.function = force,
+#       comment = FALSE,
+#       file = "tex/spurious_table.tex"
+# )
+
+footnote = "Type I error rates and power for the \\\\emph{demand}
+            and \\\\emph{performance 1} specifications at different
+            levels optimality: 2, 8, 32. The
+            parameters are the same as in Figure
+            \\\\ref{spurious}." 
+
+table %>% select(-statistic) %>%
+  kable(format = "latex", booktabs = T, linesep = "", 
+        escape = F, digits = 2,
+        label = "spurious-table", 
+        caption = "Power and Type I Error Rate with Correlated Omitted Variable") %>%
+  pack_rows("Power", 1, 6, latex_align = "c") %>%
+  pack_rows("Type I", 7, 12, latex_align = "c") %>%
+  add_header_above(c(" " = 1, " "  = 1, 
+                     "Level of Optimality" = 3)) %>%
+  kable_styling(font_size = 9) %>%
+  footnote(
+    general = footnote,         
+    escape = FALSE, threeparttable = TRUE) %>%
+  cat(., file = "tex/spurious_table.tex")   
+
 
 dat_plot_new = 
   filter(dat,

@@ -7,7 +7,8 @@ dat_main = tbl_df(main) %>%
          rate %in% data_params$rate[c(1, 3, 5)])
 dat = tbl_df(sim) %>%
   bind_rows(dat_main) %>%
-  unnest(obs, rate) %>%
+  mutate(obs = map_dbl(obs, ~ .x[[1]]),
+         rate = map_dbl(rate, ~ .x[[1]])) %>%
   mutate(optim = 1/rate)
 
 # dat_plot = 
@@ -60,20 +61,44 @@ table = dat %>%
     arrange(statistic, label) %>%
     rename(`$\\delta_i$` = d,
            specification = label)
-    
-print(xtable(table,
-             type = "pdf",
-             label = "delta-table",
-             caption = "Type I error rates and power for the \\emph{demand}
-             and \\emph{performance 1} specification at different levels 
-             optimality: 2, 8, 32. The parameters are the same as in 
-             Figure \\ref{delta}. The results are aggregated over the values              of $\\gamma_2$ (-0.33, 0.33)"),
-      size = "\\footnotesize",
-      include.rownames = FALSE,
-      sanitize.text.function = force,
-      comment = FALSE,
-      file = "tex/delta_table.tex"
-)
+#     
+# print(xtable(table,
+#              type = "pdf",
+#              label = "delta-table",
+#              caption = "Type I error rates and power for the \\emph{demand}
+#              and \\emph{performance 1} specification at different levels 
+#              optimality: 2, 8, 32. The parameters are the same as in 
+#              Figure \\ref{delta}. The results are aggregated over the values              of $\\gamma_2$ (-0.33, 0.33)"),
+#       size = "\\footnotesize",
+#       include.rownames = FALSE,
+#       sanitize.text.function = force,
+#       comment = FALSE,
+#       file = "tex/delta_table.tex"
+# )
+
+
+footnote = "Type I error rates and power for the \\\\emph{demand} 
+            and performance specifications at different
+            levels optimality: 2, 8, 32. The
+            parameters are the same as in Figure
+            \\\\ref{delta}. The results are aggregated over the
+            values for $\\\\gamma_2$ ($-0.33$, $0.33$)."
+
+table %>% select(-statistic) %>%
+  kable(format = "latex", booktabs = T, linesep = "", 
+        escape = F, digits = 2,
+        label = "delta-table", 
+        caption = "Power and Type I Error Rate and Marginal Costs") %>%
+  pack_rows("Power", 1, 6, latex_align = "c") %>%
+  pack_rows("Type I", 7, 12, latex_align = "c") %>%
+  add_header_above(c(" " = 1, " "  = 1, 
+                     "Level of Optimality" = 3)) %>%
+  kable_styling(font_size = 9) %>%
+  footnote(
+    general = footnote,         
+    escape = FALSE, threeparttable = TRUE) %>%
+  cat(., file = "tex/delta_table.tex")   
+
 
 dat_plot_new = 
   filter(dat,

@@ -1,9 +1,11 @@
 source("R/parameters.R")
 library(tidyverse)
 library(xtable)
+library(kableExtra)
 sim = tbl_df(readRDS("simulated_data/nearly_simulation.RDS",))
 dat = tbl_df(sim) %>%
-  unnest(rate, obs) %>%
+  mutate(rate = map_dbl(rate , 1),
+         obs = map_dbl(obs, 1)) %>%
   mutate(label = as.character(label)) %>%
   mutate(optim = 1/rate,
          label = if_else(str_detect(label, "nearly_exact"),
@@ -96,17 +98,40 @@ combined_table = combined %>%
   select(-c(type1, power, b2)) %>%
   spread(optim, percentage) %>%
   arrange(statistic)
-  
-print(xtable(bind_rows(table, combined_table),
-  type = "pdf",
-  label = "nearly-table",
-  caption = "Type I error rates and power for the demand and
+
+footnote = "Type I error rates and power for the demand and
   performance function specification at different levels optimality:
-  2, 4, 8, 16, 32, 64. The parameters are the same as in the main 
-  analysis in the Figure \\ref{main}."),
-  size = "\\footnotesize",
-  include.rownames = FALSE,
-  sanitize.text.function = force,
-  comment = FALSE,
-  file = "tex/nearly_table.tex"
-)
+  2, 4, 8, 16, 32, 64. The parameters are the same as in the main
+  analysis in the Figure \\ref{main}."
+
+bind_rows(table, combined_table) %>%
+  arrange(statistic) %>%
+  select(-statistic) %>%
+  kable(format = "latex", booktabs = T, linesep = "", 
+        escape = F, digits = 2,
+        label = "nearly-table", 
+        caption = "Power and Type I Error Rate with Nearly Exact Correction") %>%
+  pack_rows("Power", 1, 6, latex_align = "c") %>%
+  pack_rows("Type I", 7, 12, latex_align = "c") %>%
+  add_header_above(c(" " = 1, 
+                     "Level of Optimality" = 6)) %>%
+  kable_styling(font_size = 9) %>%
+  footnote(
+    general = footnote,         
+    escape = FALSE, threeparttable = TRUE) %>%
+  cat(., file = "tex/nearly_table.tex")   
+ 
+
+# print(xtable(bind_rows(table, combined_table),
+#   type = "pdf",
+#   label = "nearly-table",
+#   caption = "Type I error rates and power for the demand and
+#   performance function specification at different levels optimality:
+#   2, 4, 8, 16, 32, 64. The parameters are the same as in the main 
+#   analysis in the Figure \\ref{main}."),
+#   size = "\\footnotesize",
+#   include.rownames = FALSE,
+#   sanitize.text.function = force,
+#   comment = FALSE,
+#   file = "tex/nearly_table.tex"
+# )

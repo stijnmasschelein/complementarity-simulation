@@ -1,25 +1,36 @@
-\begin{table}[ht]
+\begin{table}
+
+\caption{\label{tab:discrete-table}Power and Type I Error Rate with Discrete Practices}
 \centering
-\begingroup\footnotesize
-\begin{tabular}{llrrrr}
-  \hline
-specification & statistic & 2 & 4 & 8 & 16 \\ 
-  \hline
-demand & power & 0.27 & 0.71 & 0.95 & 0.99 \\ 
-  logit & power & 0.27 & 0.71 & 0.95 & 0.99 \\ 
-  performance~2 & power & 0.54 & 0.43 & 0.23 & 0.10 \\ 
-  probit & power & 0.27 & 0.71 & 0.95 & 0.99 \\ 
-  demand & type I & 0.05 & 0.06 & 0.05 & 0.05 \\ 
-  logit & type I & 0.05 & 0.06 & 0.05 & 0.05 \\ 
-  performance~2 & type I & 0.05 & 0.04 & 0.05 & 0.05 \\ 
-  probit & type I & 0.05 & 0.06 & 0.05 & 0.05 \\ 
-   \hline
+\fontsize{9}{11}\selectfont
+\begin{threeparttable}
+\begin{tabular}[t]{lrrrr}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{4}{c}{Level of Optimality} \\
+\cmidrule(l{3pt}r{3pt}){2-5}
+specification & 2 & 4 & 8 & 16\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{5}{c}{\textbf{Power}}\\
+\hspace{1em}demand & 0.27 & 0.71 & 0.95 & 0.99\\
+\hspace{1em}logit & 0.27 & 0.71 & 0.95 & 0.99\\
+\hspace{1em}performance~2 & 0.54 & 0.43 & 0.23 & 0.10\\
+\hspace{1em}probit & 0.27 & 0.71 & 0.95 & 0.99\\
+\addlinespace[0.3em]
+\multicolumn{5}{c}{\textbf{Type I}}\\
+\hspace{1em}demand & 0.05 & 0.06 & 0.05 & 0.05\\
+\hspace{1em}logit & 0.05 & 0.06 & 0.05 & 0.05\\
+\hspace{1em}performance~2 & 0.05 & 0.04 & 0.05 & 0.05\\
+\hspace{1em}probit & 0.05 & 0.06 & 0.05 & 0.05\\
+\bottomrule
 \end{tabular}
-\endgroup
-\caption{Type I error rates and power for the demand and 
-  performance specifications at different levels optimality: 2, 
+\begin{tablenotes}
+\item \textit{Note: } 
+\item Type I error rates and power for the demand and 
+  performance specifications at different levels optimality: 2,
   4, 8, 16. The practices can only take two values: $1$ and $-1$.
-  $\delta_1 = \delta_2 = 0$. The results are aggregated over 
-  the parameter values of $\gamma_2$ (-0.33, 0, 0.33).} 
-\label{discrete-table}
+  $\delta_1 = \delta_2 = 0$. The results are aggregated over
+  the parameter values of $\gamma_2$ ($-0.33$, $0$, $0.33$).
+\end{tablenotes}
+\end{threeparttable}
 \end{table}
