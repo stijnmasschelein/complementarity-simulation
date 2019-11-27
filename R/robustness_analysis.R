@@ -133,7 +133,7 @@ filter(summ, b1_str == "c(0.5, 0.5, 0.5, 0.5)") %>%
         label = "robustness-main-table", 
         caption = "Power and Type I Error Rate with Main Effects and Discrete Practices",
         col.names = c("$\\sigma_{\\epsilon_i}$", 
-                      "$\\delta_i$", "$\\sigma_{\\epsilon_i}$",
+                      "$\\delta_i$", "$\\sigma_{\\nu}$",
                        rep(c("2", "4", "8", "16", "32"), 2))) %>%
   pack_rows("1 Discrete Practice - Power", 1, 9, latex_align = "c") %>%
   pack_rows("1 Discrete Practice - Type I", 10, 18, latex_align = "c") %>%

@@ -168,7 +168,7 @@ filter(summ, b1_str == "c(0.5, 0.5, 0.5, 0)") %>%
         label = "big-main-table", 
         caption = "Power and Type I Error Rate with Main Effects",
         col.names = c("$\\sigma_{\\epsilon_i}$", 
-                      "$\\delta_i$", "$\\sigma_{\\epsilon_i}$",
+                      "$\\delta_i$", "$\\sigma_{\\nu}$",
                        rep(c("2", "4", "8", "16", "32"), 2))) %>%
   pack_rows("Power", 1, 18, latex_align = "c") %>%
   pack_rows("Type I", 19, 36, latex_align = "c") %>%
@@ -205,7 +205,7 @@ filter(summ, b1_str == "c(0, 0, 0, 0)") %>%
         label = "big-basis-table", 
         caption = "Power and Type I Error Rate without Main Effects",
         col.names = c("$\\sigma_{\\epsilon_i}$", 
-                      "$\\delta_i$", "$\\sigma_{\\epsilon_i}$",
+                      "$\\delta_i$", "$\\sigma_{\\nu}$",
                        rep(c("2", "4", "8", "16", "32"), 2))) %>%
   pack_rows("Power", 1, 18, latex_align = "c") %>%
   pack_rows("Type I", 19, 36, latex_align = "c") %>%
