@@ -10,7 +10,12 @@ dat = tbl_df(sim) %>%
          label = if_else(str_detect(label, "nearly_exact"),
                          str_c(str_replace(label, "nearly_exact_", ""),
                                "corrected", sep = " "),
-                         label))
+                           label)) %>%
+  mutate(label = case_when(
+    label == "logit" ~ "demand (logit)",
+    label == "probit" ~ "demand (probit)",
+      TRUE ~ label
+    ))
 
 table = dat %>%
   group_by(label, 
