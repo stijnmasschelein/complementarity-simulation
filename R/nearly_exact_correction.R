@@ -3,8 +3,14 @@ if (!require("sandwich")) install.packages("sandwich")
 
 #' Calculate the nearly exact bias and edf for the HC1 Variance
 #' Estimator.
-#' @param x design matrix of the regression
-#' @param w hypothesis test
+#' @param x design matrix of the regression. A matrix with all the independent
+#' variables in the regression.
+#' @param w hypothesis test. A vector of numerics that represents the contrast 
+#' for which to test a hypothesis. `w = c(0, 1, 0)` represents the test whether
+#' the second variable in `x` is statistically significant.
+#' @return A list with two elements. `mu` is the estimated mean of the
+#' chi-squared distribution in the test statistic for the hypothesis test. `ecf`
+#' is the effective degrees of freedom for the test statistic.
 nearly_exact <- function(x, w){
   N = nrow(x); k = ncol(x) - 1; c = N / (N - k);
   xx <- solve(crossprod(x))
@@ -18,9 +24,11 @@ nearly_exact <- function(x, w){
 
 #' Calculate the coefficient table for the nearly exact bias and
 #' df correction.
-#' @param formula The regression formula as would be used with lm
-#' @param data A dataframe
-#' @param pdigits Number of digits to round the p-value
+#' @param formula The regression formula as would be used with the standard
+#' `stats::lm` function.
+#' @param data A dataframe with the dependent and independent variable in the
+#' `formula`
+#' @param pdigits Number of digits to round the p-value.
 
 lm_nearly <- function(formula, data, pdigits = 4){
   reg <- lm(formula = formula, data = data)
